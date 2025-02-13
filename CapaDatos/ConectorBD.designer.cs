@@ -22,7 +22,7 @@ namespace CapaDatos
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="FerreteriaPA")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Ferreteria_PA")]
 	public partial class ConectorBDDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -66,7 +66,7 @@ namespace CapaDatos
     #endregion
 		
 		public ConectorBDDataContext() : 
-				base(global::CapaDatos.Properties.Settings.Default.FerreteriaPAConnectionString, mappingSource)
+				base(global::CapaDatos.Properties.Settings.Default.Ferreteria_PAConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -190,11 +190,11 @@ namespace CapaDatos
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FiltrarVistaSalidaProudcto")]
-		public ISingleResult<FiltrarVistaSalidaProudctoResult> FiltrarVistaSalidaProudcto([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string clave)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.listarVistaProductoCategoria")]
+		public ISingleResult<listarVistaProductoCategoriaResult> listarVistaProductoCategoria()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), clave);
-			return ((ISingleResult<FiltrarVistaSalidaProudctoResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<listarVistaProductoCategoriaResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CP_EliminarCliente")]
@@ -624,11 +624,11 @@ namespace CapaDatos
 			return ((ISingleResult<FiltrarVistaProveedorEmpresaResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.listarVistaProductoCategoria")]
-		public ISingleResult<listarVistaProductoCategoriaResult> listarVistaProductoCategoria()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FiltrarVistaSalidaProudcto")]
+		public ISingleResult<FiltrarVistaSalidaProudctoResult> FiltrarVistaSalidaProudcto([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string clave)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<listarVistaProductoCategoriaResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), clave);
+			return ((ISingleResult<FiltrarVistaSalidaProudctoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3348,7 +3348,7 @@ namespace CapaDatos
 		}
 	}
 	
-	public partial class FiltrarVistaSalidaProudctoResult
+	public partial class listarVistaProductoCategoriaResult
 	{
 		
 		private int _ID;
@@ -3357,15 +3357,17 @@ namespace CapaDatos
 		
 		private string _Producto;
 		
-		private System.DateTime _FechaSalida;
+		private decimal _Precio;
 		
-		private int _Cantidad;
+		private int _Stock;
 		
-		private string _Motivo;
+		private string _Estado;
 		
-		private string _Observacion;
+		private string _Icono;
 		
-		public FiltrarVistaSalidaProudctoResult()
+		private string _Descripcion;
+		
+		public listarVistaProductoCategoriaResult()
 		{
 		}
 		
@@ -3417,66 +3419,82 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaSalida", DbType="Date NOT NULL")]
-		public System.DateTime FechaSalida
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Precio", DbType="Decimal(18,2) NOT NULL")]
+		public decimal Precio
 		{
 			get
 			{
-				return this._FechaSalida;
+				return this._Precio;
 			}
 			set
 			{
-				if ((this._FechaSalida != value))
+				if ((this._Precio != value))
 				{
-					this._FechaSalida = value;
+					this._Precio = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int NOT NULL")]
-		public int Cantidad
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock", DbType="Int NOT NULL")]
+		public int Stock
 		{
 			get
 			{
-				return this._Cantidad;
+				return this._Stock;
 			}
 			set
 			{
-				if ((this._Cantidad != value))
+				if ((this._Stock != value))
 				{
-					this._Cantidad = value;
+					this._Stock = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Motivo", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Motivo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Estado
 		{
 			get
 			{
-				return this._Motivo;
+				return this._Estado;
 			}
 			set
 			{
-				if ((this._Motivo != value))
+				if ((this._Estado != value))
 				{
-					this._Motivo = value;
+					this._Estado = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observacion", DbType="VarChar(100)")]
-		public string Observacion
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Icono", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string Icono
 		{
 			get
 			{
-				return this._Observacion;
+				return this._Icono;
 			}
 			set
 			{
-				if ((this._Observacion != value))
+				if ((this._Icono != value))
 				{
-					this._Observacion = value;
+					this._Icono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
 				}
 			}
 		}
@@ -7044,7 +7062,7 @@ namespace CapaDatos
 		}
 	}
 	
-	public partial class listarVistaProductoCategoriaResult
+	public partial class FiltrarVistaSalidaProudctoResult
 	{
 		
 		private int _ID;
@@ -7053,17 +7071,15 @@ namespace CapaDatos
 		
 		private string _Producto;
 		
-		private decimal _Precio;
+		private System.DateTime _FechaSalida;
 		
-		private int _Stock;
+		private int _Cantidad;
 		
-		private string _Estado;
+		private string _Motivo;
 		
-		private string _Icono;
+		private string _Observacion;
 		
-		private string _Descripcion;
-		
-		public listarVistaProductoCategoriaResult()
+		public FiltrarVistaSalidaProudctoResult()
 		{
 		}
 		
@@ -7115,82 +7131,66 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Precio", DbType="Decimal(18,2) NOT NULL")]
-		public decimal Precio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaSalida", DbType="Date NOT NULL")]
+		public System.DateTime FechaSalida
 		{
 			get
 			{
-				return this._Precio;
+				return this._FechaSalida;
 			}
 			set
 			{
-				if ((this._Precio != value))
+				if ((this._FechaSalida != value))
 				{
-					this._Precio = value;
+					this._FechaSalida = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock", DbType="Int NOT NULL")]
-		public int Stock
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int NOT NULL")]
+		public int Cantidad
 		{
 			get
 			{
-				return this._Stock;
+				return this._Cantidad;
 			}
 			set
 			{
-				if ((this._Stock != value))
+				if ((this._Cantidad != value))
 				{
-					this._Stock = value;
+					this._Cantidad = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Estado
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Motivo", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Motivo
 		{
 			get
 			{
-				return this._Estado;
+				return this._Motivo;
 			}
 			set
 			{
-				if ((this._Estado != value))
+				if ((this._Motivo != value))
 				{
-					this._Estado = value;
+					this._Motivo = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Icono", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string Icono
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observacion", DbType="VarChar(100)")]
+		public string Observacion
 		{
 			get
 			{
-				return this._Icono;
+				return this._Observacion;
 			}
 			set
 			{
-				if ((this._Icono != value))
+				if ((this._Observacion != value))
 				{
-					this._Icono = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
-		public string Descripcion
-		{
-			get
-			{
-				return this._Descripcion;
-			}
-			set
-			{
-				if ((this._Descripcion != value))
-				{
-					this._Descripcion = value;
+					this._Observacion = value;
 				}
 			}
 		}

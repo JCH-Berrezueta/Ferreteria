@@ -12,7 +12,7 @@ namespace CapaDatos.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.12.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -42,6 +42,28 @@ namespace CapaDatos.Properties {
         public string FerreteriaPAConnectionString1 {
             get {
                 return ((string)(this["FerreteriaPAConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-KCF836N;Initial Catalog=FerreteriaPA.bacpac;Integrated Securi" +
+            "ty=True;Encrypt=True;TrustServerCertificate=True")]
+        public string FerreteriaPA_bacpacConnectionString {
+            get {
+                return ((string)(this["FerreteriaPA_bacpacConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-KCF836N;Initial Catalog=Ferreteria_PA;Integrated Security=Tru" +
+            "e;TrustServerCertificate=True")]
+        public string Ferreteria_PAConnectionString {
+            get {
+                return ((string)(this["Ferreteria_PAConnectionString"]));
             }
         }
     }
