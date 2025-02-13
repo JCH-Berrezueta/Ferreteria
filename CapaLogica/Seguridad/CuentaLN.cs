@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EntidadCuenta = CapaEntidades.Gestion.Cuenta;
 
+
 namespace CapaLogica.Seguridad
 {
     public class CuentaLN
@@ -22,5 +23,6 @@ namespace CapaLogica.Seguridad
             }
             return lista;
         }
+       
     }
 }
