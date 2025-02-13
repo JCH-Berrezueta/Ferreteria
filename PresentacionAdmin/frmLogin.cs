@@ -7,23 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CapaLogica.Gestion;
+
+
 namespace PresentacionAdmin
 {
-    public partial class frmProducto : Form
+    public partial class frmLogin : Form
     {
-        public frmProducto()
+        public frmLogin()
         {
             InitializeComponent();
         }
 
-        private void frmProducto_Load(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = ProductoLN.listarProductosLN();
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
