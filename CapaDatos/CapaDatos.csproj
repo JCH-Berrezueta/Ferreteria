@@ -49,11 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="ConectorBD.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConectorBD.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Gestion\CategoriaCD.cs" />
     <Compile Include="Gestion\ClienteCD.cs" />
     <Compile Include="Gestion\DetalleFacturaCD.cs" />
@@ -80,14 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="ConectorBD.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>ConectorBD.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ConectorBD.dbml.layout">
-      <DependentUpon>ConectorBD.dbml</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
