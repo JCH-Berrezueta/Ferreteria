@@ -9,7 +9,7 @@ using Newtonsoft.Json;  // Esto es necesario para que JsonConvert funcione
 
 using EntidadProducto = CapaEntidades.Gestion.Producto;
 
-namespace PresentacionCliente.Services
+namespace PresentacionWeb.Services
 {
     public class Producto
     {
