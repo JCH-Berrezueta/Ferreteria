@@ -27,6 +27,9 @@ namespace CapaEntidades.Gestion
         [DataMember]
         private string descripcion;
 
+        public Producto()
+        {
+        }
         public Producto(int idProducto, int idCategoriaProducto, string nombre, decimal precio, int stock, string estado, string icono, string descripcion)
         {
             IdProducto = idProducto;
