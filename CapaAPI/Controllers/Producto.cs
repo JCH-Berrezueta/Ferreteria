@@ -2,7 +2,7 @@
 using System.Web.Http;
 using ProductoLN = CapaLogica.Gestion.ProductoLN;
 
-namespace PresentacionWeb.Controllers
+namespace CapaAPI.Controllers
 {
     [RoutePrefix("api/producto")]
     public class ProductoController : ApiController
