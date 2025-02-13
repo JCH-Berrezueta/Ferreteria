@@ -22,35 +22,7 @@ namespace PresentacionAdmin
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtPrecio.Text) ||
-                string.IsNullOrWhiteSpace(txtStock.Text) ||
-                string.IsNullOrWhiteSpace(txtCategoria.Text))
-            {
-                MessageBox.Show("Por favor, complete todos los campos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
-            Producto nuevoProducto = new Producto();
-            {
-                Id_CategoriaProducto = Convert.ToInt32(txtCategoria.Text),
-                Nombre = txtNombre.Text,
-                Precio = Convert.ToDecimal(txtPrecio.Text),
-                Stock = Convert.ToInt32(txtStock.Text),
-                Estado = chkEstado.Checked,
-                Icono = "ruta/icono.png", // Puedes modificar esto para seleccionar un icono
-                Descripcion = txtDescripcion.Text
-            };
-
-            if (ProductoLN.agregarProductoLN(nuevoProducto))
-            {
-                MessageBox.Show("Producto agregado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarProductos(); // Actualiza la lista en el DataGridView
-            }
-            else
-            {
-                MessageBox.Show("Error al agregar el producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }

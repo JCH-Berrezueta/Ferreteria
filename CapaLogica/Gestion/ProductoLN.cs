@@ -28,4 +28,43 @@ namespace CapaLogica.Gestion
             return lista;
         }
     }
+    public static bool AgregarProductoLN(Producto nuevoProducto)
+        {
+            try
+            {
+                return ProductoCD.AgregarProductoCD(nuevoProducto);
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error al agregar producto: " + error);
+                return false;
+            }
+        }
+
+        public static bool ModificarProductoLN(Producto productoModificado)
+        {
+            try
+            {
+                return ProductoCD.ModificarProductoCD(productoModificado);
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error al modificar producto: " + error);
+                return false;
+            }
+        }
+
+        public static bool EliminarProductoLN(int idProducto)
+        {
+            try
+            {
+                return ProductoCD.EliminarProductoCD(idProducto);
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error al eliminar producto: " + error);
+                return false;
+            }
+        }
+    }
 }
