@@ -18,7 +18,7 @@ namespace CapaDatos.Gestion
             List<CP_ListarClientesResult> lista = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 lista = bd.CP_ListarClientes().ToList();
                 bd.SubmitChanges();
             }
@@ -35,7 +35,7 @@ namespace CapaDatos.Gestion
             List<CP_FiltrarClientesResult> lista = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 lista = bd.CP_FiltrarClientes(clave).ToList();
                 bd.SubmitChanges();
             }
@@ -51,7 +51,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 bd.CP_InsertarCliente(Cliente.Id_Cuenta, Cliente.Nombre, Cliente.Apellido, Cliente.FechaNacimiento, Cliente.Edad, Cliente.Telefono);
                 bd.SubmitChanges();
             }
@@ -65,7 +65,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 bd.CP_ModificarCliente(Cliente.Id_Cliente, Cliente.Id_Cuenta, Cliente.Nombre, Cliente.Apellido, Cliente.FechaNacimiento, Cliente.Edad, Cliente.Telefono);
                 bd.SubmitChanges();
             }
@@ -79,7 +79,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 bd.CP_EliminarCliente(idCliente);
                 bd.SubmitChanges();
             }
