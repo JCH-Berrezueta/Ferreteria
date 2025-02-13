@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PresentacionCliente.VSecundary.VLogin"
+             Title="VLogin" BackgroundColor="#029DAF">
+    <Grid Padding="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Spacing="30" Grid.Row="0">
+            <Label Text="MENU LOGIN"
+                FontSize="Title"
+                FontAttributes="Bold"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <Label Text="USUARIO O CORREO ELECTRONICO"
+                FontAttributes="Bold" />
+            <Entry x:Name="CorreoU"
+                TextColor="Black"
+                BackgroundColor="White" />
+
+            <Label Text="CONTRASEÑA"
+                FontAttributes="Bold" />
+            <Entry x:Name="ContraU"
+                TextColor="Black"
+                IsPassword="True"
+                BackgroundColor="White" />
+
+            <Button Text="INGRESAR"
+                 Background="#E32551"
+                 CornerRadius="15"
+                    Clicked="Button_Clicked_2"
+                 />
+            <Button Text="REGISTRAR"
+                 Background="#E32551"
+                 CornerRadius="15"
+                    Clicked="Button_Clicked_3"
+                 />
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

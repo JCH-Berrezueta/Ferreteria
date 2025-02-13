@@ -24,21 +24,14 @@ namespace PresentacionCliente
             Debug.WriteLine("RESULTADO" + lista[0].Descripcion);
         }
 
-
-
-
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void BotonIngresar_Clicked(object sender, EventArgs e)
         {
-            count++;
+            await Navigation.PushAsync(new VSecundary.VLogin());
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-            
         }
+
+
+
     }
 
 }

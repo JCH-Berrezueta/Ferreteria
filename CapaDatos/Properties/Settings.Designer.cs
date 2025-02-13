@@ -12,7 +12,11 @@ namespace CapaDatos.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+<<<<<<< HEAD
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0")]
+=======
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.13.0.0")]
+>>>>>>> 6b5da996692fd2fc7edf711e2b5eef5ab964d031
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -48,6 +52,7 @@ namespace CapaDatos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+<<<<<<< HEAD
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-KCF836N;Initial Catalog=FerreteriaPA.bacpac;Integrated Securi" +
             "ty=True;Encrypt=True;TrustServerCertificate=True")]
         public string FerreteriaPA_bacpacConnectionString {
@@ -64,6 +69,13 @@ namespace CapaDatos.Properties {
         public string Ferreteria_PAConnectionString {
             get {
                 return ((string)(this["Ferreteria_PAConnectionString"]));
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True" +
+            ";Encrypt=True;TrustServerCertificate=True")]
+        public string FerreteriaPAConnectionString2 {
+            get {
+                return ((string)(this["FerreteriaPAConnectionString2"]));
+>>>>>>> 6b5da996692fd2fc7edf711e2b5eef5ab964d031
             }
         }
     }
