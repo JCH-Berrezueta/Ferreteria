@@ -15,12 +15,12 @@ namespace CapaDatos.Gestion
             List<CP_ListarProductosResult> lista = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 lista = bd.CP_ListarProductos().ToList();
             }
-            catch(Exception error)
+            catch (Exception error)
             {
-                Debug.WriteLine("Error listar productos CD "+error);
+                Debug.WriteLine("Error listar productos CD " + error);
             }
             return lista;
         }
@@ -31,7 +31,7 @@ namespace CapaDatos.Gestion
             List<CP_FiltrarProductosResult> lista = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 lista = bd.CP_FiltrarProductos(clave).ToList();
             }
             catch (Exception error)

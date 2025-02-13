@@ -8,7 +8,7 @@ namespace PresentacionCliente
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+       
         private Producto servicio;
 
         public MainPage()

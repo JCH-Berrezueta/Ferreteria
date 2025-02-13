@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Ferreteria_PA" Class="ConectorBDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-KCF836N;Initial Catalog=Ferreteria_PA;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="Ferreteria_PAConnectionString" Provider="System.Data.SqlClient" />
-=======
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FerreteriaPA" Class="ConectorBDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="FerreteriaPAConnectionString2" Provider="System.Data.SqlClient" />
->>>>>>> 6b5da996692fd2fc7edf711e2b5eef5ab964d031
   <Table Name="dbo.CategoriaProducto" Member="CategoriaProducto">
     <Type Name="CategoriaProducto">
       <Column Name="Id_CategoriaProducto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
