@@ -1,19 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Gestion
 {
+    [DataContract]
     public class Cliente
     {
+        [DataMember]
         private int idCliente;
+        [DataMember]
         private int idCuenta;
+        [DataMember]
         private string nombre;
+        [DataMember]
         private string apellido;
+        [DataMember]
         private DateTime fechaNacimiento;
+        [DataMember]
         private int edad;
+        [DataMember]
         private string telefono;
 
         public Cliente(int idCliente, int idCuenta, string nombre, string apellido, DateTime fechaNacimiento, int edad, string telefono)
