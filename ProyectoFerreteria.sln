@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentacionWeb", "Presenta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaAPI", "CapaAPI\CapaAPI.csproj", "{4318BA10-62DA-44FD-93F3-77113225D393}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoAPI", "ProyectoAPI\ProyectoAPI.csproj", "{6C754BDC-DB36-4A12-9C09-AF1790AA07AB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,10 +53,6 @@ Global
 		{4318BA10-62DA-44FD-93F3-77113225D393}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4318BA10-62DA-44FD-93F3-77113225D393}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4318BA10-62DA-44FD-93F3-77113225D393}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C754BDC-DB36-4A12-9C09-AF1790AA07AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C754BDC-DB36-4A12-9C09-AF1790AA07AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C754BDC-DB36-4A12-9C09-AF1790AA07AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C754BDC-DB36-4A12-9C09-AF1790AA07AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
