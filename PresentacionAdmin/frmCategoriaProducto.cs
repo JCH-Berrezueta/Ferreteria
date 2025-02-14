@@ -21,19 +21,16 @@ namespace PresentacionAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
-<<<<<<< HEAD
-            Producto nuevoProducto = new Producto();
-            {
-                Id_CategoriaProducto = Convert.ToInt32(txtCategoria.Text);
-                Nombre = txtNombre.Text;
-                Precio = Convert.ToDecimal(txtPrecio.Text);
-                Stock = Convert.ToInt32(txtStock.Text);
-                Estado = chkEstado.Checked;
-                Icono = "ruta/icono.png"; // Puedes modificar esto para seleccionar un icono
-                Descripcion = txtDescripcion.Text;
-            };
+            /*Producto nuevoProducto = new Producto()
+            
+            Id_CategoriaProducto = Convert.ToInt32(txtCategoria.Text);
+            Nombre = txtNombre.Text;
+            Precio = Convert.ToDecimal(txtPrecio.Text);
+            Stock = Convert.ToInt32(txtStock.Text);
+            Estado = chkEstado.Checked;
+            Icono = "ruta/icono.png"; // Puedes modificar esto para seleccionar un icono
+            Descripcion = txtDescripcion.Text;
+            
 
             if (ProductoLN.agregarProductoLN(nuevoProducto))
             {
@@ -43,9 +40,8 @@ namespace PresentacionAdmin
             else
             {
                 MessageBox.Show("Error al agregar el producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-=======
->>>>>>> c71f5f3ebe95593a2197d284e40e81864484134d
+            }*/
+
         }
 
         private void button3_Click(object sender, EventArgs e)

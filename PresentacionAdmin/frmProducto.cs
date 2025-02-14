@@ -33,7 +33,7 @@ namespace PresentacionAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Producto nuevoProducto = new Producto
+            /*Producto nuevoProducto = new Producto
             {
                 Id_CategoriaProducto = 1, // Debes asignar la categoría correspondiente
                 Nombre = "Nuevo Producto",
@@ -52,7 +52,7 @@ namespace PresentacionAdmin
             else
             {
                 MessageBox.Show("Error al agregar producto");
-            }
+            }*/
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -61,7 +61,7 @@ namespace PresentacionAdmin
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            /*if (dataGridView1.SelectedRows.Count > 0)
             {
                 int idProducto = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id_Producto"].Value);
                 Producto productoModificado = new Producto
@@ -89,13 +89,13 @@ namespace PresentacionAdmin
             else
             {
                 MessageBox.Show("Seleccione un producto para modificar");
-            }
+            }*/
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            /*if (dataGridView1.SelectedRows.Count > 0)
             {
                 int idProducto = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id_Producto"].Value);
 
@@ -112,7 +112,7 @@ namespace PresentacionAdmin
             else
             {
                 MessageBox.Show("Seleccione un producto para eliminar");
-            }
+            }*/
         }
     }
 

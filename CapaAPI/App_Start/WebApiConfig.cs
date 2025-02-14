@@ -11,6 +11,7 @@ namespace CapaAPI
     {
         public static void Register(HttpConfiguration config)
         {
+            //establece como formato a JSON y reemplaza el XML
             config.Formatters.JsonFormatter.SerializerSettings.Formatting = Formatting.Indented;
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 

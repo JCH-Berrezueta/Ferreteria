@@ -13,7 +13,7 @@ namespace CapaAPI.Controllers
         }
 
         [HttpGet]
-        [Route("obtener-productos")]
+        [Route("listar-vista-productos")]
         public IHttpActionResult ObtenerProductos()
         {
             // Aquí estamos llamando a la capa lógica para obtener los productos
