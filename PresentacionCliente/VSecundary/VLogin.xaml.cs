@@ -19,14 +19,8 @@ public partial class VLogin : ContentPage
 
     private async void Button_Clicked_2(object sender, EventArgs e)
     {
-        //if ()
-        //{
-        //    await Navigation.PushAsync(new VThird.VProductos());
-        //}
-        //else
-        //{
-
-        //}  
+        
+            await Navigation.PushAsync(new VThird.VProductos());
     }
 
     private async void Button_Clicked_3(object sender, EventArgs e)
