@@ -17,14 +17,14 @@ namespace CapaLogica.Gestion
             List<VProducto> lista = null;
             try
             {
-                var sql = from x in ProductoCD.listarProductosCD()
-                          select new VProducto(x.Id_Producto,x.Id_CategoriaProducto, x.Nombre, x.Precio, x.Stock, x.Estado, x.Icono, x.Descripcion);
+                var sql = from x in ProductoCD.listarVistaProductosCD()
+                          select new VProducto(x.ID, x.Categoria, x.Producto, x.Precio, x.Stock, x.Estado, x.Icono, x.Descripcion);
                 lista = sql.ToList();
                 Debug.WriteLine("Intentanto LN" + lista.Count);
             }
             catch (Exception error)
             {
-                Debug.WriteLine("Error listar Productos LN" + error);
+                Debug.WriteLine("Error listar Vista Productos LN" + error);
             }
             return lista;
         }
