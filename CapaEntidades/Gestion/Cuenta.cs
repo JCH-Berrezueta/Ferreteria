@@ -18,6 +18,10 @@ namespace CapaEntidades.Gestion
         [DataMember]
         private string password;
 
+        public Cuenta()
+        {
+
+        }
         public Cuenta(string mail, string password)
         {
             this.mail = mail;

@@ -10,6 +10,8 @@ namespace CapaLogica.Gestion
 {
     public class ClienteLN
     {
+      
+
         public static List<cliente> listarClientesLN()
         {
             List<cliente> lista = null;
