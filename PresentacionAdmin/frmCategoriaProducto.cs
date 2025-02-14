@@ -33,13 +33,13 @@ namespace PresentacionAdmin
 
             Producto nuevoProducto = new Producto();
             {
-                Id_CategoriaProducto = Convert.ToInt32(txtCategoria.Text),
-                Nombre = txtNombre.Text,
-                Precio = Convert.ToDecimal(txtPrecio.Text),
-                Stock = Convert.ToInt32(txtStock.Text),
-                Estado = chkEstado.Checked,
-                Icono = "ruta/icono.png", // Puedes modificar esto para seleccionar un icono
-                Descripcion = txtDescripcion.Text
+                Id_CategoriaProducto = Convert.ToInt32(txtCategoria.Text);
+                Nombre = txtNombre.Text;
+                Precio = Convert.ToDecimal(txtPrecio.Text);
+                Stock = Convert.ToInt32(txtStock.Text);
+                Estado = chkEstado.Checked;
+                Icono = "ruta/icono.png"; // Puedes modificar esto para seleccionar un icono
+                Descripcion = txtDescripcion.Text;
             };
 
             if (ProductoLN.agregarProductoLN(nuevoProducto))
