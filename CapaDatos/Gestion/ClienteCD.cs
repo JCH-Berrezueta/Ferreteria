@@ -51,7 +51,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext(ruta);
                 bd.CP_InsertarCliente(Cliente.Id_Cuenta, Cliente.Nombre, Cliente.Apellido, Cliente.FechaNacimiento, Cliente.Edad, Cliente.Telefono);
                 bd.SubmitChanges();
             }
@@ -65,7 +65,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext(ruta);
                 bd.CP_ModificarCliente(Cliente.Id_Cliente, Cliente.Id_Cuenta, Cliente.Nombre, Cliente.Apellido, Cliente.FechaNacimiento, Cliente.Edad, Cliente.Telefono);
                 bd.SubmitChanges();
             }
@@ -79,7 +79,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext(ruta);
                 bd.CP_EliminarCliente(idCliente);
                 bd.SubmitChanges();
             }

@@ -11,13 +11,15 @@ namespace CapaDatos.Gestion
 {
     public class CategoriaCD
     {
+        static string ruta = "Data Source=CASA;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=False\"";
+
         public static List<CP_ListarCategoriasProductosResult> listarCategoriasCD()
         {
             ConectorBDDataContext bd = null;
             List<CP_ListarCategoriasProductosResult> lista = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext(ruta);
                 lista = bd.CP_ListarCategoriasProductos().ToList();
                 bd.SubmitChanges();
             }
@@ -34,7 +36,7 @@ namespace CapaDatos.Gestion
             List<CP_FiltrarCategoriasProductosResult> lista = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext(ruta);
                 lista = bd.CP_FiltrarCategoriasProductos(clave).ToList();
                 bd.SubmitChanges();
             }
@@ -50,7 +52,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext(ruta);
                 bd.CP_InsertarCategoriaProducto(Categoria.Nombre, Categoria.Descripcion);
                 bd.SubmitChanges();
             }
@@ -64,7 +66,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext(ruta);
                 bd.CP_ModificarCategoriaProducto(Categoria.IdCategoria, Categoria.Nombre, Categoria.Descripcion);
                 bd.SubmitChanges();
             }
@@ -78,7 +80,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext(ruta);
                 bd.CP_EliminarCategoriaProducto(idCategoria);
                 bd.SubmitChanges();
             }
