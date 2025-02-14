@@ -17,11 +17,11 @@ namespace CapaDatos.Gestion
             List<CP_ListarCategoriasProductosResult> lista = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 lista = bd.CP_ListarCategoriasProductos().ToList();
                 bd.SubmitChanges();
             }
-            catch(Exception error)
+            catch (Exception error)
             {
                 Debug.WriteLine("Error en listar Categorias CD" + error);
             }
@@ -34,7 +34,7 @@ namespace CapaDatos.Gestion
             List<CP_FiltrarCategoriasProductosResult> lista = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 lista = bd.CP_FiltrarCategoriasProductos(clave).ToList();
                 bd.SubmitChanges();
             }
@@ -50,7 +50,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 bd.CP_InsertarCategoriaProducto(Categoria.Nombre, Categoria.Descripcion);
                 bd.SubmitChanges();
             }
@@ -64,7 +64,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 bd.CP_ModificarCategoriaProducto(Categoria.IdCategoria, Categoria.Nombre, Categoria.Descripcion);
                 bd.SubmitChanges();
             }
@@ -78,7 +78,7 @@ namespace CapaDatos.Gestion
             ConectorBDDataContext bd = null;
             try
             {
-                bd = new ConectorBDDataContext();
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 bd.CP_EliminarCategoriaProducto(idCategoria);
                 bd.SubmitChanges();
             }
