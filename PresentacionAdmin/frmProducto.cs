@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CapaEntidades.Gestion;
 using CapaLogica.Gestion;
 namespace PresentacionAdmin
 {
@@ -18,13 +18,31 @@ namespace PresentacionAdmin
         public frmProducto()
         {
             InitializeComponent();
+          
            
         }
-
+        ProductoLN pd = new ProductoLN();
         private void frmProducto_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = ProductoLN.listarProductosLN();
+            
 
+        }
+        public void ListarProductos(string alv)
+        {
+            dataGridView1.DataSource = ProductoLN.listarProductosLN();
+        }
+        public void Nuevo()
+        {
+            frmEditProducto frm = new frmEditProducto();
+            
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                Producto op = frm.CrearObjeto();
+                oln.CreateProducto(op);
+                frm.Hide();
+                ListarProductos("");
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
