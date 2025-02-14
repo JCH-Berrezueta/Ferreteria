@@ -58,5 +58,63 @@ namespace PresentacionAdmin
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int idProducto = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id_Producto"].Value);
+                Producto productoModificado = new Producto
+                {
+                    Id_Producto = idProducto,
+                    Id_CategoriaProducto = 1,
+                    Nombre = "Producto Modificado",
+                    Precio = 20.0m,
+                    Stock = 50,
+                    Estado = true,
+                    Icono = null,
+                    Descripcion = "Nueva descripción"
+                };
+
+                if (ProductoLN.ModificarProductoLN(productoModificado))
+                {
+                    MessageBox.Show("Producto modificado correctamente");
+                    CargarProductos();
+                }
+                else
+                {
+                    MessageBox.Show("Error al modificar producto");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un producto para modificar");
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int idProducto = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id_Producto"].Value);
+
+                if (ProductoLN.EliminarProductoLN(idProducto))
+                {
+                    MessageBox.Show("Producto eliminado correctamente");
+                    CargarProductos();
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar producto");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un producto para eliminar");
+            }
+        }
     }
+
+    
 }
