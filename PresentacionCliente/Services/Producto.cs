@@ -28,6 +28,7 @@ namespace PresentacionCliente.Services
             // Deserializamos la respuesta JSON en una lista de productos
             var productos = JsonConvert.DeserializeObject<List<VistaProducto>>(response);
             return productos;
+            // nose nada
         }
     }
 }
