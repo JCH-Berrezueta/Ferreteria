@@ -67,11 +67,25 @@ namespace CapaDatos
 
 		public static string ruta = "Data Source=CASA;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=False";
 
+<<<<<<< HEAD
         public ConectorBDDataContext() : 
 				base(ruta, mappingSource)
 		{
 			OnCreated();
 		}
+=======
+        /*
+		 * AQUI CONFIGURAN   AQUIIIIIII - reemplazen el nombre CASA o cualquiera por su nombre de su computadora
+		 * El nombre de la BD debe ser si o si FerreteriaPA y ya :)
+		 */
+        public static string connectionPropia = "Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=False";
+
+        public ConectorBDDataContext() :
+                base(connectionPropia, mappingSource)
+        {
+            OnCreated();
+        }
+>>>>>>> 68991d6ae87a6922e0ff341debaa65c80fdfe93b
 		
 		public ConectorBDDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
