@@ -3,10 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PresentacionCliente.VSecundary.VThird.VProductos"
              Title="VProductos">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <CollectionView x:Name="ProductsCollectionView" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Frame BorderColor="LightGray" CornerRadius="5">
+                            <StackLayout>
+                                <Image Source="{Binding Icon}" HeightRequest="100"/>
+                                <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="Medium"/>
+                                <Label Text="Precio: {Binding Precio}" />
+                                <Label Text="Stock: {Binding Stock}" />
+                                <Label Text="Estado: {Binding Estado}" />
+                                <Label Text="Descripción: {Binding Descripcion}" LineBreakMode="WordWrap"/>
+                                <Button Text="Añadir al Carrito" Clicked="Button_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
 </ContentPage>
