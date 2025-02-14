@@ -41,52 +41,7 @@ namespace CapaDatos.Gestion
             }
             return lista;
         }
-        public static bool AgregarProductoCD(Producto nuevoProducto)
-        {
-            using (SqlConnection con = ConexionBD.ObtenerConexion())
-            {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Productos (Id_CategoriaProducto, Nombre, Precio, Stock, Estado, Icono, Descripcion) VALUES (@categoria, @nombre, @precio, @stock, @estado, @icono, @descripcion)", con);
-
-                cmd.Parameters.AddWithValue("@categoria", nuevoProducto.Id_CategoriaProducto);
-                cmd.Parameters.AddWithValue("@nombre", nuevoProducto.Nombre);
-                cmd.Parameters.AddWithValue("@precio", nuevoProducto.Precio);
-                cmd.Parameters.AddWithValue("@stock", nuevoProducto.Stock);
-                cmd.Parameters.AddWithValue("@estado", nuevoProducto.Estado);
-                cmd.Parameters.AddWithValue("@icono", (object)nuevoProducto.Icono ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@descripcion", nuevoProducto.Descripcion);
-
-                return cmd.ExecuteNonQuery() > 0;
-            }
-        }
-
-        public static bool ModificarProductoCD(Producto productoModificado)
-        {
-            using (SqlConnection con = ConexionBD.ObtenerConexion())
-            {
-                SqlCommand cmd = new SqlCommand("UPDATE Productos SET Nombre=@nombre, Precio=@precio, Stock=@stock, Estado=@estado, Icono=@icono, Descripcion=@descripcion WHERE Id_Producto=@id", con);
-
-                cmd.Parameters.AddWithValue("@id", productoModificado.Id_Producto);
-                cmd.Parameters.AddWithValue("@nombre", productoModificado.Nombre);
-                cmd.Parameters.AddWithValue("@precio", productoModificado.Precio);
-                cmd.Parameters.AddWithValue("@stock", productoModificado.Stock);
-                cmd.Parameters.AddWithValue("@estado", productoModificado.Estado);
-                cmd.Parameters.AddWithValue("@icono", (object)productoModificado.Icono ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@descripcion", productoModificado.Descripcion);
-
-                return cmd.ExecuteNonQuery() > 0;
-            }
-        }
-
-        public static bool EliminarProductoCD(int idProducto)
-        {
-            using (SqlConnection con = ConexionBD.ObtenerConexion())
-            {
-                SqlCommand cmd = new SqlCommand("DELETE FROM Productos WHERE Id_Producto=@id", con);
-                cmd.Parameters.AddWithValue("@id", idProducto);
-
-                return cmd.ExecuteNonQuery() > 0;
-            }
-        }
+       
     }
 
 }
