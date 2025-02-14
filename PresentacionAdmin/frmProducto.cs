@@ -14,6 +14,7 @@ namespace PresentacionAdmin
 {
     public partial class frmProducto : Form
     {
+        ProductoLN oln = new ProductoLN();
         public frmProducto()
         {
             InitializeComponent();
@@ -33,26 +34,16 @@ namespace PresentacionAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*Producto nuevoProducto = new Producto
+            frmEditProducto frm = new frmEditProducto();
+            frm.ShowDialog();
+            if(frm.DialogResult == DialogResult.OK)
             {
-                Id_CategoriaProducto = 1, // Debes asignar la categoría correspondiente
-                Nombre = "Nuevo Producto",
-                Precio = 10.0m,
-                Stock = 100,
-                Estado = true,
-                Icono = null, // Puedes asignar una imagen si es necesario
-                Descripcion = "Descripción del producto"
-            };
+                Producto op = frm.CreacionOb();
+                oln.InsertarProducto(op);
+                frm.Hide();
+                ProductoLN.listarProductosLN();
 
-            if (ProductoLN.listarProductosLN(nuevoProducto))
-            {
-                MessageBox.Show("Producto agregado correctamente");
-              
             }
-            else
-            {
-                MessageBox.Show("Error al agregar producto");
-            }*/
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -17,7 +17,7 @@ namespace CapaLogica.Gestion
             List<vistaProductoCategoria> lista = null;
             try
             {
-                var sql = from x in ProductoCD.listarVistaProductosCD()
+                var sql = from x in ProductoCD.listarVistaProductosCategoriasCD()
                           select new vistaProductoCategoria(x.ID, x.Categoria, x.Producto, x.Precio, x.Stock, x.Estado, x.Icono, x.Descripcion);
                 lista = sql.ToList();
             }
@@ -44,6 +44,26 @@ namespace CapaLogica.Gestion
             }
             return lista;
         }
-    
+
+        public bool VerificarCodProducto(int idProdu)
+        {
+            List<producto> categorias = listarProductosLN();
+
+            return categorias.Any(c => c.IdProducto == idProdu);
+        }
+
+        public bool InsertarProducto(producto p)
+        {
+            try
+            {
+                ProductoCD.insertarProductoCD(p);
+                return true;
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error insertar Producto LN" + error);
+            }
+            return false;
+        }
     }
 }

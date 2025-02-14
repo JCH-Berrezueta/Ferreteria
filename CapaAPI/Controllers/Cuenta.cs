@@ -15,7 +15,7 @@ namespace CapaAPI.Controllers
         }
         
         [HttpGet]
-        [Route("listar-cuentas")]
+        [Route("obtener-cuentas")]
         public IHttpActionResult ObtenerCuentas()
         {
             var cuentas = CuentaLN.listarCuentasLN();
