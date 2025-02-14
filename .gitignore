@@ -361,3 +361,34 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+
+
+
+#CHATGPT RECOMIENDA
+# Configuraciones de Visual Studio y usuarios específicos
+*.csproj.user
+*.sln.docstates
+*.suo
+*.vscode/
+*.vsconfig
+
+# Archivos de MAUI (si usan esta capa)
+.platforms/
+bin/
+obj/
+
+# Configuración de ASP.NET
+appsettings*.json
+
+# Archivos de respaldo
+*.bak
+*.tmp
+
+
+#LINQTOSQL
+# Ignorar archivos de LINQ to SQL
+*.dbml
+*.dbml.layout
+*.dbml.diagram
+
