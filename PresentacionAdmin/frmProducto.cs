@@ -17,7 +17,7 @@ namespace PresentacionAdmin
         public frmProducto()
         {
             InitializeComponent();
-            CargarProductos();
+           
         }
 
         private void frmProducto_Load(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace PresentacionAdmin
             if (ProductoLN.listarProductosLN(nuevoProducto))
             {
                 MessageBox.Show("Producto agregado correctamente");
-                CargarProductos();
+              
             }
             else
             {
