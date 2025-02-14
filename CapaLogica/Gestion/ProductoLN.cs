@@ -20,7 +20,6 @@ namespace CapaLogica.Gestion
                 var sql = from x in ProductoCD.listarVistaProductosCD()
                           select new VProducto(x.ID, x.Categoria, x.Producto, x.Precio, x.Stock, x.Estado, x.Icono, x.Descripcion);
                 lista = sql.ToList();
-                Debug.WriteLine("Intentanto LN" + lista.Count);
             }
             catch (Exception error)
             {
