@@ -25,6 +25,10 @@ namespace CapaEntidades.Gestion
         [DataMember]
         private string telefono;
 
+        public Cliente()
+        {
+
+        }
         public Cliente(int idCliente, int idCuenta, string nombre, string apellido, DateTime fechaNacimiento, int edad, string telefono)
         {
             IdCliente = idCliente;
