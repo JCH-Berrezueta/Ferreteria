@@ -27,5 +27,6 @@ namespace CapaLogica.Gestion
             }
             return lista;
         }
+    
     }
 }

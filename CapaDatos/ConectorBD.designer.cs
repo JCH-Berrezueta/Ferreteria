@@ -65,26 +65,6 @@ namespace CapaDatos
     partial void DeleteRol(Rol instance);
     #endregion
 		
-<<<<<<< HEAD
-=======
-		public ConectorBDDataContext() : 
-<<<<<<< HEAD
-<<<<<<< HEAD
-				base(global::CapaDatos.Properties.Settings.Default.Ferreteria_PAConnectionString, mappingSource)
-=======
-				base(global::CapaDatos.Properties.Settings.Default.FerreteriaPAConnectionString2, mappingSource)
->>>>>>> 6b5da996692fd2fc7edf711e2b5eef5ab964d031
-=======
-				base(global::CapaDatos.Properties.Settings.Default.FerreteriaPAConnectionString2, mappingSource)
-=======
-				base(global::CapaDatos.Properties.Settings.Default.FerreteriaPAConnectionString1, mappingSource)
->>>>>>> sfsfsdfs
->>>>>>> sfsfsdfs
-		{
-			OnCreated();
-		}
-		
->>>>>>> sfsfsdfs
 		public ConectorBDDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
