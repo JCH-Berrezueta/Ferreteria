@@ -12,14 +12,14 @@ namespace CapaDatos.Seguridad
 {
     public class CuentaCD
     {
-        public static List<listarVistaCuentaRolResult> listarVistaCuentasRolCD()
+        public static List<FiltrarVistaCuentaRolResult> listarVistaCuentasRolCD()
         {
             ConectorBDDataContext bd = null;
-            List<listarVistaCuentaRolResult> lista = null;
+            List<FiltrarVistaCuentaRolResult> lista = null;
             try
             {
                 bd = new ConectorBDDataContext();
-                lista = bd.listarVistaCuentaRol().ToList();
+                lista = bd.FiltrarVistaCuentaRol("").ToList();
                 bd.SubmitChanges();
             }
             catch (Exception error)

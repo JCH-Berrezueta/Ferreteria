@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-
+using cuentita=CapaEntidades.Gestion.Cuenta;
 namespace PresentacionCliente.VSecundary;
 
 public partial class VLogin : ContentPage
