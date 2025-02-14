@@ -5,7 +5,7 @@
 }
 <style>
     body {
-        background-color: floralwhite; /* Color de fondo gris claro */
+        background-color: floralwhite; /* Color de fondo floral */
     }
 
     .text-center {
@@ -26,27 +26,64 @@
         background-color: #ffffff; /* Fondo blanco para el contenido */
         border-radius: 8px; /* Bordes redondeados */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+        margin: 20px auto; /* Centrar el contenido horizontalmente */
+        max-width: 800px; /* Ancho máximo para el contenido */
     }
-</style>
-
-<div class="text-center">
-    <h1 class="display-4">Ferreteria Kialke</h1>
-    <p>Cuidamos de tu bolsillo</p>
-</div>
-<!-- Agregando la imagen del banner -->
-<div class="banner">
-    <img src="~/images/banner.jpg" alt="Banner de Ferreteria Kialke" class="img-fluid" />
-</div>
-
-<!-- Estilos opcionales -->
-<style>
 
     .banner {
         text-align: center;
         margin-top: 20px;
     }
-    .banner img {
-        max-width: 100%;
-        height: auto; /* Mantiene la proporción de la imagen */
+
+        .banner img {
+            max-width: 100%;
+            height: auto; /* Mantiene la proporción de la imagen */
+            border-radius: 8px; /* Bordes redondeados para la imagen */
+        }
+
+    .login-form {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f8f9fa; /* Fondo claro para el formulario */
+        border-radius: 8px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el formulario */
     }
-</style> 
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-block {
+        width: 100%;
+    }
+</style>
+
+<div class="content">
+    <div class="text-center">
+        <h1 class="display-4">Ferreteria Kialke</h1>
+        <p>Cuidamos de tu bolsillo</p>
+    </div>
+    <!-- Agregando la imagen del banner -->
+    <div class="banner">
+        <img src="~/images/banner.jpg" alt="Banner de Ferreteria Kialke" class="img-fluid" />
+    </div>
+
+    <!-- Agregando el formulario de login -->
+    <div class="login-form">
+        <div class="text-center">
+            <h2>Login</h2>
+        </div>
+        <form method="post">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+            <button type="reset" class="btn btn-secondary btn-block mt-2">Cancelar</button>
+        </form>
+    </div>
+</div>

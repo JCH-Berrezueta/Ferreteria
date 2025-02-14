@@ -21,7 +21,7 @@ namespace PresentacionCliente.Services
             _httpClient = new HttpClient();  // Inicializamos HttpClient
         }
 
-        public static async Task<List<VistaProducto>> listarVistaProductos()
+        public async Task<List<VistaProducto>> listarVistaProductos()
         {
             // Hacemos una solicitud GET a la API Web
             var response = await _httpClient.GetStringAsync("https://localhost:44386/api/producto/listar-vista-productos");

@@ -12,7 +12,7 @@ namespace CapaDatos.Gestion
 {
     public class ProductoCD
     {
-        public static List<listarVistaProductoCategoriaResult> listarVistaProductosCD()
+        public static List<listarVistaProductoCategoriaResult> listarVistaProductosCategoriasCD()
         {
             ConectorBDDataContext bd = null;
             List<listarVistaProductoCategoriaResult> lista = null;
@@ -25,6 +25,23 @@ namespace CapaDatos.Gestion
             catch (Exception error)
             {
                 Debug.WriteLine("Error listar Vista productos CD " + error);
+            }
+            return lista;
+        }
+
+        public static List<FiltrarVistaProductoCategoriaResult> filtrarVistaProductosCategoriasCD(string clave)
+        {
+            ConectorBDDataContext bd = null;
+            List<FiltrarVistaProductoCategoriaResult> lista = null;
+            try
+            {
+                bd = new ConectorBDDataContext();
+                lista = bd.FiltrarVistaProductoCategoria(clave).ToList();
+                bd.SubmitChanges();
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error filtrar Vista productos CD " + error);
             }
             return lista;
         }
@@ -66,7 +83,6 @@ namespace CapaDatos.Gestion
         public static void insertarProductoCD(producto producto)
         {
             ConectorBDDataContext bd = null;
-            List<CP_FiltrarProductosResult> lista = null;
             try
             {
                 bd = new ConectorBDDataContext();
@@ -82,7 +98,6 @@ namespace CapaDatos.Gestion
         public static void modificarProductoCD(producto producto)
         {
             ConectorBDDataContext bd = null;
-            List<CP_FiltrarProductosResult> lista = null;
             try
             {
                 bd = new ConectorBDDataContext();
@@ -98,7 +113,6 @@ namespace CapaDatos.Gestion
         public static void eliminarProductoCD(int idProducto)
         {
             ConectorBDDataContext bd = null;
-            List<CP_FiltrarProductosResult> lista = null;
             try
             {
                 bd = new ConectorBDDataContext();
