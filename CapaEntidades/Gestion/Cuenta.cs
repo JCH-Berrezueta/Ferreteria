@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,10 +9,20 @@ namespace CapaEntidades.Gestion
 {
     public class Cuenta
     {
+        [DataMember]
         private int idCuenta;
+        [DataMember]
         private int idRol;
+        [DataMember]
         private string mail;
+        [DataMember]
         private string password;
+
+        public Cuenta(string mail, string password)
+        {
+            this.mail = mail;
+            this.password = password;
+        }
 
         public Cuenta(int idCuenta, int idRol, string mail, string password)
         {
