@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace CapaDatos.Gestion
             List<CP_ListarProductosResult> lista = null;
             try
             {
-                bd = new ConectorBDDataContext("Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
+                bd = new ConectorBDDataContext("Data Source=DESKTOP-O65TFRR;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
                 lista = bd.CP_ListarProductos().ToList();
             }
             catch (Exception error)
@@ -40,5 +41,7 @@ namespace CapaDatos.Gestion
             }
             return lista;
         }
+       
     }
+
 }

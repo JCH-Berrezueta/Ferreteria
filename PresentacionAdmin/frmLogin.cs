@@ -22,21 +22,6 @@ namespace PresentacionAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string usuario = textBox1.Text.Trim();
-            string correo = textBox2.Text.Trim();
-
-            if (CuentaLN.ValidarUsuario(usuario, correo))
-            {
-                MessageBox.Show("Inicio de sesión exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frmProducto frm = new frmProducto();
-                this.Hide();
-                frm.ShowDialog();
-                this.Show();
-            }
-            else
-            {
-                MessageBox.Show("Usuario o correo incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     
         

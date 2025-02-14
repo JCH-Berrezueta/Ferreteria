@@ -22,15 +22,8 @@ namespace PresentacionAdmin
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtPrecio.Text) ||
-                string.IsNullOrWhiteSpace(txtStock.Text) ||
-                string.IsNullOrWhiteSpace(txtCategoria.Text))
-            {
-                MessageBox.Show("Por favor, complete todos los campos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
+<<<<<<< HEAD
             Producto nuevoProducto = new Producto();
             {
                 Id_CategoriaProducto = Convert.ToInt32(txtCategoria.Text);
@@ -51,6 +44,8 @@ namespace PresentacionAdmin
             {
                 MessageBox.Show("Error al agregar el producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+=======
+>>>>>>> c71f5f3ebe95593a2197d284e40e81864484134d
         }
     }
 }
