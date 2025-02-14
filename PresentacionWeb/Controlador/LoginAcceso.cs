@@ -19,7 +19,7 @@ namespace PresentacionWeb.Controlador
         private bool IsValidUser(string username, string password)
         {
             // Implementa tu lógica de validación aquí  
-            return true; // Solo para propósitos de prueba, cámbialo a tu lógica real  
+            return username == "admin" && password == "password";
         }
     }
 }
