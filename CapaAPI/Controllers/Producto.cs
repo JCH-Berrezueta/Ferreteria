@@ -17,7 +17,7 @@ namespace CapaAPI.Controllers
         public IHttpActionResult ObtenerProductos()
         {
             // Aquí estamos llamando a la capa lógica para obtener los productos
-            var productos = ProductoLN.listarProductosLN();
+            var productos = ProductoLN.listarVistaProductosLN();
             return Ok(productos);  // Retornamos la lista de productos
         }
     }
