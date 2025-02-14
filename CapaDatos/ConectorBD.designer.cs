@@ -33,9 +33,9 @@ namespace CapaDatos
     partial void InsertCategoriaProducto(CategoriaProducto instance);
     partial void UpdateCategoriaProducto(CategoriaProducto instance);
     partial void DeleteCategoriaProducto(CategoriaProducto instance);
-    partial void InsertRol(Rol instance);
-    partial void UpdateRol(Rol instance);
-    partial void DeleteRol(Rol instance);
+    partial void InsertSalidaProducto(SalidaProducto instance);
+    partial void UpdateSalidaProducto(SalidaProducto instance);
+    partial void DeleteSalidaProducto(SalidaProducto instance);
     partial void InsertCliente(Cliente instance);
     partial void UpdateCliente(Cliente instance);
     partial void DeleteCliente(Cliente instance);
@@ -60,16 +60,12 @@ namespace CapaDatos
     partial void InsertProveedor(Proveedor instance);
     partial void UpdateProveedor(Proveedor instance);
     partial void DeleteProveedor(Proveedor instance);
-    partial void InsertSalidaProducto(SalidaProducto instance);
-    partial void UpdateSalidaProducto(SalidaProducto instance);
-    partial void DeleteSalidaProducto(SalidaProducto instance);
+    partial void InsertRol(Rol instance);
+    partial void UpdateRol(Rol instance);
+    partial void DeleteRol(Rol instance);
     #endregion
-		public ConectorBDDataContext() :
-                base(global::CapaDatos.Properties.Settings.Default.FerreteriaPAConnectionString, mappingSource)
-        {
-            OnCreated();
-        }
-        public ConectorBDDataContext(string connection) : 
+		
+		public ConectorBDDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -101,11 +97,11 @@ namespace CapaDatos
 			}
 		}
 		
-		public System.Data.Linq.Table<Rol> Rol
+		public System.Data.Linq.Table<SalidaProducto> SalidaProducto
 		{
 			get
 			{
-				return this.GetTable<Rol>();
+				return this.GetTable<SalidaProducto>();
 			}
 		}
 		
@@ -173,11 +169,11 @@ namespace CapaDatos
 			}
 		}
 		
-		public System.Data.Linq.Table<SalidaProducto> SalidaProducto
+		public System.Data.Linq.Table<Rol> Rol
 		{
 			get
 			{
-				return this.GetTable<SalidaProducto>();
+				return this.GetTable<Rol>();
 			}
 		}
 		
@@ -768,84 +764,205 @@ namespace CapaDatos
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Rol")]
-	public partial class Rol : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SalidaProducto")]
+	public partial class SalidaProducto : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id_rol;
+		private int _Id_SalidaProducto;
 		
-		private string _Nombre;
+		private int _Id_Producto;
 		
-		private EntitySet<Cuenta> _Cuenta;
+		private int _Cantidad;
+		
+		private System.DateTime _FechaSalida;
+		
+		private string _Motivo;
+		
+		private string _Observacion;
+		
+		private EntityRef<Producto> _Producto;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnId_rolChanging(int value);
-    partial void OnId_rolChanged();
-    partial void OnNombreChanging(string value);
-    partial void OnNombreChanged();
+    partial void OnId_SalidaProductoChanging(int value);
+    partial void OnId_SalidaProductoChanged();
+    partial void OnId_ProductoChanging(int value);
+    partial void OnId_ProductoChanged();
+    partial void OnCantidadChanging(int value);
+    partial void OnCantidadChanged();
+    partial void OnFechaSalidaChanging(System.DateTime value);
+    partial void OnFechaSalidaChanged();
+    partial void OnMotivoChanging(string value);
+    partial void OnMotivoChanged();
+    partial void OnObservacionChanging(string value);
+    partial void OnObservacionChanged();
     #endregion
 		
-		public Rol()
+		public SalidaProducto()
 		{
-			this._Cuenta = new EntitySet<Cuenta>(new Action<Cuenta>(this.attach_Cuenta), new Action<Cuenta>(this.detach_Cuenta));
+			this._Producto = default(EntityRef<Producto>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_rol", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id_rol
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_SalidaProducto", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id_SalidaProducto
 		{
 			get
 			{
-				return this._Id_rol;
+				return this._Id_SalidaProducto;
 			}
 			set
 			{
-				if ((this._Id_rol != value))
+				if ((this._Id_SalidaProducto != value))
 				{
-					this.OnId_rolChanging(value);
+					this.OnId_SalidaProductoChanging(value);
 					this.SendPropertyChanging();
-					this._Id_rol = value;
-					this.SendPropertyChanged("Id_rol");
-					this.OnId_rolChanged();
+					this._Id_SalidaProducto = value;
+					this.SendPropertyChanged("Id_SalidaProducto");
+					this.OnId_SalidaProductoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Nombre
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Producto", DbType="Int NOT NULL")]
+		public int Id_Producto
 		{
 			get
 			{
-				return this._Nombre;
+				return this._Id_Producto;
 			}
 			set
 			{
-				if ((this._Nombre != value))
+				if ((this._Id_Producto != value))
 				{
-					this.OnNombreChanging(value);
+					if (this._Producto.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnId_ProductoChanging(value);
 					this.SendPropertyChanging();
-					this._Nombre = value;
-					this.SendPropertyChanged("Nombre");
-					this.OnNombreChanged();
+					this._Id_Producto = value;
+					this.SendPropertyChanged("Id_Producto");
+					this.OnId_ProductoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Rol_Cuenta", Storage="_Cuenta", ThisKey="Id_rol", OtherKey="Id_rol")]
-		public EntitySet<Cuenta> Cuenta
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int NOT NULL")]
+		public int Cantidad
 		{
 			get
 			{
-				return this._Cuenta;
+				return this._Cantidad;
 			}
 			set
 			{
-				this._Cuenta.Assign(value);
+				if ((this._Cantidad != value))
+				{
+					this.OnCantidadChanging(value);
+					this.SendPropertyChanging();
+					this._Cantidad = value;
+					this.SendPropertyChanged("Cantidad");
+					this.OnCantidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaSalida", DbType="Date NOT NULL")]
+		public System.DateTime FechaSalida
+		{
+			get
+			{
+				return this._FechaSalida;
+			}
+			set
+			{
+				if ((this._FechaSalida != value))
+				{
+					this.OnFechaSalidaChanging(value);
+					this.SendPropertyChanging();
+					this._FechaSalida = value;
+					this.SendPropertyChanged("FechaSalida");
+					this.OnFechaSalidaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Motivo", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Motivo
+		{
+			get
+			{
+				return this._Motivo;
+			}
+			set
+			{
+				if ((this._Motivo != value))
+				{
+					this.OnMotivoChanging(value);
+					this.SendPropertyChanging();
+					this._Motivo = value;
+					this.SendPropertyChanged("Motivo");
+					this.OnMotivoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observacion", DbType="VarChar(100)")]
+		public string Observacion
+		{
+			get
+			{
+				return this._Observacion;
+			}
+			set
+			{
+				if ((this._Observacion != value))
+				{
+					this.OnObservacionChanging(value);
+					this.SendPropertyChanging();
+					this._Observacion = value;
+					this.SendPropertyChanged("Observacion");
+					this.OnObservacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_SalidaProducto", Storage="_Producto", ThisKey="Id_Producto", OtherKey="Id_Producto", IsForeignKey=true)]
+		public Producto Producto
+		{
+			get
+			{
+				return this._Producto.Entity;
+			}
+			set
+			{
+				Producto previousValue = this._Producto.Entity;
+				if (((previousValue != value) 
+							|| (this._Producto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Producto.Entity = null;
+						previousValue.SalidaProducto.Remove(this);
+					}
+					this._Producto.Entity = value;
+					if ((value != null))
+					{
+						value.SalidaProducto.Add(this);
+						this._Id_Producto = value.Id_Producto;
+					}
+					else
+					{
+						this._Id_Producto = default(int);
+					}
+					this.SendPropertyChanged("Producto");
+				}
 			}
 		}
 		
@@ -867,18 +984,6 @@ namespace CapaDatos
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Cuenta(Cuenta entity)
-		{
-			this.SendPropertyChanging();
-			entity.Rol = this;
-		}
-		
-		private void detach_Cuenta(Cuenta entity)
-		{
-			this.SendPropertyChanging();
-			entity.Rol = null;
 		}
 	}
 	
@@ -2467,11 +2572,11 @@ namespace CapaDatos
 		
 		private string _Descripcion;
 		
+		private EntitySet<SalidaProducto> _SalidaProducto;
+		
 		private EntitySet<DetalleFactura> _DetalleFactura;
 		
 		private EntitySet<EntradaProducto> _EntradaProducto;
-		
-		private EntitySet<SalidaProducto> _SalidaProducto;
 		
 		private EntityRef<CategoriaProducto> _CategoriaProducto;
 		
@@ -2499,9 +2604,9 @@ namespace CapaDatos
 		
 		public Producto()
 		{
+			this._SalidaProducto = new EntitySet<SalidaProducto>(new Action<SalidaProducto>(this.attach_SalidaProducto), new Action<SalidaProducto>(this.detach_SalidaProducto));
 			this._DetalleFactura = new EntitySet<DetalleFactura>(new Action<DetalleFactura>(this.attach_DetalleFactura), new Action<DetalleFactura>(this.detach_DetalleFactura));
 			this._EntradaProducto = new EntitySet<EntradaProducto>(new Action<EntradaProducto>(this.attach_EntradaProducto), new Action<EntradaProducto>(this.detach_EntradaProducto));
-			this._SalidaProducto = new EntitySet<SalidaProducto>(new Action<SalidaProducto>(this.attach_SalidaProducto), new Action<SalidaProducto>(this.detach_SalidaProducto));
 			this._CategoriaProducto = default(EntityRef<CategoriaProducto>);
 			OnCreated();
 		}
@@ -2670,6 +2775,19 @@ namespace CapaDatos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_SalidaProducto", Storage="_SalidaProducto", ThisKey="Id_Producto", OtherKey="Id_Producto")]
+		public EntitySet<SalidaProducto> SalidaProducto
+		{
+			get
+			{
+				return this._SalidaProducto;
+			}
+			set
+			{
+				this._SalidaProducto.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_DetalleFactura", Storage="_DetalleFactura", ThisKey="Id_Producto", OtherKey="Id_Producto")]
 		public EntitySet<DetalleFactura> DetalleFactura
 		{
@@ -2693,19 +2811,6 @@ namespace CapaDatos
 			set
 			{
 				this._EntradaProducto.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_SalidaProducto", Storage="_SalidaProducto", ThisKey="Id_Producto", OtherKey="Id_Producto")]
-		public EntitySet<SalidaProducto> SalidaProducto
-		{
-			get
-			{
-				return this._SalidaProducto;
-			}
-			set
-			{
-				this._SalidaProducto.Assign(value);
 			}
 		}
 		
@@ -2763,6 +2868,18 @@ namespace CapaDatos
 			}
 		}
 		
+		private void attach_SalidaProducto(SalidaProducto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Producto = this;
+		}
+		
+		private void detach_SalidaProducto(SalidaProducto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Producto = null;
+		}
+		
 		private void attach_DetalleFactura(DetalleFactura entity)
 		{
 			this.SendPropertyChanging();
@@ -2782,18 +2899,6 @@ namespace CapaDatos
 		}
 		
 		private void detach_EntradaProducto(EntradaProducto entity)
-		{
-			this.SendPropertyChanging();
-			entity.Producto = null;
-		}
-		
-		private void attach_SalidaProducto(SalidaProducto entity)
-		{
-			this.SendPropertyChanging();
-			entity.Producto = this;
-		}
-		
-		private void detach_SalidaProducto(SalidaProducto entity)
 		{
 			this.SendPropertyChanging();
 			entity.Producto = null;
@@ -3123,205 +3228,84 @@ namespace CapaDatos
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SalidaProducto")]
-	public partial class SalidaProducto : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Rol")]
+	public partial class Rol : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id_SalidaProducto;
+		private int _Id_rol;
 		
-		private int _Id_Producto;
+		private string _Nombre;
 		
-		private int _Cantidad;
-		
-		private System.DateTime _FechaSalida;
-		
-		private string _Motivo;
-		
-		private string _Observacion;
-		
-		private EntityRef<Producto> _Producto;
+		private EntitySet<Cuenta> _Cuenta;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnId_SalidaProductoChanging(int value);
-    partial void OnId_SalidaProductoChanged();
-    partial void OnId_ProductoChanging(int value);
-    partial void OnId_ProductoChanged();
-    partial void OnCantidadChanging(int value);
-    partial void OnCantidadChanged();
-    partial void OnFechaSalidaChanging(System.DateTime value);
-    partial void OnFechaSalidaChanged();
-    partial void OnMotivoChanging(string value);
-    partial void OnMotivoChanged();
-    partial void OnObservacionChanging(string value);
-    partial void OnObservacionChanged();
+    partial void OnId_rolChanging(int value);
+    partial void OnId_rolChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
     #endregion
 		
-		public SalidaProducto()
+		public Rol()
 		{
-			this._Producto = default(EntityRef<Producto>);
+			this._Cuenta = new EntitySet<Cuenta>(new Action<Cuenta>(this.attach_Cuenta), new Action<Cuenta>(this.detach_Cuenta));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_SalidaProducto", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id_SalidaProducto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_rol", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id_rol
 		{
 			get
 			{
-				return this._Id_SalidaProducto;
+				return this._Id_rol;
 			}
 			set
 			{
-				if ((this._Id_SalidaProducto != value))
+				if ((this._Id_rol != value))
 				{
-					this.OnId_SalidaProductoChanging(value);
+					this.OnId_rolChanging(value);
 					this.SendPropertyChanging();
-					this._Id_SalidaProducto = value;
-					this.SendPropertyChanged("Id_SalidaProducto");
-					this.OnId_SalidaProductoChanged();
+					this._Id_rol = value;
+					this.SendPropertyChanged("Id_rol");
+					this.OnId_rolChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Producto", DbType="Int NOT NULL")]
-		public int Id_Producto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre
 		{
 			get
 			{
-				return this._Id_Producto;
+				return this._Nombre;
 			}
 			set
 			{
-				if ((this._Id_Producto != value))
+				if ((this._Nombre != value))
 				{
-					if (this._Producto.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnId_ProductoChanging(value);
+					this.OnNombreChanging(value);
 					this.SendPropertyChanging();
-					this._Id_Producto = value;
-					this.SendPropertyChanged("Id_Producto");
-					this.OnId_ProductoChanged();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int NOT NULL")]
-		public int Cantidad
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Rol_Cuenta", Storage="_Cuenta", ThisKey="Id_rol", OtherKey="Id_rol")]
+		public EntitySet<Cuenta> Cuenta
 		{
 			get
 			{
-				return this._Cantidad;
+				return this._Cuenta;
 			}
 			set
 			{
-				if ((this._Cantidad != value))
-				{
-					this.OnCantidadChanging(value);
-					this.SendPropertyChanging();
-					this._Cantidad = value;
-					this.SendPropertyChanged("Cantidad");
-					this.OnCantidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaSalida", DbType="Date NOT NULL")]
-		public System.DateTime FechaSalida
-		{
-			get
-			{
-				return this._FechaSalida;
-			}
-			set
-			{
-				if ((this._FechaSalida != value))
-				{
-					this.OnFechaSalidaChanging(value);
-					this.SendPropertyChanging();
-					this._FechaSalida = value;
-					this.SendPropertyChanged("FechaSalida");
-					this.OnFechaSalidaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Motivo", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Motivo
-		{
-			get
-			{
-				return this._Motivo;
-			}
-			set
-			{
-				if ((this._Motivo != value))
-				{
-					this.OnMotivoChanging(value);
-					this.SendPropertyChanging();
-					this._Motivo = value;
-					this.SendPropertyChanged("Motivo");
-					this.OnMotivoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observacion", DbType="VarChar(100)")]
-		public string Observacion
-		{
-			get
-			{
-				return this._Observacion;
-			}
-			set
-			{
-				if ((this._Observacion != value))
-				{
-					this.OnObservacionChanging(value);
-					this.SendPropertyChanging();
-					this._Observacion = value;
-					this.SendPropertyChanged("Observacion");
-					this.OnObservacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_SalidaProducto", Storage="_Producto", ThisKey="Id_Producto", OtherKey="Id_Producto", IsForeignKey=true)]
-		public Producto Producto
-		{
-			get
-			{
-				return this._Producto.Entity;
-			}
-			set
-			{
-				Producto previousValue = this._Producto.Entity;
-				if (((previousValue != value) 
-							|| (this._Producto.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Producto.Entity = null;
-						previousValue.SalidaProducto.Remove(this);
-					}
-					this._Producto.Entity = value;
-					if ((value != null))
-					{
-						value.SalidaProducto.Add(this);
-						this._Id_Producto = value.Id_Producto;
-					}
-					else
-					{
-						this._Id_Producto = default(int);
-					}
-					this.SendPropertyChanged("Producto");
-				}
+				this._Cuenta.Assign(value);
 			}
 		}
 		
@@ -3343,6 +3327,18 @@ namespace CapaDatos
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Cuenta(Cuenta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Rol = this;
+		}
+		
+		private void detach_Cuenta(Cuenta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Rol = null;
 		}
 	}
 	
