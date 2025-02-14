@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Categoria = CapaEntidades.Gestion.Categoria;
+using categoria = CapaEntidades.Gestion.Categoria;
 
 namespace CapaDatos.Gestion
 {
@@ -46,7 +46,7 @@ namespace CapaDatos.Gestion
             return lista;
         }
 
-        public static void insertarCategoriaCD(Categoria Categoria)
+        public static void insertarCategoriaCD(categoria Categoria)
         {
             ConectorBDDataContext bd = null;
             try
@@ -61,7 +61,7 @@ namespace CapaDatos.Gestion
                 Debug.WriteLine("Error en insertar Categorias CD" + error);
             }
         }
-        public static void modificarCategoriaCD(Categoria Categoria)
+        public static void modificarCategoriaCD(categoria Categoria)
         {
             ConectorBDDataContext bd = null;
             try
