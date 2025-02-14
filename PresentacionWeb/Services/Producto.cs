@@ -20,7 +20,7 @@ namespace PresentacionWeb.Services
             _httpClient = new HttpClient();  // Inicializamos HttpClient
         }
 
-        public async Task<List<EntidadProducto>>ObtenerProductos()
+        public async Task<List<EntidadProducto>> ObtenerProductos()
         {
             // Hacemos una solicitud GET a la API Web
             var response = await _httpClient.GetStringAsync("https://localhost:44386/api/producto/obtener-productos");

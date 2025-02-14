@@ -6,19 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using producto = CapaEntidades.Gestion.Producto;
-using VProducto = CapaEntidades.Vistas.VProductoCategoria;
+using vistaProductoCategoria = CapaEntidades.Vistas.VProductoCategoria;
 
 namespace CapaLogica.Gestion
 {
     public class ProductoLN
     {
-        public static List<VProducto> listarVistaProductosLN()
+        public static List<vistaProductoCategoria> listarVistaProductosLN()
         {
-            List<VProducto> lista = null;
+            List<vistaProductoCategoria> lista = null;
             try
             {
-                var sql = from x in ProductoCD.listarVistaProductosCD()
-                          select new VProducto(x.ID, x.Categoria, x.Producto, x.Precio, x.Stock, x.Estado, x.Icono, x.Descripcion);
+                var sql = from x in ProductoCD.listarVistaProductosCategoriasCD()
+                          select new vistaProductoCategoria(x.ID, x.Categoria, x.Producto, x.Precio, x.Stock, x.Estado, x.Icono, x.Descripcion);
                 lista = sql.ToList();
             }
             catch (Exception error)
