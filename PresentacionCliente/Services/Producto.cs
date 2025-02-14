@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;  // Esto es necesario para que JsonConvert funcione
 
 using EntidadProducto = CapaEntidades.Gestion.Producto;
+using VistaProducto = CapaEntidades.Vistas.VProductoCategoria;
 
 namespace PresentacionCliente.Services
 {
@@ -20,13 +21,12 @@ namespace PresentacionCliente.Services
             _httpClient = new HttpClient();  // Inicializamos HttpClient
         }
 
-        public async Task<List<EntidadProducto>> ObtenerProductos()
+        public static async Task<List<VistaProducto>> listarVistaProductos()
         {
             // Hacemos una solicitud GET a la API Web
-            var response = await _httpClient.GetStringAsync("https://localhost:44386/api/producto/obtener-productos");
-            Debug.WriteLine("Intentanto");
+            var response = await _httpClient.GetStringAsync("https://localhost:44386/api/producto/listar-vista-productos");
             // Deserializamos la respuesta JSON en una lista de productos
-            var productos = JsonConvert.DeserializeObject<List<EntidadProducto>>(response);
+            var productos = JsonConvert.DeserializeObject<List<VistaProducto>>(response);
             return productos;
         }
     }

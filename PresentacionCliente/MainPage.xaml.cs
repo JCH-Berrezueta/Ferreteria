@@ -8,21 +8,12 @@ namespace PresentacionCliente
 {
     public partial class MainPage : ContentPage
     {
-       
-        private Producto servicio;
 
         public MainPage()
         {
             InitializeComponent();
-            servicio = new Producto();
-            intentar();
         }
 
-        public async void intentar()
-        {
-            List<EntidadProducto> lista =  await servicio.ObtenerProductos();
-            Debug.WriteLine("RESULTADO" + lista[0].Descripcion);
-        }
 
         private async void BotonIngresar_Clicked(object sender, EventArgs e)
         {
