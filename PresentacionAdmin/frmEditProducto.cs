@@ -21,37 +21,9 @@ namespace PresentacionAdmin
         {
             InitializeComponent();
             cargarDatos();  
+
         }
-        ProductoLN oln = new ProductoLN();
-        CategoriaLN olncat = new CategoriaLN();
-        public void CargarCategoria()
-        {
-            var categorias = olncat.ViewCategoria();
-            if (categorias != null && categorias.Count > 0)
-            {
-                cboCategoria.DataSource = categorias;
-                cboCategoria.DisplayMember = "Nombre";
-                cboCategoria.ValueMember = "IDCategoria";
-            }
-            else
-            {
-                MessageBox.Show("No hay categorías disponibles.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        public Productos CrearObjeto()
-        {
-            Productos oa;
-            int IdProd = int.Parse(textBox1.Text);
-            int categoriaselec = (int)cboCategoria.SelectedValue;
-            string nombre = textBox3.Text;
-            string unid = textBox4.Text;
-            int stock = int.Parse(textBox5.Text);
-            int stockmin = int.Parse(textBox6.Text);
-            decimal preven = decimal.Parse(textBox7.Text);
-            decimal precom = decimal.Parse(textBox8.Text);
-            oa = new Productos(IdProd, categoriaselec, nombre, unid, stock, stockmin, precom, preven);
-            return oa;
-        }
+       
         public int buscarIndice(System.Windows.Forms.ComboBox comboBox, string value)
         {
             foreach (object item in comboBox.Items)
@@ -67,36 +39,8 @@ namespace PresentacionAdmin
             return -1;
 
         }
-        public void setDatos()
-        {
-            try
-            {
-                textBox1.ReadOnly = true;
-                textBox1.Text = auxiliar.IdProducto.ToString();
-                textBox3.Text = auxiliar.Nombre;
-                textBox4.Text = auxiliar.UnidadMedida;
-                textBox5.Text = auxiliar.Stock.ToString();
-                textBox6.Text = auxiliar.StockMinimo.ToString();
-                textBox7.Text = auxiliar.PrecioCompra.ToString();
-                textBox8.Text = auxiliar.PrecioVenta.ToString();
-                cboCategoria.SelectedIndex = buscarIndice(cboCategoria, auxiliar.Categoria);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al asignar datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        public bool validar()
-        {
-            bool val = true;
-
-            if (textBox1.Text == "" || cboCategoria.SelectedIndex == -1 || textBox3.Text == "" || textBox4.Text == ""
-            || textBox5.Text == "" || textBox6.Text == "" || textBox7.Text == "" || textBox8.Text == "")
-            {
-                val = false;
-            }
-            return val;
-        }
+        
+       
         private void button1_Click(object sender, EventArgs e)
         {
             Nuevo();

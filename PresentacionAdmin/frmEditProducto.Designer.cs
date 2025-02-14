@@ -56,11 +56,7 @@
             this.label1.Location = new System.Drawing.Point(264, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-<<<<<<< HEAD
             this.label1.Size = new System.Drawing.Size(182, 31);
-=======
-            this.label1.Size = new System.Drawing.Size(193, 25);
->>>>>>> insertar
             this.label1.TabIndex = 0;
             this.label1.Text = "Insertar Producto";
             // 

@@ -21,30 +21,11 @@ namespace PresentacionAdmin
           
            
         }
-        ProductoLN pd = new ProductoLN();
         private void frmProducto_Load(object sender, EventArgs e)
         {
-            
-
+            dataGridView1.DataSource=ProductoLN.listarVistaProductosLN();
         }
-        public void ListarProductos(string alv)
-        {
-            dataGridView1.DataSource = ProductoLN.listarProductosLN();
-        }
-        public void Nuevo()
-        {
-            frmEditProducto frm = new frmEditProducto();
-            
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
-            {
-                Producto op = frm.CrearObjeto();
-                oln.CreateProducto(op);
-                frm.Hide();
-                ListarProductos("");
-            }
-        }
-
+      
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -52,7 +33,6 @@ namespace PresentacionAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             frmEditProducto frm = new frmEditProducto();
             frm.ShowDialog();
             if(frm.DialogResult == DialogResult.OK)
@@ -63,9 +43,6 @@ namespace PresentacionAdmin
                 ProductoLN.listarProductosLN();
 
             }
-=======
-           
->>>>>>> productoln
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

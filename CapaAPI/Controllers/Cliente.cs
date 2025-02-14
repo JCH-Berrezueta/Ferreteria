@@ -13,13 +13,12 @@ namespace CapaAPI.Controllers
         public Cliente()
         {
         }
-        //[HttpGet]
-        //[Route("obtener-clientes")]
-        //public IHttpActionResult ObtenerClientes()
-        //{
-        //    // Aquí estamos llamando a la capa lógica para obtener los clientes
-        //    //var clientes = ClienteLN.listarClientesLN();
-        //    //return Ok(clientes);  // Retornamos la lista de clientes
-        //}
+        [HttpGet]
+        [Route("obtener-clientes")]
+        public IHttpActionResult ObtenerClientes()
+        {
+           var clientes = ClienteLN.listarClientesLN();
+            return Ok(clientes);  // Retornamos la lista de clientes
+        }
     }
 }

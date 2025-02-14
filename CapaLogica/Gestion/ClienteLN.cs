@@ -22,7 +22,7 @@ namespace CapaLogica.Gestion
             }
             catch (Exception error)
             {
-                Debug.WriteLine("Error listar Productos LN" + error);
+                Debug.WriteLine("Error listar Clientes LN" + error);
             }
             return lista;
         }
