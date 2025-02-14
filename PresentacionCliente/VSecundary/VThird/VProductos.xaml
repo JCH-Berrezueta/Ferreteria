@@ -2,26 +2,53 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PresentacionCliente.VSecundary.VThird.VProductos"
-             Title="VProductos">
-    <ScrollView>
-        <CollectionView x:Name="ProductsCollectionView" SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10">
-                        <Frame BorderColor="LightGray" CornerRadius="5">
-                            <StackLayout>
-                                <Image Source="{Binding Icon}" HeightRequest="100"/>
-                                <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="Medium"/>
-                                <Label Text="Precio: {Binding Precio}" />
-                                <Label Text="Stock: {Binding Stock}" />
-                                <Label Text="Estado: {Binding Estado}" />
-                                <Label Text="Descripción: {Binding Descripcion}" LineBreakMode="WordWrap"/>
-                                <Button Text="Añadir al Carrito" Clicked="Button_Clicked"/>
-                            </StackLayout>
-                        </Frame>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </ScrollView>
+             Title="VProductos"
+             Background="White">
+    <Grid>
+        <!-- Definir filas para la Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!-- Ocupa el espacio restante -->
+            <RowDefinition Height="Auto" />
+            <!-- Tamaño automático para la barra de botones -->
+        </Grid.RowDefinitions>
+
+        <!-- Colocar el ScrollView en la primera fila -->
+        <ScrollView Grid.Row="0">
+            <CollectionView x:Name="ProductsCollectionView" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Frame BorderColor="LightGray" CornerRadius="5" BackgroundColor="Black">
+                                <StackLayout>
+                                    <Image Source="{Binding Icono}" HeightRequest="100"/>
+                                    <Label Text="{Binding Producto}" FontAttributes="Bold" FontSize="Medium" TextColor="White"/>
+                                    <Label Text="{Binding Categoria}"/>
+                                    <Label Text="{Binding Stock}" TextColor="White"/>
+                                    <Label Text="{Binding Estado}" />
+                                    <Label Text="{Binding Descripcion}" LineBreakMode="WordWrap"/>
+                                    <Label Text="{Binding Precio}" FontAttributes="Bold" FontSize="Medium" TextColor="White"/>
+                                    <Button Text="Añadir al Carrito" Clicked="Button_Clicked_1"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <!-- Colocar la barra de ImageButtons en la segunda fila -->
+        <Grid Grid.Row="1" BackgroundColor="Wheat" Padding="5" HeightRequest="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ImageButton Source="usuario.png" Grid.Column="0" />
+            <ImageButton Source="categorias.png" Grid.Column="1" />
+            <ImageButton Source="factura.png" Grid.Column="2" />
+            <ImageButton Source="productos.png" Grid.Column="3" />
+        </Grid>
+    </Grid>
 </ContentPage>

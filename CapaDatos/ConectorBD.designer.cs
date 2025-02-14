@@ -70,7 +70,7 @@ namespace CapaDatos
 		 * AQUI CONFIGURAN   AQUIIIIIII - reemplazen el nombre CASA o cualquiera por su nombre de su computadora
 		 * El nombre de la BD debe ser si o si FerreteriaPA y ya :)
 		 */
-        public static string connectionPropia = "Data Source=CASA;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=False";
+        public static string connectionPropia = "Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=False";
 
         public ConectorBDDataContext() :
                 base(connectionPropia, mappingSource)
