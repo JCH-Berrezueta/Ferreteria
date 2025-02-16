@@ -53,7 +53,7 @@ namespace PresentacionWeb.Controlador
         {
             if (ModelState.IsValid)
             {
-                _categoriaRepository.ModificarCategoria(categoria.IdCategoria, categoria.Nombre, categoria.Descripcion);
+                _categoriaRepository.ModificarCategoria( categoria.Nombre, categoria.Descripcion);
                 return RedirectToAction("Categoria");
             }
             return View(categoria);

@@ -59,14 +59,13 @@ namespace PresentacionWeb.Repositorio
                 }
             }
         }
-        public void ModificarCategoria(int id, string nombre, string descripcion)
+        public void ModificarCategoria(string nombre, string descripcion)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 using (var command = new SqlCommand("CP_ModificarCategoriaProducto", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@Id", id);
                     command.Parameters.AddWithValue("@Nombre", nombre);
                     command.Parameters.AddWithValue("@Descripcion", descripcion);
 

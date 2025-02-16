@@ -38,9 +38,9 @@ namespace PresentacionWeb.Pages
             _categoriaRepository.InsertarCategoria(nombre, descripcion);
         }
 
-        public void OnPostModificar(int id, string nombre, string descripcion)
+        public void OnPostModificar(string nombre, string descripcion)
         {
-            _categoriaRepository.ModificarCategoria(id, nombre, descripcion);
+            _categoriaRepository.ModificarCategoria(nombre, descripcion);
         }
 
         public IActionResult OnPostEliminar(int id)
