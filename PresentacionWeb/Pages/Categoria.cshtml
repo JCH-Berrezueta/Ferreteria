@@ -3,3 +3,64 @@
 @{
     ViewData["Title"] = "Categoria";
 }
+<style>
+    body {
+        background-color: floralwhite; /* Color de fondo floral */
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+        color: #4caf50; /* Verde */
+    }
+
+    p {
+        color: #ff9800; /* Naranja */
+    }
+</style>
+<h1>@ViewData["Title"]</h1>  
+
+<!-- Formulario para Crear una Nueva Categoria -->  
+<h2>Crear Nueva Categoría</h2>  
+<form method="post" asp-page-handler="Crear">  
+    <div class="form-group">  
+        <label>Nombre</label>  
+        <input type="text" name="Nombre" class="form-control" required />  
+    </div>  
+    <div class="form-group">  
+        <label>Descripción</label>  
+        <input type="text" name="Descripcion" class="form-control" />  
+    </div>  
+    <button type="submit" class="btn btn-primary">Crear</button>  
+</form>  
+
+<!-- Tabla de Categorías -->  
+<h2>Lista de Categorías</h2>  
+<table class="table">  
+    <thead>  
+        <tr>  
+            <th>Nombre</th>  
+            <th>Descripción</th>  
+            <th>Acciones</th>  
+        </tr>  
+    </thead>  
+    <tbody>  
+        @foreach (var categoria in Model.Categorias)  
+        {  
+            <tr>  
+                <td>@categoria.Nombre</td>  
+                <td>@categoria.Descripcion</td>  
+                <td>
+                    <a asp-page="Editar" asp-route-id="@categoria.IdCategoria" asp-route-nombre="@categoria.Nombre" asp-route-descripcion="@categoria.Descripcion" class="btn btn-warning">Editar</a>
+                    <form method="post" asp-page-handler="Eliminar" style="display:inline;">  
+                        <input type="hidden" name="id" value="@categoria.IdCategoria" />  
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta categoría?');">Eliminar</button>  
+                    </form>  
+                </td>  
+            </tr>  
+        }  
+    </tbody>  
+</table>

@@ -20,8 +20,4 @@
     <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controlador\" />
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PresentacionWeb.Repositorio;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+builder.Services.AddControllersWithViews(); // Asegúrate de que esto esté incluido  
+builder.Services.AddScoped<CategoriaRepository>(provider =>
+    new CategoriaRepository(builder.Configuration.GetConnectionString("CadenaSQL")));
 
 var app = builder.Build();
 
