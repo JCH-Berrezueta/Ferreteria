@@ -24,7 +24,7 @@ namespace PresentacionAdmin
         {
             InitializeComponent();
             cargarDatos();
-
+            textBox1.Enabled = true;
         }
 
         public int buscarIndice(System.Windows.Forms.ComboBox comboBox, string value)
@@ -96,7 +96,7 @@ namespace PresentacionAdmin
             bool val = true;
 
             if (textBox1.Text == "" || comboBox1.SelectedIndex == -1 || textBox3.Text == "" || textBox4.Text == ""
-                || textBox5.Text == "" || textBox6.Text == "" || textBox7.Text == "")
+                || textBox5.Text == "" || comboBox2.SelectedIndex == -1 || textBox7.Text == "")
             {
                 val = false;
             }
@@ -112,7 +112,7 @@ namespace PresentacionAdmin
             string nom = textBox3.Text;
             decimal pre = decimal.Parse(textBox4.Text);
             int stock = int.Parse(textBox5.Text);
-            string est = textBox6.Text;
+            string est = comboBox2.SelectedItem.ToString();
             string icono = textBox7.Text;
             string desc = textBox8.Text;
             pro = new Producto(id, cate, nom, pre, stock, est, icono, desc);
@@ -123,12 +123,14 @@ namespace PresentacionAdmin
         {
             try
             {
+                textBox1.Enabled = false;
+                textBox1.ReadOnly = true;
                 textBox1.Text = auxiliar.Id.ToString();
                 comboBox1.SelectedIndex = buscarIndice(comboBox1, auxiliar.Categoria.ToString());
                 textBox3.Text = auxiliar.Producto;
                 textBox4.Text = auxiliar.Precio.ToString();
                 textBox5.Text = auxiliar.Stock.ToString();
-                textBox6.Text = auxiliar.Estado;
+                comboBox2.SelectedItem = auxiliar.Estado;
                 textBox7.Text = auxiliar.Icono;
                 textBox8.Text = auxiliar.Descripcion;
             }
@@ -137,6 +139,18 @@ namespace PresentacionAdmin
                 MessageBox.Show("Error al cargar datos");
 
             }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Configurar el ComboBox para que no se edite
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Configurar el ComboBox para que no se edite
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
     }
 }
