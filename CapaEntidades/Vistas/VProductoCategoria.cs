@@ -16,7 +16,15 @@ namespace CapaEntidades.Vistas
         private string estado;
         private string icono;
         private string descripcion;
+        
+        public VProductoCategoria()
+        {
+        }
 
+        public VProductoCategoria(int id)
+        {
+            Id = id;
+        }
         public VProductoCategoria(int id, string categoria, string producto, decimal precio, int stock, string estado, string icono, string descripcion)
         {
             Id = id;

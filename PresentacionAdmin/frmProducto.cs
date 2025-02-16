@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidades.Gestion;
+using CapaEntidades.Vistas;
 using CapaLogica.Gestion;
 namespace PresentacionAdmin
 {
@@ -23,25 +24,24 @@ namespace PresentacionAdmin
         }
         private void frmProducto_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource=ProductoLN.listarVistaProductosLN();
+            Listar();
         }
-      
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+  
+        public void Listar()
         {
-
+            dataGridView1.DataSource = ProductoLN.listarVistaProductosLN();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void Nuevo()
         {
             frmEditProducto frm = new frmEditProducto();
             frm.ShowDialog();
-            if(frm.DialogResult == DialogResult.OK)
+            if (frm.DialogResult == DialogResult.OK)
             {
                 Producto op = frm.CreacionOb();
                 oln.InsertarProducto(op);
                 frm.Hide();
-                ProductoLN.listarProductosLN();
-
+                Listar();
             }
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -49,14 +49,68 @@ namespace PresentacionAdmin
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
 
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+            Nuevo();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void toolStripStatusLabel2_Click(object sender, EventArgs e)
         {
-           
+            Modificar();
+        }
+
+        private void Modificar()
+        {
+            try
+            {
+                VProductoCategoria vop = dataGridView1.CurrentRow.DataBoundItem as VProductoCategoria;
+                frmEditProducto frm = new frmEditProducto();
+                frm.label1.Text = "Modificar Producto";
+                frm.auxiliar = vop;
+                frm.setDatos();
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    oln.ActualizarProducto(frm.CreacionOb());
+                    frm.Hide();
+                    Listar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Seleccione una fila a modificar");
+            }
+        }
+
+        private void toolStripStatusLabel3_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+        }
+
+        private void Eliminar()
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow != null)
+                {
+                    var res = MessageBox.Show("Desea eliminar Producto", "Eliminar Producto", MessageBoxButtons.YesNo);
+                    if (res == DialogResult.Yes)
+                    {
+                        VProductoCategoria obp = dataGridView1.CurrentRow.DataBoundItem as VProductoCategoria;
+                        VProductoCategoria op = new VProductoCategoria(obp.Id);
+                        oln.EliminarProducto(op.Id);
+                        Listar();
+                    }
+
+                }
+                else
+                    MessageBox.Show("Seleccione la fila");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" error al eliminar datos" + ex.Message);
+            }
         }
     }
 
