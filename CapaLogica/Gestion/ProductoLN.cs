@@ -44,6 +44,26 @@ namespace CapaLogica.Gestion
             }
             return lista;
         }
-    
+
+        public bool VerificarCodProducto(int idProdu)
+        {
+            List<producto> categorias = listarProductosLN();
+
+            return categorias.Any(c => c.IdProducto == idProdu);
+        }
+
+        public bool InsertarProducto(producto p)
+        {
+            try
+            {
+                ProductoCD.insertarProductoCD(p);
+                return true;
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error insertar Producto LN" + error);
+            }
+            return false;
+        }
     }
 }

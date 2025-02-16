@@ -1,30 +1,29 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EntidadFactura = CapaEntidades.Gestion.Factura;
+using VistaCuenta= CapaEntidades.Gestion.Cuenta;
 namespace PresentacionCliente.Services
 {
-    public class Factura
+    class Cuenta
     {
         private readonly HttpClient _httpClient;
 
-        public Factura()
+        public Cuenta()
         {
             _httpClient = new HttpClient();  // Inicializamos HttpClient
         }
 
-        public async Task<List<EntidadFactura>> ObtenerProductos()
+        public async Task<List<VistaCuenta>> listarVistaCuenta()
         {
             // Hacemos una solicitud GET a la API Web
-            var response = await _httpClient.GetStringAsync("https://localhost:44386/api/producto/obtener-productos");
-            Debug.WriteLine("Intentanto");
+            var response = await _httpClient.GetStringAsync("https://localhost:44386/api/Cuenta/listar-cuentas");
             // Deserializamos la respuesta JSON en una lista de productos
-            var productos = JsonConvert.DeserializeObject<List<EntidadFactura>>(response);
+            var productos = JsonConvert.DeserializeObject<List<VistaCuenta>>(response);
             return productos;
+            // nose nada de esto
         }
     }
 }

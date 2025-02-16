@@ -18,8 +18,9 @@ namespace CapaLogica.Seguridad
             try
             {
                 var sql = from x in CuentaCD.listarCuentasCD()
-                          select new EntidadCuenta(x.Mail, x.Password);
+                          select new EntidadCuenta(x.Id_Cuenta,x.Id_rol,x.Mail, x.Password);
                 lista = sql.ToList();
+                Debug.WriteLine("Intentanto LN" + lista.Count);
             }
             catch(Exception error)
             {
