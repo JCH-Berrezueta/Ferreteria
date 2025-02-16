@@ -65,5 +65,33 @@ namespace CapaLogica.Gestion
             }
             return false;
         }
+
+        public bool ActualizarProducto(producto p)
+        {
+            try
+            {
+                ProductoCD.modificarProductoCD(p);
+                return true;
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error actualizar Producto LN" + error);
+            }
+            return false;
+        }
+
+        public bool EliminarProducto(int id)
+        {
+            try
+            {
+                ProductoCD.eliminarProductoCD(id);
+                return true;
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error eliminar Producto LN" + error);
+            }
+            return false;
+        }
     }
 }

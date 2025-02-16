@@ -10,7 +10,7 @@ namespace CapaAPI.Controllers
         }
 
         [HttpGet]
-        [Route("listar-cuentas")]
+        [Route("listar")]
 
         public IHttpActionResult ObtenerCuentas()
         {
