@@ -28,6 +28,23 @@ namespace CapaDatos.Gestion
             return lista;
         }
 
+        public static List<FiltrarVistaDetalleFacturaResult> filtrarVistaDetalleFacturasCD(string clave)
+        {
+            ConectorBDDataContext bd = null;
+            List<FiltrarVistaDetalleFacturaResult> lista = null;
+            try
+            {
+                bd = new ConectorBDDataContext();
+                lista = bd.FiltrarVistaDetalleFactura(clave).ToList();
+                bd.SubmitChanges();
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error en filtrar Vista DetalleFacturas CD" + error);
+            }
+            return lista;
+        }
+
         public static List<CP_ListarDetalleFacturasResult> listarDetalleFacturasCD()
         {
             ConectorBDDataContext bd = null;

@@ -1,21 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Gestion
 {
+    [DataContract]
     public class Empresa
     {
+        [DataMember]
         private int idEmpresa;
+        [DataMember]
         private string nombre;
+        [DataMember]
         private string ruc;
+        [DataMember]
         private string direccion;
+        [DataMember]
         private string representante;
+        [DataMember]
         private string telefono;
+        [DataMember]
         private string mail;
+        [DataMember]
         private string descripcion;
+        [DataMember]
         private string observacion;
 
         public Empresa(int idEmpresa, string nombre, string ruc, string direccion, string representante, string telefono, string mail, string descripcion, string observacion)

@@ -1,18 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Vistas
 {
+    [DataContract]
     public class VDetalleFactura
     {
+        [DataMember]
         private int id;
+        [DataMember]
         private string categoria;
+        [DataMember]
         private string producto;
+        [DataMember]
         private decimal precio;
+        [DataMember]
         private int cantidad;
+        [DataMember]
         private decimal subtotal;
 
         public VDetalleFactura(int id, string categoria, string producto, decimal precio, int cantidad, decimal subtotal)

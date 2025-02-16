@@ -1,20 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Vistas
 {
+    [DataContract]
     public class VProductoCategoria
     {
+        [DataMember]
         private int id;
+        [DataMember]
         private string categoria;
+        [DataMember]
         private string producto;
+        [DataMember]
         private decimal precio;
+        [DataMember]
         private int stock;
+        [DataMember]
         private string estado;
+        [DataMember]
         private string icono;
+        [DataMember]
         private string descripcion;
         
         
