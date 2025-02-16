@@ -1,7 +1,9 @@
-
-using CapaLogica.Gestion;
+ï»¿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Http;
-using ClienteLN = CapaLogica.Gestion.ClienteLN;
 
 namespace CapaAPI.Controllers
 {
@@ -10,16 +12,14 @@ namespace CapaAPI.Controllers
     {
         public ClienteController()
         {
-
         }
-
         [HttpGet]
-        [Route("listar-cliente")]
+        [Route("listar")]
         public IHttpActionResult ObtenerClientes()
         {
-            // Aquí estamos llamando a la capa lógica para obtener los productos
-            var productos = ClienteLN.listarClientesLN();
-            return Ok(productos);  // Retornamos la lista de productos
+            // AquÃ­ estamos llamando a la capa lÃ³gica para obtener los clientes
+            var clientes = CapaLogica.Gestion.ClienteLN.listarClientesLN();
+            return Ok(clientes);  // Retornamos la lista de clientes
         }
     }
 }
