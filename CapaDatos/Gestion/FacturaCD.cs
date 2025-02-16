@@ -40,7 +40,7 @@ namespace CapaDatos.Gestion
             }
             catch (Exception error)
             {
-                Debug.WriteLine("Error filtrar Vista Facturas CD " + error);
+                Debug.WriteLine("Error filtrar Vista Facturas Clientes CD " + error);
             }
             return lista;
         }

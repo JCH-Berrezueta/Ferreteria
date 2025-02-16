@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Gestion
 {
+    [DataContract]
     public class Categoria
     {
+        [DataMember]
         private int idCategoria;
+        [DataMember]
         private string nombre;
+        [DataMember]
         private string descripcion;
 
         public Categoria()

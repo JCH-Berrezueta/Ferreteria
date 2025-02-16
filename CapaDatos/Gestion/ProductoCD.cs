@@ -24,7 +24,7 @@ namespace CapaDatos.Gestion
             }
             catch (Exception error)
             {
-                Debug.WriteLine("Error listar Vista productos CD " + error);
+                Debug.WriteLine("Error listar Vista productos Categoria CD " + error);
             }
             return lista;
         }
@@ -41,7 +41,7 @@ namespace CapaDatos.Gestion
             }
             catch (Exception error)
             {
-                Debug.WriteLine("Error filtrar Vista productos CD " + error);
+                Debug.WriteLine("Error filtrar Vista productos Categoria CD " + error);
             }
             return lista;
         }

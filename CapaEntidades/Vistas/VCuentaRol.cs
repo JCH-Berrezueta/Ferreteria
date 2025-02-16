@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Vistas
 {
+    [DataContract]
     public class VCuentaRol
     {
+        [DataMember]
         private int id;
+        [DataMember]
         private string rol;
+        [DataMember]
         private string mail;
 
         public VCuentaRol(int id, string rol, string mail)

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades.Gestion
 {
+    [DataContract]
     public class Cuenta
     {
         [DataMember]

@@ -1,20 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Gestion
 {
+    [DataContract]
     public class EntradaProducto
     {
+        [DataMember]
         private int idEntradaProducto;
+        [DataMember]
         private int idProducto;
+        [DataMember]
         private int idProveedor;
+        [DataMember]
         private DateTime fechaIngreso;
+        [DataMember]
         private int cantidad;
+        [DataMember]
         private decimal costoUnitario;
+        [DataMember]
         private decimal costoTotal;
+        [DataMember]
         private string observacion;
 
         public EntradaProducto(int idEntradaProducto, int idProducto, int idProveedor, DateTime fechaIngreso, int cantidad, decimal costoUnitario, decimal costoTotal, string observacion)

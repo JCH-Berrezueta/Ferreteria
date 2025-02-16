@@ -24,7 +24,24 @@ namespace CapaDatos.Gestion
             }
             catch (Exception error)
             {
-                Debug.WriteLine("Error en listar Proveedors Empresa CD" + error);
+                Debug.WriteLine("Error en listar Vista Proveedors Empresa CD" + error);
+            }
+            return lista;
+        }
+
+        public static List<FiltrarVistaProveedorEmpresaResult> filtrarVistaProveedoresEmpresasCD(string clave)
+        {
+            ConectorBDDataContext bd = null;
+            List<FiltrarVistaProveedorEmpresaResult> lista = null;
+            try
+            {
+                bd = new ConectorBDDataContext();
+                lista = bd.FiltrarVistaProveedorEmpresa(clave).ToList();
+                bd.SubmitChanges();
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error en filtrar Vista Proveedors Empresa CD" + error);
             }
             return lista;
         }

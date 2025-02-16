@@ -1,18 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Gestion
 {
+    [DataContract]
     public class Factura
     {
+        [DataMember]
         private int idFactura;
+        [DataMember]
         private int idCliente;
+        [DataMember]
         private DateTime fechaEmision;
+        [DataMember]
         private string metodoPago;
+        [DataMember]
         private decimal total;
+        [DataMember]
         private int iva;
 
         public Factura(int idFactura, int idCliente, DateTime fechaEmision, string metodoPago, decimal total, int iva)

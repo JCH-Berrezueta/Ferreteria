@@ -1,18 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Gestion
 {
+    [DataContract]
     public class SalidaProducto
     {
+        [DataMember]
         private int idSalidaProducto;
+        [DataMember]
         private int idProducto;
+        [DataMember]
         private int cantidad;
+        [DataMember]
         private DateTime fechaSalida;
+        [DataMember]
         private string motivo;
+        [DataMember]
         private string observacion;
 
         public SalidaProducto(int idSalidaProducto, int idProducto, int cantidad, DateTime fechaSalida, string motivo, string observacion)
