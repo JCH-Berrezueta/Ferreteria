@@ -54,10 +54,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(262, 43);
+            this.textBox1.Location = new System.Drawing.Point(593, 54);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(429, 22);
+            this.textBox1.Size = new System.Drawing.Size(296, 22);
             this.textBox1.TabIndex = 4;
             // 
             // statusStrip1
@@ -106,7 +106,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(713, 26);
+            this.pictureBox1.Location = new System.Drawing.Point(897, 44);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(39, 42);

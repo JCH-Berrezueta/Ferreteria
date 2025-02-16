@@ -45,6 +45,21 @@ namespace CapaLogica.Gestion
             return lista;
         }
 
+        public static  List<vistaProductoCategoria> filtrarProductosCategoriaLN(string valor)
+        {
+            List<vistaProductoCategoria> lista = null;
+            try
+            {
+                var sql = from x in ProductoCD.filtrarVistaProductosCategoriasCD(valor)
+                          select new vistaProductoCategoria(x.ID,x.Categoria,x.Producto,x.Precio,x.Stock,x.Estado,x.Icono,x.Descripcion);
+                lista = sql.ToList();
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error listar Productos por Categoria LN" + error);
+            }
+            return lista;
+        }
         public bool VerificarCodProducto(int idProdu)
         {
             List<producto> categorias = listarProductosLN();

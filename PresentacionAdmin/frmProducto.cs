@@ -25,9 +25,15 @@ namespace PresentacionAdmin
         private void frmProducto_Load(object sender, EventArgs e)
         {
             Listar();
+            //listarProductos("");
+
         }
 
   
+        public void listarProductos(string valor)
+        {
+            dataGridView1.DataSource =ProductoLN.listarVistaProductosLN();
+        }
         public void Listar()
         {
             dataGridView1.DataSource = ProductoLN.listarVistaProductosLN();
