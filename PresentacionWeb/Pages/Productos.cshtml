@@ -1,0 +1,99 @@
+﻿@page
+@model PresentacionWeb.Pages.ProductosModel
+@{
+    ViewData["Title"] = "Categoria";
+
+}
+<style>
+    body {
+        background-color: floralwhite; /* Color de fondo floral */
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+        color: #4caf50; /* Verde */
+    }
+
+    p {
+        color: #ff9800; /* Naranja */
+    }
+</style>
+
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Formulario para Crear una Nueva Categoria -->
+<h2>Crear Nueva Producto</h2>
+<form method="post" asp-page-handler="Crear">
+    <div class="form-group">
+        <label>IdCategoriaProducto</label>
+        <input type="text" name="IdCategoriaProducto" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" name="Nombre" class="form-control" />
+    </div>
+     <div class="form-group">
+        <label>Precio</label>
+        <input type="text" name="Precio" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Stock</label>
+        <input type="text" name="Stock" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Estado</label>
+        <input type="text" name="Estado" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Icono</label>
+        <img type="text" name="Icono" class="form-control" style="width:100px;height:100px;" required />    
+    </div>
+    <div class="form-group">
+        <label>Descripcion</label>
+        <img type="text" name="Descripcion" class="form-control"  required />
+    </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
+</form>
+
+<!-- Tabla de Productos -->
+<h2>Lista de Productos</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>IdCategoriaProducto</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Estado</th>
+            <th>Icono</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producto in Model.Productos)
+        {
+            <tr>
+                <td>@producto.IdCategoriaProducto</td>
+                <td>@producto.Nombre</td>
+                <td>@producto.Precio</td>
+                <td>@producto.Stock</td>
+                <td>@producto.Estado</td>
+                <td>@producto.Icono</td>
+                <td>@producto.Descripcion</td>
+                <td>
+                    <a asp-page="Editar" asp-route-idCate="@producto.IdCategoriaProducto" asp-route-nombre="@producto.Nombre" asp-route-precio="@producto.Precio" asp-route-stock="@producto.Stock" asp-route-estado="@producto.Estado" asp-route-icono="@producto.Icono"  asp-route-descripcion="@producto.Descripcion" class="btn btn-warning">Editar</a>
+                    <form method="post" asp-page-handler="Eliminar" style="display:inline;">
+                        <input type="hidden" name="id" value="@producto.IdProducto" />
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este Producto?');">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

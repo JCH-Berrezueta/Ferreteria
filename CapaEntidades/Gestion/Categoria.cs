@@ -12,6 +12,10 @@ namespace CapaEntidades.Gestion
         private string nombre;
         private string descripcion;
 
+        public Categoria()
+        {
+        }
+
         public Categoria(int idCategoria, string nombre, string descripcion)
         {
             IdCategoria = idCategoria;
