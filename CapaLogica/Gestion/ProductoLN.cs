@@ -17,7 +17,7 @@ namespace CapaLogica.Gestion
             List<vistaProductoCategoria> lista = null;
             try
             {
-                var sql = from x in ProductoCD.listarVistaProductosCD()
+                var sql = from x in ProductoCD.listarVistaProductosCategoriasCD()
                           select new vistaProductoCategoria(x.ID, x.Categoria, x.Producto, x.Precio, x.Stock, x.Estado, x.Icono, x.Descripcion);
                 lista = sql.ToList();
             }
