@@ -43,6 +43,34 @@ namespace CapaLogica.Gestion
             return false;
         }
 
-        
+        public static bool modificarCliente(cliente nuevoCliente)
+        {
+            try
+            {
+                ClienteCD.modificarClienteCD(nuevoCliente);
+                return true;
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error modificar clientes LN" + error);
+            }
+            return false;
+        }
+
+        public static bool eliminarCliente(int idCliente)
+        {
+            try
+            {
+                ClienteCD.eliminarClienteCD(idCliente);
+                return true;
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error modificar clientes LN" + error);
+            }
+            return false;
+        }
+
+
     }
 }

@@ -8,5 +8,6 @@ namespace CapaLogica.Gestion
 {
     public class ProveedorLN
     {
+        
     }
 }
