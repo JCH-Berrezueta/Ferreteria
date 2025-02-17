@@ -72,8 +72,8 @@ namespace PresentacionAdmin.Admins
         {
             Empresa pro;
             int id = int.Parse(textBox1.Text);
-            string ruc =textBox2.Text;
-            string nombre = textBox3.Text;
+            string nombre =textBox2.Text;
+            string ruc = textBox3.Text;
             string direccion = textBox4.Text;
             string representante = textBox5.Text;
             string telefono = textBox6.Text;
