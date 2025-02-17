@@ -73,6 +73,26 @@ namespace PresentacionAdmin.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clave {
+            get {
+                object obj = ResourceManager.GetObject("clave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap correo_electronico {
+            get {
+                object obj = ResourceManager.GetObject("correo-electronico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap disgusto {
             get {
                 object obj = ResourceManager.GetObject("disgusto", resourceCulture);
@@ -86,6 +106,16 @@ namespace PresentacionAdmin.Properties {
         internal static System.Drawing.Bitmap escritura {
             get {
                 object obj = ResourceManager.GetObject("escritura", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap portada {
+            get {
+                object obj = ResourceManager.GetObject("portada", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

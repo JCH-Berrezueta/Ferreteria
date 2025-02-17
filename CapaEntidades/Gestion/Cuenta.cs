@@ -44,5 +44,6 @@ namespace CapaEntidades.Gestion
         public int IdRol { get => idRol; set => idRol = value; }
         public string Mail { get => mail; set => mail = value; }
         public string Password { get => password; set => password = value; }
+
     }
 }
