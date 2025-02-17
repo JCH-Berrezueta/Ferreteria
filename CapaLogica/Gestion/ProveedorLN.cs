@@ -12,21 +12,21 @@ namespace CapaLogica.Gestion
 {
     public class ProveedorLN
     {
-        public static List<vistaProveedorEmpresa> listarVistaProveedoresEmpresaLN()
-        {
-            List<vistaProveedorEmpresa> lista = null;
-            try
-            {
-                var sql = from x in ProveedorCD.listarVistaProveedoresEmpresasCD()
-                          select new vistaProveedorEmpresa(x.ID, x.Empresa, x.Empresa, x.FechaNacimiento, x.Edad, x.Mail, x.Telefono, x.Observacion);
-                lista = sql.ToList();
-            }
-            catch (Exception error)
-            {
-                Debug.WriteLine("Error listar Vista Proveedores Empresa LN" + error);
-            }
-            return lista;
-        }
+        //public static List<vistaProveedorEmpresa> listarVistaProveedoresEmpresaLN()
+        //{
+        //    List<vistaProveedorEmpresa> lista = null;
+        //    try
+        //    {
+        //        var sql = from x in ProveedorCD.listarVistaProveedoresEmpresasCD()
+        //                  select new vistaProveedorEmpresa(x.ID, x.Empresa, x.Empresa, x.FechaNacimiento, x.Edad, x.Mail, x.Telefono, x.Observacion);
+        //        lista = sql.ToList();
+        //    }
+        //    catch (Exception error)
+        //    {
+        //        Debug.WriteLine("Error listar Vista Proveedores Empresa LN" + error);
+        //    }
+        //    return lista;
+        //}
 
         public static List<vistaProveedorEmpresa> filtrarVistaProveedoresEmpresaLN(string clave)
         {
@@ -50,7 +50,7 @@ namespace CapaLogica.Gestion
             try
             {
                 var sql = from x in ProveedorCD.listarProveedorsCD()
-                          select new proveedor(x.Id_Empresa, x.Nombre, x.Apellido, x.FechaNacimiento, x.Edad, x.Mail, x.Telefono, x.Observacion);
+                          select new proveedor(x.Id_Proveedor,x.Id_Empresa, x.Nombre, x.Apellido, x.FechaNacimiento, x.Edad, x.Mail, x.Telefono, x.Observacion);
                 lista = sql.ToList();
             }
             catch (Exception error)
@@ -67,7 +67,7 @@ namespace CapaLogica.Gestion
             try
             {
                 var sql = from x in ProveedorCD.filtrarProveedorsCD(clave)
-                          select new proveedor(x.Id_Empresa, x.Nombre, x.Apellido, x.FechaNacimiento, x.Edad, x.Mail, x.Telefono, x.Observacion);
+                          select new proveedor(x.Id_Proveedor,x.Id_Empresa, x.Nombre, x.Apellido, x.FechaNacimiento, x.Edad, x.Mail, x.Telefono, x.Observacion);
                 lista = sql.ToList();
             }
             catch (Exception error)

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaLogica.Gestion;
+using CapaLogica.Seguridad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,11 @@ namespace PresentacionAdmin.Admins
         public frmRol()
         {
             InitializeComponent();
+        }
+
+        public void Listar()
+        {
+            dataGridView1.DataSource = RolLN.listarRolsLN();
         }
     }
 }

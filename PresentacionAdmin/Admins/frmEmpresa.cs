@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaLogica.Gestion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace PresentacionAdmin.Admins
         public frmEmpresa()
         {
             InitializeComponent();
+            Listar();
+        }
+
+        public void Listar()
+        {
+            dataGridView1.DataSource = EmpresaLN.listarEmpresasLN();
         }
     }
 }

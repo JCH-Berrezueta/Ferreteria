@@ -16,6 +16,7 @@ namespace PresentacionAdmin.Admins
         public frmCliente()
         {
             InitializeComponent();
+            Listar();
         }
 
         public void Listar()
