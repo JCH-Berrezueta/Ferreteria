@@ -21,6 +21,11 @@ namespace CapaEntidades.Gestion
         {
         }
 
+        public Categoria(int idCategoria)
+        {
+            IdCategoria = idCategoria;
+        }
+
         public Categoria(int idCategoria, string nombre, string descripcion)
         {
             IdCategoria = idCategoria;

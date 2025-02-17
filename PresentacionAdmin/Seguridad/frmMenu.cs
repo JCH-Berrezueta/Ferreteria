@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PresentacionAdmin.Admins;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -70,6 +71,30 @@ namespace PresentacionAdmin.Seguridad
             if (Application.OpenForms["frmAdminRol"] == null)
             {
                 Admins.frmRol fc = new Admins.frmRol
+                {
+                    MdiParent = this
+                };
+                fc.Show();
+            }
+        }
+
+        private void administradorCategoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmAdminCategoria"] == null)
+            {
+                frmCategoriaProducto fc = new frmCategoriaProducto
+                {
+                    MdiParent = this
+                };
+                fc.Show();
+            }
+        }
+
+        private void administradorEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmAdminEmpresa"] == null)
+            {
+                frmEmpresa fc = new frmEmpresa
                 {
                     MdiParent = this
                 };

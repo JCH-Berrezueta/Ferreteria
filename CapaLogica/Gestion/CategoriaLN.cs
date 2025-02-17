@@ -90,6 +90,10 @@ namespace CapaLogica.Gestion
             return resul;
         }
 
-
+        public static bool VerificarCodProducto(int v)
+        {
+            List<categoria> categorias=listarCategoriaLN();
+            return categorias.Any(x => x.IdCategoria == v);
+        }
     }
 }

@@ -26,42 +26,8 @@ namespace PresentacionAdmin.Admins
             dataGridView1.DataSource = RolLN.listarRolsLN();
         }
 
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-            Nuevo();
-        }
+       
 
-        private void Nuevo()
-        {
-            frmEditProducto frm = new frmEditProducto();
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
-            {
-                Rol op = frm.CreacionOb();
-                RolLN.insertarRolLN(op);
-                frm.Hide();
-                Listar();
-            }
-        }
-
-        private void toolStripStatusLabel2_Click(object sender, EventArgs e)
-        {
-            Modificar();
-        }
-
-        private void Modificar()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void toolStripStatusLabel3_Click(object sender, EventArgs e)
-        {
-            Eliminar();
-        }
-
-        private void Eliminar()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
