@@ -73,7 +73,7 @@ namespace PresentacionAdmin.Admins
                     {
                         Proveedor obp = dataGridView1.CurrentRow.DataBoundItem as Proveedor;
                         Proveedor op = new Proveedor(obp.IdProveedor);
-                        ProductoLN.EliminarProducto(op.IdProveedor);
+                        ProveedorLN.eliminarProveedorLN(op.IdProveedor);
                         Listar();
                     }
 

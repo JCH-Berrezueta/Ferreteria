@@ -114,9 +114,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(110, 394);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 16);
+            this.label8.Size = new System.Drawing.Size(79, 16);
             this.label8.TabIndex = 7;
-            this.label8.Text = "TECLADO";
+            this.label8.Text = "TELEFONO";
             // 
             // button1
             // 
@@ -126,6 +126,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "GUARDAR";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 

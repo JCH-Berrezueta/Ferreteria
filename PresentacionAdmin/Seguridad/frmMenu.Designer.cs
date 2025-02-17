@@ -36,8 +36,8 @@
             this.administradorProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administradorRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administradorEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.edicionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administradorCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edicionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,18 +109,18 @@
             this.administradorEmpresaToolStripMenuItem.Text = "Administrador Empresa";
             this.administradorEmpresaToolStripMenuItem.Click += new System.EventHandler(this.administradorEmpresaToolStripMenuItem_Click);
             // 
-            // edicionToolStripMenuItem
-            // 
-            this.edicionToolStripMenuItem.Name = "edicionToolStripMenuItem";
-            this.edicionToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
-            this.edicionToolStripMenuItem.Text = "Edicion";
-            // 
             // administradorCategoriasToolStripMenuItem
             // 
             this.administradorCategoriasToolStripMenuItem.Name = "administradorCategoriasToolStripMenuItem";
             this.administradorCategoriasToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
             this.administradorCategoriasToolStripMenuItem.Text = "Administrador Categorias";
             this.administradorCategoriasToolStripMenuItem.Click += new System.EventHandler(this.administradorCategoriasToolStripMenuItem_Click);
+            // 
+            // edicionToolStripMenuItem
+            // 
+            this.edicionToolStripMenuItem.Name = "edicionToolStripMenuItem";
+            this.edicionToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.edicionToolStripMenuItem.Text = "Edicion";
             // 
             // frmMenu
             // 
@@ -131,7 +131,9 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

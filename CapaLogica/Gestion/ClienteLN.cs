@@ -120,6 +120,10 @@ namespace CapaLogica.Gestion
             return resul;
         }
 
-
+        public static bool VerificarCodProducto(int v)
+        {
+            List<cliente> cuen = listarClientesLN();
+            return cuen.Any(x => x.IdCliente == v);
+        }
     }
 }

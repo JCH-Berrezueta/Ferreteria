@@ -26,7 +26,7 @@ namespace PresentacionAdmin.Admins
         {
             Cuenta cat;
             int id = int.Parse(textBox1.Text);
-            int rol = int.Parse(textBox2.Text);
+            int rol = 1;
             string mail = textBox3.Text;
             string pss = textBox4.Text;
             cat = new Cuenta(id, rol, mail, pss);

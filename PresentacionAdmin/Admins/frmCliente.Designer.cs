@@ -60,6 +60,7 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(96, 68);
             this.toolStripStatusLabel1.Text = "Guardar";
             this.toolStripStatusLabel1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
             // toolStripStatusLabel2
             // 
@@ -68,6 +69,7 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(96, 68);
             this.toolStripStatusLabel2.Text = "Modificar";
             this.toolStripStatusLabel2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
             // 
             // toolStripStatusLabel3
             // 
@@ -76,6 +78,7 @@
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(96, 68);
             this.toolStripStatusLabel3.Text = "Eliminar";
             this.toolStripStatusLabel3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripStatusLabel3.Click += new System.EventHandler(this.toolStripStatusLabel3_Click);
             // 
             // dataGridView1
             // 
