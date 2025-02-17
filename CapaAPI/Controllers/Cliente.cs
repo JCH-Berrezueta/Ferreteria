@@ -1,4 +1,5 @@
 ﻿using CapaEntidades.Gestion;
+using CapaLogica.Seguridad;
 using System;
 using System.Diagnostics;
 using System.Web.Http;
@@ -11,6 +12,7 @@ namespace CapaAPI.Controllers
         public ClienteController()
         {
         }
+
         [HttpGet]
         [Route("listar")]
         public IHttpActionResult ObtenerClientes()
@@ -21,35 +23,44 @@ namespace CapaAPI.Controllers
         }
 
         [HttpPost]
+        [Route("autenticar")]
+        public IHttpActionResult autenticarCuenta([FromBody] Cuenta cuenta)
+        {
+            var resul = CuentaLN.autenticarCuentaLN(cuenta);
+            return Ok(resul);  
+        }
+
+        [HttpPost]
         [Route("crear")]
         public IHttpActionResult CrearCliente([FromBody] Cliente nuevoCliente)
         {
             Debug.WriteLine(nuevoCliente.IdCuenta);
-            if (nuevoCliente == null)
+            if (nuevoCliente != null)
+            {
+                try
+                {
+                    // Aquí estamos llamando a la capa lógica para crear el cliente
+                    var resultado = CapaLogica.Gestion.ClienteLN.insertarClienteLN(nuevoCliente);
+
+                    if (resultado)
+                    {
+                        return Ok("Cliente creado exitosamente.");
+                    }
+                    else
+                    {
+                        return InternalServerError();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de excepciones
+                    return InternalServerError(ex);
+                }
+            }
+            else
             {
                 return BadRequest("El cliente no puede ser nulo.");
             }
-
-            try
-            {
-                // Aquí estamos llamando a la capa lógica para crear el cliente
-                var resultado = CapaLogica.Gestion.ClienteLN.IngresarCliente(nuevoCliente);
-
-                if (resultado)
-                {
-                    return Ok("Cliente creado exitosamente.");
-                }
-                else
-                {
-                    return InternalServerError();
-                }
-            }
-            catch (Exception ex)
-            {
-                // Manejo de excepciones
-                return InternalServerError(ex);
-            }
         }
-
     }
 }
