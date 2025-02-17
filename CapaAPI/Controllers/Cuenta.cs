@@ -2,6 +2,7 @@ using CapaEntidades.Gestion;
 using System;
 using System.Web.Http;
 using CuentaLN= CapaLogica.Seguridad.CuentaLN;
+using cuentasss = CapaEntidades.Gestion.Cuenta;
 namespace CapaAPI.Controllers
 {
     [RoutePrefix("api/cuenta")]
@@ -20,6 +21,7 @@ namespace CapaAPI.Controllers
             var cuentas = CuentaLN.listarCuentasLN();
             return Ok(cuentas);  // Retornamos la lista de cuentas
         }
+
 
         [HttpPost]
         [Route("crear")]
@@ -50,5 +52,16 @@ namespace CapaAPI.Controllers
                 return InternalServerError(ex);
             }
         }
+
+        [HttpGet]
+        [Route("getId")]
+
+        public IHttpActionResult getIdCuenta(string Mail,string Password)
+        {
+            // Aquí estamos llamando a la capa lógica para obtener las cuentas
+            var cuentas = CuentaLN.getIdCuenta(Mail,Password);
+            return Ok(cuentas);  // Retornamos la lista de cuentas
+        }
+
     }
 }

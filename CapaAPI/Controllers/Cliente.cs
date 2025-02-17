@@ -1,9 +1,6 @@
 ﻿using CapaEntidades.Gestion;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Web.Http;
 
 namespace CapaAPI.Controllers
@@ -27,6 +24,7 @@ namespace CapaAPI.Controllers
         [Route("crear")]
         public IHttpActionResult CrearCliente([FromBody] Cliente nuevoCliente)
         {
+            Debug.WriteLine(nuevoCliente.IdCuenta);
             if (nuevoCliente == null)
             {
                 return BadRequest("El cliente no puede ser nulo.");

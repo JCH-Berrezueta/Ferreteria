@@ -12,22 +12,22 @@ namespace CapaDatos.Gestion
 {
     public class ClienteCD
     {
-        public static List<listarVistaClienteCuentaMailResult> listarVistaClientesCuentasMailCD()
-        {
-            ConectorBDDataContext bd = null;
-            List<listarVistaClienteCuentaMailResult> lista = null;
-            try
-            {
-                bd = new ConectorBDDataContext();
-                lista = bd.listarVistaClienteCuentaMail().ToList();
-                bd.SubmitChanges();
-            }
-            catch (Exception error)
-            {
-                Debug.WriteLine("Error en listar vista Clientes Cuenta Mail CD" + error);
-            }
-            return lista;
-        }
+        //public static List<listarVistaClienteCuentaMailResult> listarVistaClientesCuentasMailCD()
+        //{
+        //    ConectorBDDataContext bd = null;
+        //    List<listarVistaClienteCuentaMailResult> lista = null;
+        //    try
+        //    {
+        //        bd = new ConectorBDDataContext();
+        //        lista = bd.listarVistaClienteCuentaMail().ToList();
+        //        bd.SubmitChanges();
+        //    }
+        //    catch (Exception error)
+        //    {
+        //        Debug.WriteLine("Error en listar vista Clientes Cuenta Mail CD" + error);
+        //    }
+        //    return lista;
+        //}
 
         public static List<FiltrarVistaClienteCuentaMailResult> filtrarVistaClientesCuentasMailCDstring(string clave)
         {
@@ -87,6 +87,7 @@ namespace CapaDatos.Gestion
             try
             {
                 bd = new ConectorBDDataContext();
+                Debug.WriteLine(Cliente.IdCuenta);
                 bd.CP_InsertarCliente(Cliente.IdCuenta, Cliente.Nombre, Cliente.Apellido, Cliente.FechaNacimiento, Cliente.Edad, Cliente.Telefono);
                 bd.SubmitChanges();
             }

@@ -11,22 +11,22 @@ namespace CapaDatos.Gestion
 {
     public class EntradaEntradaProductoCD
     {
-        public static List<listarVistaEntradaProductoResult> listarVistaEntradaProductosCD()
-        {
-            ConectorBDDataContext bd = null;
-            List<listarVistaEntradaProductoResult> lista = null;
-            try
-            {
-                bd = new ConectorBDDataContext();
-                lista = bd.listarVistaEntradaProducto().ToList();
-                bd.SubmitChanges();
-            }
-            catch (Exception error)
-            {
-                Debug.WriteLine("Error filtrar Vista entrada productos CD " + error);
-            }
-            return lista;
-        }
+        //public static List<listarVistaEntradaProductoResult> listarVistaEntradaProductosCD()
+        //{
+        //    ConectorBDDataContext bd = null;
+        //    List<listarVistaEntradaProductoResult> lista = null;
+        //    try
+        //    {
+        //        bd = new ConectorBDDataContext();
+        //        lista = bd.listarVistaEntradaProducto().ToList();
+        //        bd.SubmitChanges();
+        //    }
+        //    catch (Exception error)
+        //    {
+        //        Debug.WriteLine("Error filtrar Vista entrada productos CD " + error);
+        //    }
+        //    return lista;
+        //}
 
         public static List<FiltrarVistaEntradaProudctoResult> filtrarVistaEntradaProductosCD(string clave)
         {

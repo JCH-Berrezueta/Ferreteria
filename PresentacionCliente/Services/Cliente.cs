@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace PresentacionCliente.Services
 
         public async Task<bool> CrearCliente(VistaCliente nuevaCuenta)
         {
+            Debug.WriteLine(nuevaCuenta.IdCuenta);
             var jsonContent = JsonConvert.SerializeObject(nuevaCuenta);
             var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
             var response = await _httpCliente.PostAsync("https://localhost:44386/api/cliente/crear", content);

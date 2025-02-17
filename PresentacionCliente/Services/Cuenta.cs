@@ -34,5 +34,22 @@ namespace PresentacionCliente.Services
             var response = await _httpCuenta.PostAsync("https://localhost:44386/api/cuenta/crear", content);
             return response.IsSuccessStatusCode;
         }
+        public async Task<int> getIdCuenta(VistaCuenta cuenta)
+        {
+            // Construir la URL con los parámetros de consulta
+            var url = $"https://localhost:44386/api/Cuenta/getId?mail={cuenta.Mail}&password={cuenta.Password}";
+
+            // Hacer la solicitud GET a la API Web
+            var response = await _httpCuenta.GetStringAsync(url);
+
+            // Deserializar la respuesta JSON como un entero (IdCuenta)
+            var idCuenta = JsonConvert.DeserializeObject<int>(response);
+
+            // Retornar el IdCuenta
+            return idCuenta;
+        }
+
+
+
     }
 }

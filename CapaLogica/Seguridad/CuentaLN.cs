@@ -84,12 +84,11 @@ namespace CapaLogica.Seguridad
             }
         }
 
-        public static int getIdCuenta(cuenta cuenta)
+        public static int getIdCuenta(string mail,string password)
         {
             //return cuenta.IdCuenta;
             //return listarCuentasLN().OrderByDescending(a => a.IdCuenta).FirstOrDefault().IdCuenta;
-            Debug.WriteLine(cuenta.Mail, cuenta.Password);
-            List<cuenta> x = filtrarCuentasLN(cuenta.Mail, cuenta.Password);
+            List<cuenta> x = filtrarCuentasLN(mail,password);
             Debug.WriteLine(x.Count);
             int id = x[0].IdCuenta;
             Debug.WriteLine(id);

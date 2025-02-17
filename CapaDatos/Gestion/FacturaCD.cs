@@ -11,22 +11,22 @@ namespace CapaDatos.Gestion
 {
     public class FacturaCD
     {
-        public static List<listarVistaFacturaClienteResult> listarVistaFacturasClientesCD()
-        {
-            ConectorBDDataContext bd = null;
-            List<listarVistaFacturaClienteResult> lista = null;
-            try
-            {
-                bd = new ConectorBDDataContext();
-                lista = bd.listarVistaFacturaCliente().ToList();
-                bd.SubmitChanges();
-            }
-            catch (Exception error)
-            {
-                Debug.WriteLine("Error listar Vista Facturas Clientes CD " + error);
-            }
-            return lista;
-        }
+        //public static List<listarVistaFacturaClienteResult> listarVistaFacturasClientesCD()
+        //{
+        //    ConectorBDDataContext bd = null;
+        //    List<listarVistaFacturaClienteResult> lista = null;
+        //    try
+        //    {
+        //        bd = new ConectorBDDataContext();
+        //        lista = bd.listarVistaFacturaCliente().ToList();
+        //        bd.SubmitChanges();
+        //    }
+        //    catch (Exception error)
+        //    {
+        //        Debug.WriteLine("Error listar Vista Facturas Clientes CD " + error);
+        //    }
+        //    return lista;
+        //}
 
         public static List<FiltrarVistaFacturaClienteResult> filtrarVistaFacturasClientesCD(string clave)
         {

@@ -8,6 +8,7 @@ using Microsoft.Maui.Controls;
 using CapaAPI.Controllers;
 using PresentacionCliente.Services;
 using CapaDatos;
+using System.Diagnostics;
 namespace PresentacionCliente.VSecundary
 {
     
@@ -18,10 +19,11 @@ namespace PresentacionCliente.VSecundary
         public VRegister()
         {
             InitializeComponent();
-            var httpCliente = new HttpClient();
-            _httpClient = new PresentacionCliente.Services.Cliente(httpCliente);
+            
             var httpCuenta = new HttpClient();
             _httpCuenta = new PresentacionCliente.Services.Cuenta(httpCuenta);
+            var httpCliente = new HttpClient();
+            _httpClient = new PresentacionCliente.Services.Cliente(httpCliente);
 
         }
 
@@ -40,36 +42,43 @@ namespace PresentacionCliente.VSecundary
 
         private async void Button_Clicked_2(object sender, EventArgs e)
         {
-
-            var cuen = new CapaEntidades.Gestion.Cuenta
+            CapaEntidades.Gestion.Cuenta cuen = new CapaEntidades.Gestion.Cuenta
             {
                 IdRol = 1,
                 Mail = corre.Text,
                 Password = corra.Text
             };
+
             var resultadoCuenta = await _httpCuenta.CrearCuenta(cuen);
 
-            var cliente = new CapaEntidades.Gestion.Cliente
+            if (resultadoCuenta)
             {
-                IdCuenta =  CuentaLN.getIdCuenta(cuen),
-                Nombre = nomb.Text,
-                Apellido = ape.Text,
-                FechaNacimiento = fech.Date,
-                Edad=CalcularEdad(fech.Date),
-                Telefono = tele.Text
-            };
+                int id=await _httpCuenta.getIdCuenta(cuen);
+                Debug.WriteLine(id);
+                CapaEntidades.Gestion.Cliente cliente = new CapaEntidades.Gestion.Cliente
+                {
+                    IdCuenta =id, // Utiliza el IdCuenta obtenido directamente
+                    Nombre = nomb.Text,
+                    Apellido = ape.Text,
+                    FechaNacimiento = fech.Date,
+                    Edad = CalcularEdad(fech.Date),
+                    Telefono = tele.Text
+                };
 
-            
-            var resultadoCliente = await _httpClient.CrearCliente(cliente);
-            
+                var resultadoCliente = await _httpClient.CrearCliente(cliente);
 
-            if (resultadoCliente && resultadoCuenta)
-            {
-                await DisplayAlert("Alerta", "Usuario registrado", "OK");
+                if (resultadoCliente)
+                {
+                    await DisplayAlert("Alerta", "Usuario registrado", "OK");
+                }
+                else
+                {
+                    await DisplayAlert("Alerta", "Error al registrar el cliente", "OK");
+                }
             }
             else
             {
-                await DisplayAlert("Alerta", "Error al registrar el usuario", "OK");
+                await DisplayAlert("Alerta", "Error al registrar la cuenta", "OK");
             }
         }
 

@@ -12,22 +12,22 @@ namespace CapaDatos.Gestion
 {
     public class ProveedorCD
     {
-        public static List<listarVistaProveedorEmpresaResult> listarVistaProveedoresEmpresasCD()
-        {
-            ConectorBDDataContext bd = null;
-            List<listarVistaProveedorEmpresaResult> lista = null;
-            try
-            {
-                bd = new ConectorBDDataContext();
-                lista = bd.listarVistaProveedorEmpresa().ToList();
-                bd.SubmitChanges();
-            }
-            catch (Exception error)
-            {
-                Debug.WriteLine("Error en listar Vista Proveedors Empresa CD" + error);
-            }
-            return lista;
-        }
+        //public static List<listarVistaProveedorEmpresaResult> listarVistaProveedoresEmpresasCD()
+        //{
+        //    ConectorBDDataContext bd = null;
+        //    List<listarVistaProveedorEmpresaResult> lista = null;
+        //    try
+        //    {
+        //        bd = new ConectorBDDataContext();
+        //        lista = bd.listarVistaProveedorEmpresa().ToList();
+        //        bd.SubmitChanges();
+        //    }
+        //    catch (Exception error)
+        //    {
+        //        Debug.WriteLine("Error en listar Vista Proveedors Empresa CD" + error);
+        //    }
+        //    return lista;
+        //}
 
         public static List<FiltrarVistaProveedorEmpresaResult> filtrarVistaProveedoresEmpresasCD(string clave)
         {
