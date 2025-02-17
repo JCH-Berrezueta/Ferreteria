@@ -24,7 +24,24 @@ namespace CapaDatos.Gestion
             }
             catch (Exception error)
             {
-                Debug.WriteLine("Error en listar Clientes CD" + error);
+                Debug.WriteLine("Error en listar vista Clientes Cuenta Mail CD" + error);
+            }
+            return lista;
+        }
+
+        public static List<FiltrarVistaClienteCuentaMailResult> filtrarVistaClientesCuentasMailCDstring(string clave)
+        {
+            ConectorBDDataContext bd = null;
+            List<FiltrarVistaClienteCuentaMailResult> lista = null;
+            try
+            {
+                bd = new ConectorBDDataContext();
+                lista = bd.FiltrarVistaClienteCuentaMail(clave).ToList();
+                bd.SubmitChanges();
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error en filtrar vista Clientes Cuenta Mail CD" + error);
             }
             return lista;
         }

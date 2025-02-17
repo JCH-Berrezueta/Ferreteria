@@ -1,20 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Vistas
 {
+    [DataContract]
     public class VProveedorEmpresa
     {
+        [DataMember]
         private int id;
+        [DataMember]
         private string empresa;
+        [DataMember]
         private string proveedor;
+        [DataMember]
         private DateTime fechaNacimiento;
+        [DataMember]
         private int edad;
+        [DataMember]
         private string mail;
+        [DataMember]
         private string telefono;
+        [DataMember]
         private string observacion;
 
         public VProveedorEmpresa(int id, string empresa, string proveedor, DateTime fechaNacimiento, int edad, string mail, string telefono, string observacion)

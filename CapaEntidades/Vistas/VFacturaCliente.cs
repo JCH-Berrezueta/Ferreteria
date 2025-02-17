@@ -1,19 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Vistas
 {
+    [DataContract]
     public class VFacturaCliente
     {
+        [DataMember]
         private int numFactura;
+        [DataMember]
         private string cliente;
+        [DataMember]
         private string mail;
+        [DataMember]
         private DateTime fechaEmision;
+        [DataMember]
         private string metodoPago;
+        [DataMember]
         private int iva;
+        [DataMember]
         private decimal total;
 
         public VFacturaCliente(int numFactura, string cliente, string mail, DateTime fechaEmision, string metodoPago, int iva, decimal total)

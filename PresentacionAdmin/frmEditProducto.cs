@@ -1,4 +1,5 @@
 ﻿using CapaEntidades.Gestion;
+using CapaEntidades.Vistas;
 using CapaLogica.Gestion;
 using System;
 using System.Collections.Generic;
@@ -17,13 +18,15 @@ namespace PresentacionAdmin
     {
         ProductoLN oln = new ProductoLN();
         CategoriaLN categoria = new CategoriaLN();
+        public VProductoCategoria auxiliar;
+
         public frmEditProducto()
         {
             InitializeComponent();
-            cargarDatos();  
-
+            cargarDatos();
+            textBox1.Enabled = true;
         }
-       
+
         public int buscarIndice(System.Windows.Forms.ComboBox comboBox, string value)
         {
             foreach (object item in comboBox.Items)
@@ -39,8 +42,8 @@ namespace PresentacionAdmin
             return -1;
 
         }
-        
-       
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             Nuevo();
@@ -49,7 +52,7 @@ namespace PresentacionAdmin
         public void cargarDatos()
         {
             var categorias = categoria.listarCategoriaLN();
-            if(categorias != null && categorias.Count>0)
+            if (categorias != null && categorias.Count > 0)
             {
                 comboBox1.DataSource = categorias;
                 comboBox1.DisplayMember = "Nombre";
@@ -93,7 +96,7 @@ namespace PresentacionAdmin
             bool val = true;
 
             if (textBox1.Text == "" || comboBox1.SelectedIndex == -1 || textBox3.Text == "" || textBox4.Text == ""
-                || textBox5.Text == "" || textBox6.Text == "" || textBox7.Text == "" )
+                || textBox5.Text == "" || comboBox2.SelectedIndex == -1 || textBox7.Text == "")
             {
                 val = false;
             }
@@ -109,11 +112,45 @@ namespace PresentacionAdmin
             string nom = textBox3.Text;
             decimal pre = decimal.Parse(textBox4.Text);
             int stock = int.Parse(textBox5.Text);
-            string est = textBox6.Text;
+            string est = comboBox2.SelectedItem.ToString();
             string icono = textBox7.Text;
             string desc = textBox8.Text;
             pro = new Producto(id, cate, nom, pre, stock, est, icono, desc);
             return pro;
+        }
+
+        internal void setDatos()
+        {
+            try
+            {
+                textBox1.Enabled = false;
+                textBox1.ReadOnly = true;
+                textBox1.Text = auxiliar.Id.ToString();
+                comboBox1.SelectedIndex = buscarIndice(comboBox1, auxiliar.Categoria.ToString());
+                textBox3.Text = auxiliar.Producto;
+                textBox4.Text = auxiliar.Precio.ToString();
+                textBox5.Text = auxiliar.Stock.ToString();
+                comboBox2.SelectedItem = auxiliar.Estado;
+                textBox7.Text = auxiliar.Icono;
+                textBox8.Text = auxiliar.Descripcion;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos");
+
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Configurar el ComboBox para que no se edite
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Configurar el ComboBox para que no se edite
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
     }
 }

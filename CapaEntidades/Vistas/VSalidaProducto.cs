@@ -1,19 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Vistas
 {
+    [DataContract]
     public class VSalidaProducto
     {
+        [DataMember]
         private int id;
+        [DataMember]
         private string categoria;
+        [DataMember]
         private string producto;
+        [DataMember]
         private DateTime fechaSalida;
+        [DataMember]
         private int cantidad;
+        [DataMember]
         private string motivo;
+        [DataMember]
         private string observacion;
 
         public VSalidaProducto(int id, string categoria, string producto, DateTime fechaSalida, int cantidad, string motivo, string observacion)

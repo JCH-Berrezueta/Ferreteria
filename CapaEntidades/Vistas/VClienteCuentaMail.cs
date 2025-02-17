@@ -1,19 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Vistas
 {
+    [DataContract]
     public class VClienteCuentaMail
     {
+        [DataMember]
         private int id;
+        [DataMember]
         private string nombre;
+        [DataMember]
         private string apellido;
+        [DataMember]
         private DateTime fechaNacimiento;
+        [DataMember]
         private int edad;
+        [DataMember]
         private string telefono;
+        [DataMember]
         private string mail;
 
         public VClienteCuentaMail(int id, string nombre, string apellido, DateTime fechaNacimiento, int edad, string telefono, string mail)

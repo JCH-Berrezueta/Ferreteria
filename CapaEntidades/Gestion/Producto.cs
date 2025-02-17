@@ -30,6 +30,12 @@ namespace CapaEntidades.Gestion
         public Producto()
         {
         }
+
+        public Producto(int idProducto)
+        {
+            IdProducto = idProducto;
+        }
+
         public Producto(int idProducto, int idCategoriaProducto, string nombre, decimal precio, int stock, string estado, string icono, string descripcion)
         {
             IdProducto = idProducto;

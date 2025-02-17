@@ -1,32 +1,99 @@
-﻿using CapaDatos.Seguridad;
+﻿using CapaDatos;
+using CapaDatos.Gestion;
+using CapaDatos.Seguridad;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EntidadCuenta = CapaEntidades.Gestion.Cuenta;
+using cuenta = CapaEntidades.Gestion.Cuenta;
 
 
 namespace CapaLogica.Seguridad
 {
     public class CuentaLN
     {
-        public static List<EntidadCuenta> listarCuentasLN()
+        public static List<cuenta> listarCuentasLN()
         {
-            List<EntidadCuenta> lista = null;
+            List<cuenta> lista = null;
             try
             {
                 var sql = from x in CuentaCD.listarCuentasCD()
-                          select new EntidadCuenta(x.Id_Cuenta,x.Id_rol,x.Mail, x.Password);
+                          select new cuenta(x.Id_Cuenta,x.Id_rol,x.Mail, x.Password);
                 lista = sql.ToList();
-                Debug.WriteLine("Intentanto LN" + lista.Count);
             }
             catch(Exception error)
+            {
+                Debug.WriteLine("Error listar Cuentas LN" + error);
+            }
+            return lista;
+        }
+
+        public static List<cuenta> filtrarCuentasLN(string user, string passwd)
+        {
+            List<cuenta> lista = null;
+            try
+            {
+                var sql = from x in CuentaCD.filtrarCuentasCD(user, passwd)
+                          select new cuenta(x.Id_Cuenta, x.Id_rol, x.Mail, x.Password);
+                lista = sql.ToList();
+            }
+            catch (Exception error)
             {
                 Debug.WriteLine("Error listar Vista Cuentas LN" + error);
             }
             return lista;
+        }
+
+        public static bool insertarCuenta(cuenta cuenta)
+        {
+            try
+            {
+                CuentaCD.insertarCuentaCD(cuenta);
+                return true;
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error insertar Cuenta LN" + error);
+            }
+            return false;
+        }
+
+        public static void modificarCuenta(cuenta cuenta)
+        {
+            try
+            {
+                CuentaCD.modificarCuentaCD(cuenta);
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error modificar Cuenta LN" + error);
+            }
+        }
+
+        public static void eliminarCuenta(int idCuenta)
+        {
+            try
+            {
+                CuentaCD.eliminarCuentaCD(idCuenta);
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error modificar Cuenta LN" + error);
+            }
+        }
+
+        public static int getIdCuenta(cuenta cuenta)
+        {
+            //return cuenta.IdCuenta;
+            //return listarCuentasLN().OrderByDescending(a => a.IdCuenta).FirstOrDefault().IdCuenta;
+            Debug.WriteLine(cuenta.Mail, cuenta.Password);
+            List<cuenta> x = filtrarCuentasLN(cuenta.Mail, cuenta.Password);
+            Debug.WriteLine(x.Count);
+            int id = x[0].IdCuenta;
+            Debug.WriteLine(id);
+            return id;
         }
        
     }

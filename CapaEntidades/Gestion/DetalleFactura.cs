@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Gestion
 {
+    [DataContract]
     public class DetalleFactura
     {
+        [DataMember]
         private int idDetalleFactura;
+        [DataMember]
         private int idProducto;
+        [DataMember]
         private int idFactura;
+        [DataMember]
         private int cantidad;
+        [DataMember]
         private decimal subtotal;
 
         public DetalleFactura(int idDetalleFactura, int idProducto, int idFactura, int cantidad, decimal subtotal)

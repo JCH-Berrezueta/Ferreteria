@@ -29,6 +29,11 @@ namespace CapaEntidades.Gestion
         {
 
         }
+
+        public Cliente(int idCliente)
+        {
+            IdCliente = idCliente;
+        }
         public Cliente(int idCliente, int idCuenta, string nombre, string apellido, DateTime fechaNacimiento, int edad, string telefono)
         {
             IdCliente = idCliente;

@@ -1,24 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Vistas
 {
+    [DataContract]
     public class VEntradaProducto
     {
+        [DataMember]
         private int id;
+        [DataMember]
         private string categoria;
+        [DataMember]
         private string producto;
+        [DataMember]
         private string proveedor;
+        [DataMember]
         private string emailProv;
+        [DataMember]
         private string empresa;
+        [DataMember]
         private string emailEmp;
+        [DataMember]
         private DateTime fechaIngreso;
+        [DataMember]
         private int cantidad;
+        [DataMember]
         private decimal costoUnitario;
+        [DataMember]
         private decimal costoTotal;
+        [DataMember]
         private string observacion;
 
         public VEntradaProducto(int id, string categoria, string producto, string proveedor, string emailProv, string empresa, string emailEmp, DateTime fechaIngreso, int cantidad, decimal costoUnitario, decimal costoTotal, string observacion)

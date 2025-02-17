@@ -1,21 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidades.Gestion
 {
+    [DataContract]
     public class Proveedor
     {
+        [DataMember]
         private int idProveedor;
+        [DataMember]
         private int idEmpresa;
+        [DataMember]
         private string nombre;
+        [DataMember]
         private string apellido;
+        [DataMember]
         private DateTime fechaNacimiento;
+        [DataMember]
         private int edad;
+        [DataMember]
         private string mail;
+        [DataMember]
         private string telefono;
+        [DataMember]
         private string observacion;
 
         public Proveedor(int idProveedor, int idEmpresa, string nombre, string apellido, DateTime fechaNacimiento, int edad, string mail, string telefono, string observacion)
