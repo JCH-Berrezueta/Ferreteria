@@ -1,11 +1,13 @@
+using CapaEntidades.Gestion;
+using System;
 using System.Web.Http;
 using CuentaLN= CapaLogica.Seguridad.CuentaLN;
 namespace CapaAPI.Controllers
 {
     [RoutePrefix("api/cuenta")]
-    public class Cuenta : ApiController
+    public class CuentaController : ApiController
     {
-        public Cuenta()
+        public CuentaController()
         {
         }
 
@@ -17,6 +19,36 @@ namespace CapaAPI.Controllers
             // Aquí estamos llamando a la capa lógica para obtener las cuentas
             var cuentas = CuentaLN.listarCuentasLN();
             return Ok(cuentas);  // Retornamos la lista de cuentas
+        }
+
+        [HttpPost]
+        [Route("crear")]
+        public IHttpActionResult CrearCliente([FromBody] Cuenta nuevoCliente)
+        {
+            if (nuevoCliente == null)
+            {
+                return BadRequest("El cliente no puede ser nulo.");
+            }
+
+            try
+            {
+                // Aquí estamos llamando a la capa lógica para crear el cliente
+                var resultado = CapaLogica.Seguridad.CuentaLN.InsertarCuenta(nuevoCliente);
+
+                if (resultado)
+                {
+                    return Ok("Cliente creado exitosamente.");
+                }
+                else
+                {
+                    return InternalServerError();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                return InternalServerError(ex);
+            }
         }
     }
 }

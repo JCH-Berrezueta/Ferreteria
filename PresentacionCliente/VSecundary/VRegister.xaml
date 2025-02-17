@@ -45,8 +45,8 @@
             <Label Text="Contraseña" FontSize="Medium"  Grid.Row="6" Grid.Column="0"/>
             <Entry Grid.Row="6" Grid.Column="1" BackgroundColor="White" x:Name="corra" TextColor="Black" IsPassword="False"/>
 
-            <Button Text="Guardar" Grid.Row="8" HorizontalOptions="Center" Clicked="Button_Clicked"/>
-            <Button Text="Cancelar" Grid.Row="8" Grid.Column="1" HorizontalOptions="Center" Clicked="Button_Clicked_1"/>
+            <Button Text="Guardar" Grid.Row="8" HorizontalOptions="Center" Clicked="Button_Clicked_2"/>
+            <Button Text="Cancelar" Grid.Row="8" Grid.Column="1" HorizontalOptions="Center"/>
         </Grid>
     </VerticalStackLayout>
 </ContentPage>

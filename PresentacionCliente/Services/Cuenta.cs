@@ -2,16 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using VistaCuenta= CapaEntidades.Gestion.Cuenta;
 namespace PresentacionCliente.Services
 {
-    class Cuenta
+    public class Cuenta
     {
         private readonly HttpClient _httpCuenta;
 
-        public Cuenta()
+        public Cuenta(HttpClient httpCuenta)
         {
             _httpCuenta = new HttpClient();  // Inicializamos HttpClient
         }
@@ -25,5 +26,14 @@ namespace PresentacionCliente.Services
             return cuentas;
             // nose nada de esto
         }
+
+        public async Task<bool> CrearCuenta(VistaCuenta nuevaCuenta)
+        {
+            var jsonContent = JsonConvert.SerializeObject(nuevaCuenta);
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            var response = await _httpCuenta.PostAsync("https://localhost:44386/api/cuenta/crear", content);
+            return response.IsSuccessStatusCode;
+        }
+
     }
 }
