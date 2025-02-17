@@ -1,6 +1,7 @@
 ﻿using CapaDatos;
 using CapaDatos.Gestion;
 using CapaDatos.Seguridad;
+using CapaEntidades.Gestion;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -150,5 +151,10 @@ namespace CapaLogica.Seguridad
             return resul;
         }
 
+        public static bool VerificarCodProducto(int v)
+        {
+            List<cuenta> cuen = listarCuentasLN();
+            return cuen.Any(x => x.IdCuenta == v);
+        }
     }
 }
