@@ -30,21 +30,39 @@ namespace CapaLogica.Seguridad
             return lista;
         }
 
-        public static List<cuenta> filtrarCuentasLN(string clave)
+        public static List<cuenta> filtrarCuentasLN(string user, string passwd)
         {
             List<cuenta> lista = null;
             try
             {
-                var sql = from x in CuentaCD.filtrarCuentasCD(clave)
+                var sql = from x in CuentaCD.filtrarCuentasCD(user, passwd)
                           select new cuenta(x.Id_Cuenta, x.Id_rol, x.Mail, x.Password);
                 lista = sql.ToList();
-                Debug.WriteLine("Intentanto LN" + lista.Count);
             }
             catch (Exception error)
             {
                 Debug.WriteLine("Error listar Vista Cuentas LN" + error);
             }
             return lista;
+        }
+
+
+        public static void insertarCuenta()
+        {
+            try
+            {
+
+            }
+            catch (Exception error)
+            {
+                
+            }
+        }
+
+        public static int getIdCuenta(cuenta cuenta)
+        {
+            //cuenta auxiliar = listarCuentasLN().OrderByDescending(a => a.IdCuenta).FirstOrDefault(); LAMBDA
+            return filtrarCuentasLN(cuenta.Mail, cuenta.Password)[0].IdCuenta;
         }
        
     }
