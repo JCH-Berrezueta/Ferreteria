@@ -130,7 +130,24 @@ namespace CapaLogica.Seguridad
             return filtrarCuentasLN(mail,password)[0].IdCuenta;
         }
 
-        
+        public static bool autenticarCuentaLN(cuenta Cuenta)
+        {
+            bool resul = false;
+            List<cuenta> cuentas = null;
+            try
+            {
+                cuentas = filtrarCuentasLN(Cuenta.Mail, Cuenta.Password);
+                if (cuentas.Count == 1)
+                {
+                    resul = true;
+                }
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error Autenticar Cuenta LN" + error);
+            }
+            return resul;
+        }
 
     }
 }
