@@ -94,6 +94,8 @@ namespace CapaLogica.Seguridad
             Debug.WriteLine(id);
             return id;
         }
-       
+
+        
+
     }
 }

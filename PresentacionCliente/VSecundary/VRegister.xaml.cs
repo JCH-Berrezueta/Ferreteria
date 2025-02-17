@@ -70,6 +70,7 @@ namespace PresentacionCliente.VSecundary
                 if (resultadoCliente)
                 {
                     await DisplayAlert("Alerta", "Usuario registrado", "OK");
+                    await Navigation.PopAsync();
                 }
                 else
                 {

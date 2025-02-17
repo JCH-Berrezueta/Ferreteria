@@ -49,6 +49,24 @@ namespace PresentacionCliente.Services
             return idCuenta;
         }
 
+        public async Task<List<VistaCuenta>> ListarCorreosContraseñas()
+        {
+            // Hacemos una solicitud GET a la API Web
+            var response = await _httpCuenta.GetStringAsync("https://localhost:44386/api/Cuenta/getId");
+            // Deserializamos la respuesta JSON en una lista de cuentas
+            var cuentas = JsonConvert.DeserializeObject<List<VistaCuenta>>(response);
+
+            // Creamos una lista para almacenar los correos electrónicos y contraseñas
+            var correosContraseñas = cuentas.Select(c => new VistaCuenta
+            {
+                Mail = c.Mail,
+                Password = c.Password
+            }).ToList();
+
+            return correosContraseñas;
+        }
+
+
 
 
     }
