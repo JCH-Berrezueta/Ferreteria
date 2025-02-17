@@ -1,8 +1,8 @@
 using CapaEntidades.Gestion;
+using CapaLogica.Seguridad;
 using System;
 using System.Web.Http;
-using CuentaLN= CapaLogica.Seguridad.CuentaLN;
-using cuentasss = CapaEntidades.Gestion.Cuenta;
+
 namespace CapaAPI.Controllers
 {
     [RoutePrefix("api/cuenta")]
@@ -20,6 +20,14 @@ namespace CapaAPI.Controllers
             // Aquí estamos llamando a la capa lógica para obtener las cuentas
             var cuentas = CuentaLN.listarCuentasLN();
             return Ok(cuentas);  // Retornamos la lista de cuentas
+        }
+
+        [HttpPost]
+        [Route("autenticar")]
+        public IHttpActionResult autenticarCuenta([FromBody] Cuenta cuenta)
+        {
+            var resul = CuentaLN.autenticarCuentaLN(cuenta);
+            return Ok(resul);
         }
 
 
