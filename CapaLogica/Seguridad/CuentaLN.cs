@@ -47,15 +47,39 @@ namespace CapaLogica.Seguridad
         }
 
 
-        public static void insertarCuenta()
+        public static void insertarCuenta(cuenta cuenta)
         {
             try
             {
-
+                CuentaCD.insertarCuentaCD(cuenta);
             }
             catch (Exception error)
             {
-                
+                Debug.WriteLine("Error insertar Cuenta LN" + error);
+            }
+        }
+
+        public static void modificarCuenta(cuenta cuenta)
+        {
+            try
+            {
+                CuentaCD.modificarCuentaCD(cuenta);
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error modificar Cuenta LN" + error);
+            }
+        }
+
+        public static void eliminarCuenta(int idCuenta)
+        {
+            try
+            {
+                CuentaCD.eliminarCuentaCD(idCuenta);
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error modificar Cuenta LN" + error);
             }
         }
 
