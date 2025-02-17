@@ -28,5 +28,21 @@ namespace CapaLogica.Gestion
             }
             return lista;
         }
+
+        public static bool IngresarCliente(cliente nuevoCliente)
+        {
+            try
+            {
+                ClienteCD.insertarClienteCD(nuevoCliente);
+                return true;
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error insertar clientes LN" + error);
+            }
+            return false;
+        }
+
+        
     }
 }

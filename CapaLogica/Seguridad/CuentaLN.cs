@@ -1,4 +1,6 @@
-﻿using CapaDatos.Seguridad;
+﻿using CapaDatos;
+using CapaDatos.Gestion;
+using CapaDatos.Seguridad;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,6 +30,21 @@ namespace CapaLogica.Seguridad
             }
             return lista;
         }
-       
+
+        public static bool InsertarCuenta(EntidadCuenta p)
+        {
+            try
+            {
+                CuentaCD.insertarCuentaCD(p);
+                return true;
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error insertar cuenta LN" + error);
+            }
+            return false;
+        }
+
+
     }
 }

@@ -64,7 +64,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\CapaAPI\CapaAPI.csproj" />
+	  <ProjectReference Include="..\CapaDatos\CapaDatos.csproj" />
 	  <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj" />
+	  <ProjectReference Include="..\CapaLogica\CapaLogica.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

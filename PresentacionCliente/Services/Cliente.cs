@@ -11,7 +11,7 @@ namespace PresentacionCliente.Services
     {
         private readonly HttpClient _httpCliente;
 
-        public Cliente()
+        public Cliente(HttpClient httpClient)
         {
             _httpCliente = new HttpClient();  // Inicializamos HttpClient
         }
@@ -25,5 +25,14 @@ namespace PresentacionCliente.Services
             return clientes;
             // nose nada de esto
         }
+
+        public async Task<bool> CrearCliente(VistaCliente nuevaCuenta)
+        {
+            var jsonContent = JsonConvert.SerializeObject(nuevaCuenta);
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            var response = await _httpCliente.PostAsync("https://localhost:44386/api/cuenta/crear", content);
+            return response.IsSuccessStatusCode;
+        }
+
     }
 }
