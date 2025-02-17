@@ -81,7 +81,7 @@ namespace PresentacionWeb.Repositorio
                     command.Parameters.AddWithValue("@Precio", precio);
                     command.Parameters.AddWithValue("@Stock", stock);
                     command.Parameters.AddWithValue("@Estado", estado);
-                    command.Parameters.AddWithValue("@Stock", icono);
+                    command.Parameters.AddWithValue("@Icono", icono);
                     command.Parameters.AddWithValue("@Descripcion", descripcion);
 
                     connection.Open();
