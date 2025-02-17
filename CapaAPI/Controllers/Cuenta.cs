@@ -55,14 +55,14 @@ namespace CapaAPI.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("getId")]
 
-        public IHttpActionResult getIdCuenta(string Mail,string Password)
+        public IHttpActionResult getIdCuenta(Cuenta cuenta)
         {
             // Aquí estamos llamando a la capa lógica para obtener las cuentas
-            var cuentas = CuentaLN.getIdCuenta(Mail,Password);
-            return Ok(cuentas);  // Retornamos la lista de cuentas
+            var idCuenta = CuentaLN.getIdCuentaLN(cuenta.Mail, cuenta.Password);
+            return Ok(idCuenta);  // Retornamos la lista de cuentas
         }
 
         
