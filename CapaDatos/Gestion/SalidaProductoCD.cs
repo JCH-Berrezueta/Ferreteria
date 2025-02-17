@@ -12,22 +12,22 @@ namespace CapaDatos.Gestion
 {
     public class SalidaProductoCD
     {
-        //public static List<listarVistaSalidaProductoResult> listarVistaSalidaProductosCD()
-        //{
-        //    ConectorBDDataContext bd = null;
-        //    List<listarVistaSalidaProductoResult> lista = null;
-        //    try
-        //    {
-        //        bd = new ConectorBDDataContext();
-        //        lista = bd.listarVistaSalidaProducto().ToList();
-        //        bd.SubmitChanges();
-        //    }
-        //    catch (Exception error)
-        //    {
-        //        Debug.WriteLine("Error listar Vista Salida productos CD " + error);
-        //    }
-        //    return lista;
-        //}
+        public static List<listarVistaSalidaProductoResult> listarVistaSalidaProductosCD()
+        {
+            ConectorBDDataContext bd = null;
+            List<listarVistaSalidaProductoResult> lista = null;
+            try
+            {
+                bd = new ConectorBDDataContext();
+                lista = bd.listarVistaSalidaProducto().ToList();
+                bd.SubmitChanges();
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error listar Vista Salida productos CD " + error);
+            }
+            return lista;
+        }
 
         public static List<FiltrarVistaSalidaProudctoResult> filtrarVistaSalidaProductosCD(string clave)
         {

@@ -42,6 +42,18 @@ namespace CapaEntidades.Gestion
             Observacion = observacion;
         }
 
+        public Proveedor(int idEmpresa, string nombre, string apellido, DateTime fechaNacimiento, int edad, string mail, string telefono, string observacion)
+        {
+            IdEmpresa = idEmpresa;
+            Nombre = nombre;
+            Apellido = apellido;
+            FechaNacimiento = fechaNacimiento;
+            Edad = edad;
+            Mail = mail;
+            Telefono = telefono;
+            Observacion = observacion;
+        }
+
         public int IdProveedor { get => idProveedor; set => idProveedor = value; }
         public int IdEmpresa { get => idEmpresa; set => idEmpresa = value; }
         public string Nombre { get => nombre; set => nombre = value; }

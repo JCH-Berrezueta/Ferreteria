@@ -46,7 +46,7 @@ namespace CapaDatos.Seguridad
             return lista;
         }
 
-        public static void insertarRoleCD(rol Rol)
+        public static void insertarRolCD(rol Rol)
         {
             ConectorBDDataContext bd = null;
             try
@@ -60,7 +60,7 @@ namespace CapaDatos.Seguridad
                 Debug.WriteLine("Error en insertar Roles CD" + error);
             }
         }
-        public static void modificarRoleCD(rol Rol)
+        public static void modificarRolCD(rol Rol)
         {
             ConectorBDDataContext bd = null;
             try
@@ -74,7 +74,7 @@ namespace CapaDatos.Seguridad
                 Debug.WriteLine("Error en modificar Roles CD" + error);
             }
         }
-        public static void eliminarRoleCD(int idRol)
+        public static void eliminarRolCD(int idRol)
         {
             ConectorBDDataContext bd = null;
             try

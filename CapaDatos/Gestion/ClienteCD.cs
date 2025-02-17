@@ -12,24 +12,24 @@ namespace CapaDatos.Gestion
 {
     public class ClienteCD
     {
-        //public static List<listarVistaClienteCuentaMailResult> listarVistaClientesCuentasMailCD()
-        //{
-        //    ConectorBDDataContext bd = null;
-        //    List<listarVistaClienteCuentaMailResult> lista = null;
-        //    try
-        //    {
-        //        bd = new ConectorBDDataContext();
-        //        lista = bd.listarVistaClienteCuentaMail().ToList();
-        //        bd.SubmitChanges();
-        //    }
-        //    catch (Exception error)
-        //    {
-        //        Debug.WriteLine("Error en listar vista Clientes Cuenta Mail CD" + error);
-        //    }
-        //    return lista;
-        //}
+        public static List<listarVistaClienteCuentaMailResult> listarVistaClientesCuentasMailCD()
+        {
+            ConectorBDDataContext bd = null;
+            List<listarVistaClienteCuentaMailResult> lista = null;
+            try
+            {
+                bd = new ConectorBDDataContext();
+                lista = bd.listarVistaClienteCuentaMail().ToList();
+                bd.SubmitChanges();
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error en listar vista Clientes Cuenta Mail CD" + error);
+            }
+            return lista;
+        }
 
-        public static List<FiltrarVistaClienteCuentaMailResult> filtrarVistaClientesCuentasMailCDstring(string clave)
+        public static List<FiltrarVistaClienteCuentaMailResult> filtrarVistaClientesCuentasMailCD(string clave)
         {
             ConectorBDDataContext bd = null;
             List<FiltrarVistaClienteCuentaMailResult> lista = null;

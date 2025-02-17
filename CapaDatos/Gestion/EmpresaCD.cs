@@ -59,7 +59,7 @@ namespace CapaDatos.Gestion
                 Debug.WriteLine("Error en insertar Empresas CD" + error);
             }
         }
-        public static void modificarEmpresaCD(Empresa Empresa)
+        public static void modificarEmpresaCD(empresa Empresa)
         {
             ConectorBDDataContext bd = null;
             try

@@ -23,7 +23,23 @@ namespace CapaLogica.Gestion
             }
             catch (Exception error)
             {
-                Debug.WriteLine("Error listar Vista Productos LN" + error);
+                Debug.WriteLine("Error listar Vista Productos categorias LN" + error);
+            }
+            return lista;
+        }
+
+        public static List<vistaProductoCategoria> filtrarVistaProductosLN(string clave)
+        {
+            List<vistaProductoCategoria> lista = null;
+            try
+            {
+                var sql = from x in ProductoCD.filtrarVistaProductosCategoriasCD(clave)
+                          select new vistaProductoCategoria(x.ID, x.Categoria, x.Producto, x.Precio, x.Stock, x.Estado, x.Icono, x.Descripcion);
+                lista = sql.ToList();
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error filtrar Vista Productos categorias LN" + error);
             }
             return lista;
         }
@@ -36,7 +52,6 @@ namespace CapaLogica.Gestion
                 var sql = from x in ProductoCD.listarProductosCD()
                           select new producto(x.Id_Producto, x.Id_CategoriaProducto, x.Nombre, x.Precio, x.Stock, x.Estado, x.Icono, x.Descripcion);
                 lista = sql.ToList();
-                Debug.WriteLine("Intentanto LN" + lista.Count);
             }
             catch(Exception error)
             {
@@ -45,53 +60,72 @@ namespace CapaLogica.Gestion
             return lista;
         }
 
-        public bool VerificarCodProducto(int idProdu)
+        public static List<producto> filtrarProductosLN(string clave)
+        {
+            List<producto> lista = null;
+            try
+            {
+                var sql = from x in ProductoCD.filtrarProductosCD(clave)
+                          select new producto(x.Id_Producto, x.Id_CategoriaProducto, x.Nombre, x.Precio, x.Stock, x.Estado, x.Icono, x.Descripcion);
+                lista = sql.ToList();
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error filtrar Productos LN" + error);
+            }
+            return lista;
+        }
+
+        public static bool VerificarCodProducto(int idProdu)
         {
             List<producto> categorias = listarProductosLN();
 
             return categorias.Any(c => c.IdProducto == idProdu);
         }
 
-        public bool InsertarProducto(producto p)
+        public static bool InsertarProducto(producto p)
         {
+            bool resul = false;
             try
             {
                 ProductoCD.insertarProductoCD(p);
-                return true;
+                resul = true;
             }
             catch (Exception error)
             {
                 Debug.WriteLine("Error insertar Producto LN" + error);
             }
-            return false;
+            return resul;
         }
 
-        public bool ActualizarProducto(producto p)
+        public static bool ActualizarProducto(producto p)
         {
+            bool resul = false;
             try
             {
                 ProductoCD.modificarProductoCD(p);
-                return true;
+                resul = true;
             }
             catch (Exception error)
             {
                 Debug.WriteLine("Error actualizar Producto LN" + error);
             }
-            return false;
+            return resul;
         }
 
-        public bool EliminarProducto(int id)
+        public static bool EliminarProducto(int id)
         {
+            bool resul = false;
             try
             {
                 ProductoCD.eliminarProductoCD(id);
-                return true;
+                resul = true;
             }
             catch (Exception error)
             {
                 Debug.WriteLine("Error eliminar Producto LN" + error);
             }
-            return false;
+            return resul;
         }
     }
 }

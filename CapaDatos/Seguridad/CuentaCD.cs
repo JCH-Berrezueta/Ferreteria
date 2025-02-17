@@ -12,24 +12,24 @@ namespace CapaDatos.Seguridad
 {
     public class CuentaCD
     {
-        
 
-        //public static List<listarVistaCuentaRolResult> listarVistaCuentasRolCD()
-        //{
-        //    ConectorBDDataContext bd = null;
-        //    List<listarVistaCuentaRolResult> lista = null;
-        //    try
-        //    {
-        //        bd = new ConectorBDDataContext();
-        //        lista = bd.listarVistaCuentaRol().ToList();
-        //        bd.SubmitChanges();
-        //    }
-        //    catch (Exception error)
-        //    {
-        //        Debug.WriteLine("Error en listar Vista Cuentas Roles CD" + error);
-        //    }
-        //    return lista;
-        //}
+
+        public static List<listarVistaCuentaRolResult> listarVistaCuentasRolCD()
+        {
+            ConectorBDDataContext bd = null;
+            List<listarVistaCuentaRolResult> lista = null;
+            try
+            {
+                bd = new ConectorBDDataContext();
+                lista = bd.listarVistaCuentaRol().ToList();
+                bd.SubmitChanges();
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error en listar Vista Cuentas Roles CD" + error);
+            }
+            return lista;
+        }
 
         public static List<FiltrarVistaCuentaRolResult> filtrarVistaCuentasRolCD(string clave)
         {
