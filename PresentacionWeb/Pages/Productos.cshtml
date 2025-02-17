@@ -1,12 +1,11 @@
 ﻿@page
 @model PresentacionWeb.Pages.ProductosModel
 @{
-    ViewData["Title"] = "Categoria";
-
+    ViewData["Title"] = "Producto";
 }
 <style>
     body {
-        background-color: floralwhite; /* Color de fondo floral */
+        background-color: floralwhite;
     }
 
     .text-center {
@@ -15,47 +14,46 @@
 
     .display-4 {
         font-size: 2.5rem;
-        color: #4caf50; /* Verde */
+        color: #4caf50;
     }
 
     p {
-        color: #ff9800; /* Naranja */
+        color: #ff9800;
     }
 </style>
 
-
 <h1>@ViewData["Title"]</h1>
 
-<!-- Formulario para Crear una Nueva Categoria -->
-<h2>Crear Nueva Producto</h2>
-<form method="post" asp-page-handler="Crear">
+<!-- Formulario para Crear un Nuevo Producto -->
+<h2>Crear Nuevo Producto</h2>
+<form method="post" asp-page-handler="Crear" enctype="multipart/form-data">
     <div class="form-group">
         <label>IdCategoriaProducto</label>
-        <input type="text" name="IdCategoriaProducto" class="form-control" required />
+        <input type="text" name="idCategoriaProducto" class="form-control" required />
     </div>
     <div class="form-group">
         <label>Nombre</label>
-        <input type="text" name="Nombre" class="form-control" />
+        <input type="text" name="nombre" class="form-control" required />
     </div>
-     <div class="form-group">
+    <div class="form-group">
         <label>Precio</label>
-        <input type="text" name="Precio" class="form-control" required />
+        <input type="number" step="0.01" name="precio" class="form-control" required />
     </div>
     <div class="form-group">
         <label>Stock</label>
-        <input type="text" name="Stock" class="form-control" required />
+        <input type="number" name="stock" class="form-control" required />
     </div>
     <div class="form-group">
         <label>Estado</label>
-        <input type="text" name="Estado" class="form-control" required />
+        <input type="text" name="estado" class="form-control" required />
     </div>
     <div class="form-group">
         <label>Icono</label>
-        <img type="text" name="Icono" class="form-control" style="width:100px;height:100px;" required />    
+        <input type="file" name="Icono" class="form-control" accept="image/jpg" required />
     </div>
     <div class="form-group">
-        <label>Descripcion</label>
-        <img type="text" name="Descripcion" class="form-control"  required />
+        <label>Descripción</label>
+        <input type="text" name="descripcion" class="form-control" required />
     </div>
     <button type="submit" class="btn btn-primary">Crear</button>
 </form>
@@ -84,12 +82,14 @@
                 <td>@producto.Precio</td>
                 <td>@producto.Stock</td>
                 <td>@producto.Estado</td>
-                <td>@producto.Icono</td>
+                <td>
+                    <img src="~/uploads/@producto.Icono" alt="Imagen de @producto.Nombre" width="50" height="50" />
+                </td>
                 <td>@producto.Descripcion</td>
                 <td>
-                    <a asp-page="Editar" asp-route-idCate="@producto.IdCategoriaProducto" asp-route-nombre="@producto.Nombre" asp-route-precio="@producto.Precio" asp-route-stock="@producto.Stock" asp-route-estado="@producto.Estado" asp-route-icono="@producto.Icono"  asp-route-descripcion="@producto.Descripcion" class="btn btn-warning">Editar</a>
+                    <a asp-page="Editar" asp-route-id="@producto.IdCategoriaProducto" class="btn btn-warning">Editar</a>
                     <form method="post" asp-page-handler="Eliminar" style="display:inline;">
-                        <input type="hidden" name="id" value="@producto.IdProducto" />
+                        <input type="hidden" name="id" value="@producto.IdCategoriaProducto" />
                         <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este Producto?');">Eliminar</button>
                     </form>
                 </td>
@@ -97,3 +97,4 @@
         }
     </tbody>
 </table>
+

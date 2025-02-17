@@ -10,6 +10,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews(); // Asegúrate de que esto esté incluido  
 builder.Services.AddScoped<CategoriaRepository>(provider =>
     new CategoriaRepository(builder.Configuration.GetConnectionString("CadenaSQL")));
+builder.Services.AddScoped<ProductosRepository>(provider =>
+    new ProductosRepository(builder.Configuration.GetConnectionString("CadenaSQL")));
 
 var app = builder.Build();
 
