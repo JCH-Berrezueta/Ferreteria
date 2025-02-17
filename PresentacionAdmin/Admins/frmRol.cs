@@ -17,6 +17,7 @@ namespace PresentacionAdmin.Admins
         public frmRol()
         {
             InitializeComponent();
+            Listar();
         }
 
         public void Listar()
