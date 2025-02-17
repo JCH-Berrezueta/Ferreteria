@@ -58,11 +58,47 @@
     <Compile Include="Admins\frmCuenta.Designer.cs">
       <DependentUpon>frmCuenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admins\frmEditaEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admins\frmEditaEmpresa.Designer.cs">
+      <DependentUpon>frmEditaEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\frmEditCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admins\frmEditCliente.Designer.cs">
+      <DependentUpon>frmEditCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\frmEditCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admins\frmEditCuenta.Designer.cs">
+      <DependentUpon>frmEditCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\frmEditFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admins\frmEditFactura.Designer.cs">
+      <DependentUpon>frmEditFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\frmEditProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admins\frmEditProveedor.Designer.cs">
+      <DependentUpon>frmEditProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admins\frmEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admins\frmEmpresa.Designer.cs">
       <DependentUpon>frmEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\frmFactua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admins\frmFactua.Designer.cs">
+      <DependentUpon>frmFactua.cs</DependentUpon>
     </Compile>
     <Compile Include="Admins\frmProveedor.cs">
       <SubType>Form</SubType>
@@ -125,6 +161,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admins\frmCuenta.resx">
       <DependentUpon>frmCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admins\frmEditaEmpresa.resx">
+      <DependentUpon>frmEditaEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admins\frmEditCliente.resx">
+      <DependentUpon>frmEditCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admins\frmEditCuenta.resx">
+      <DependentUpon>frmEditCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admins\frmEditFactura.resx">
+      <DependentUpon>frmEditFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admins\frmEditProveedor.resx">
+      <DependentUpon>frmEditProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admins\frmEmpresa.resx">
       <DependentUpon>frmEmpresa.cs</DependentUpon>
