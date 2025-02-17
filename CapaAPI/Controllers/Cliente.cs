@@ -1,5 +1,4 @@
 ﻿using CapaEntidades.Gestion;
-using CapaLogica.Seguridad;
 using System;
 using System.Diagnostics;
 using System.Web.Http;
@@ -22,13 +21,7 @@ namespace CapaAPI.Controllers
             return Ok(clientes);  // Retornamos la lista de clientes
         }
 
-        [HttpPost]
-        [Route("autenticar")]
-        public IHttpActionResult autenticarCuenta([FromBody] Cuenta cuenta)
-        {
-            var resul = CuentaLN.autenticarCuentaLN(cuenta);
-            return Ok(resul);  
-        }
+        
 
         [HttpPost]
         [Route("crear")]
