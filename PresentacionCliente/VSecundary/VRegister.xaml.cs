@@ -47,6 +47,8 @@ namespace PresentacionCliente.VSecundary
                 Mail = corre.Text,
                 Password = corra.Text
             };
+            var resultadoCuenta = await _httpCuenta.CrearCuenta(cuen);
+
             var cliente = new CapaEntidades.Gestion.Cliente
             {
                 IdCuenta =  CuentaLN.getIdCuenta(cuen),
@@ -57,8 +59,9 @@ namespace PresentacionCliente.VSecundary
                 Telefono = tele.Text
             };
 
+            
             var resultadoCliente = await _httpClient.CrearCliente(cliente);
-            var resultadoCuenta = await _httpCuenta.CrearCuenta(cuen);
+            
 
             if (resultadoCliente && resultadoCuenta)
             {

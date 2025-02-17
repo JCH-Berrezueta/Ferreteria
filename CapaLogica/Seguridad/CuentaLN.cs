@@ -84,12 +84,17 @@ namespace CapaLogica.Seguridad
             }
         }
 
-        //public static int getIdCuenta(cuenta cuenta)
-        //{
-        //    //return cuenta.IdCuenta;
-        //    //return listarCuentasLN().OrderByDescending(a => a.IdCuenta).FirstOrDefault().IdCuenta;
-        //    //return filtrarCuentasLN(cuenta.Mail, cuenta.Password)[0].IdCuenta;
-        //}
+        public static int getIdCuenta(cuenta cuenta)
+        {
+            //return cuenta.IdCuenta;
+            //return listarCuentasLN().OrderByDescending(a => a.IdCuenta).FirstOrDefault().IdCuenta;
+            Debug.WriteLine(cuenta.Mail, cuenta.Password);
+            List<cuenta> x = filtrarCuentasLN(cuenta.Mail, cuenta.Password);
+            Debug.WriteLine(x.Count);
+            int id = x[0].IdCuenta;
+            Debug.WriteLine(id);
+            return id;
+        }
        
     }
 }

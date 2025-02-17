@@ -30,7 +30,7 @@ namespace PresentacionCliente.Services
         {
             var jsonContent = JsonConvert.SerializeObject(nuevaCuenta);
             var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-            var response = await _httpCliente.PostAsync("https://localhost:44386/api/cuenta/crear", content);
+            var response = await _httpCliente.PostAsync("https://localhost:44386/api/cliente/crear", content);
             return response.IsSuccessStatusCode;
         }
 
