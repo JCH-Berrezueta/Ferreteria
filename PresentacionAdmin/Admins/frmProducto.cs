@@ -15,7 +15,7 @@ namespace PresentacionAdmin
 {
     public partial class frmProducto : Form
     {
-        ProductoLN oln = new ProductoLN();
+       
         public frmProducto()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace PresentacionAdmin
             if (frm.DialogResult == DialogResult.OK)
             {
                 Producto op = frm.CreacionOb();
-                oln.InsertarProducto(op);
+                ProductoLN.InsertarProducto(op);
                 frm.Hide();
                 Listar();
             }
@@ -74,7 +74,7 @@ namespace PresentacionAdmin
                 frm.ShowDialog();
                 if (frm.DialogResult == DialogResult.OK)
                 {
-                    oln.ActualizarProducto(frm.CreacionOb());
+                    ProductoLN.ActualizarProducto(frm.CreacionOb());
                     frm.Hide();
                     Listar();
                 }
@@ -101,7 +101,7 @@ namespace PresentacionAdmin
                     {
                         VProductoCategoria obp = dataGridView1.CurrentRow.DataBoundItem as VProductoCategoria;
                         VProductoCategoria op = new VProductoCategoria(obp.Id);
-                        oln.EliminarProducto(op.Id);
+                        ProductoLN.EliminarProducto(op.Id);
                         Listar();
                     }
 

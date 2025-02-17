@@ -16,8 +16,8 @@ namespace PresentacionAdmin
 {
     public partial class frmEditProducto : Form
     {
-        ProductoLN oln = new ProductoLN();
-        CategoriaLN categoria = new CategoriaLN();
+      
+        
         public VProductoCategoria auxiliar;
 
         public frmEditProducto()
@@ -51,7 +51,7 @@ namespace PresentacionAdmin
 
         public void cargarDatos()
         {
-            var categorias = categoria.listarCategoriaLN();
+            var categorias = CategoriaLN.listarCategoriaLN();
             if (categorias != null && categorias.Count > 0)
             {
                 comboBox1.DataSource = categorias;
@@ -71,7 +71,7 @@ namespace PresentacionAdmin
             {
                 if (label1.Text == "Insertar Producto")
                 {
-                    if (oln.VerificarCodProducto(int.Parse(textBox1.Text)))
+                    if (ProductoLN.VerificarCodProducto(int.Parse(textBox1.Text)))
                     {
                         MessageBox.Show("El código del producto ya existe. Por favor, ingrese un código diferente.",
                                         "Error",

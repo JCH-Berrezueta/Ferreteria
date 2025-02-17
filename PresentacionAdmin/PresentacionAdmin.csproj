@@ -82,34 +82,34 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCategoriaProducto.cs">
+    <Compile Include="Admins\frmCategoriaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCategoriaProducto.Designer.cs">
+    <Compile Include="Admins\frmCategoriaProducto.Designer.cs">
       <DependentUpon>frmCategoriaProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditCategoria.cs">
+    <Compile Include="Admins\frmEditCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditCategoria.Designer.cs">
+    <Compile Include="Admins\frmEditCategoria.Designer.cs">
       <DependentUpon>frmEditCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditProducto.cs">
+    <Compile Include="Admins\frmEditProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditProducto.Designer.cs">
+    <Compile Include="Admins\frmEditProducto.Designer.cs">
       <DependentUpon>frmEditProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Admins\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Admins\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProducto.cs">
+    <Compile Include="Admins\frmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProducto.Designer.cs">
+    <Compile Include="Admins\frmProducto.Designer.cs">
       <DependentUpon>frmProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -138,19 +138,19 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCategoriaProducto.resx">
+    <EmbeddedResource Include="Admins\frmCategoriaProducto.resx">
       <DependentUpon>frmCategoriaProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditCategoria.resx">
+    <EmbeddedResource Include="Admins\frmEditCategoria.resx">
       <DependentUpon>frmEditCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditProducto.resx">
+    <EmbeddedResource Include="Admins\frmEditProducto.resx">
       <DependentUpon>frmEditProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Admins\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProducto.resx">
+    <EmbeddedResource Include="Admins\frmProducto.resx">
       <DependentUpon>frmProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -49,7 +49,7 @@ namespace CapaLogica.Seguridad
             bool resul = false;
             try
             {
-                RolCD.insertarRoleCD(Rol);
+                RolCD.insertarRolCD(Rol);
                 resul = true;
             }
             catch (Exception error)
@@ -64,7 +64,7 @@ namespace CapaLogica.Seguridad
             bool resul = false;
             try
             {
-                RolCD.modificarRoleCD(rol);
+                RolCD.modificarRolCD(rol);
                 resul = true;
             }
             catch (Exception error)
@@ -79,7 +79,7 @@ namespace CapaLogica.Seguridad
             bool resul = false;
             try
             {
-                RolCD.eliminarRoleCD(idrol);
+                RolCD.eliminarRolCD(idrol);
                 resul = true;
             }
             catch (Exception error)
