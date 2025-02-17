@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaLogica.Gestion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,13 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentacionAdmin
+namespace PresentacionAdmin.Admins
 {
-    public partial class frmEditCategoria : Form
+    public partial class frmCliente: Form
     {
-        public frmEditCategoria()
+        public frmCliente()
         {
             InitializeComponent();
+        }
+
+        public void Listar()
+        {
+            dataGridView1.DataSource = ClienteLN.listarClientesLN();
         }
     }
 }

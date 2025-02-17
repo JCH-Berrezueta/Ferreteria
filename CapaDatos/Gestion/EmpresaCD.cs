@@ -65,7 +65,7 @@ namespace CapaDatos.Gestion
             try
             {
                 bd = new ConectorBDDataContext();
-                bd.CP_ModificarEmpresa(Empresa.Id_Empresa, Empresa.Nombre, Empresa.Ruc, Empresa.Direccion, Empresa.Representante, Empresa.Telefono, Empresa.Mail, Empresa.Descripcion, Empresa.Observacion);
+                bd.CP_ModificarEmpresa(Empresa.IdEmpresa, Empresa.Nombre, Empresa.Ruc, Empresa.Direccion, Empresa.Representante, Empresa.Telefono, Empresa.Mail, Empresa.Descripcion, Empresa.Observacion);
                 bd.SubmitChanges();
             }
             catch (Exception error)

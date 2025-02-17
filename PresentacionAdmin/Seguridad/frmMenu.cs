@@ -28,5 +28,53 @@ namespace PresentacionAdmin.Seguridad
                 fc.Show();
             }
         }
+
+        private void administradorClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmAdminCliente"] == null)
+            {
+                Admins.frmCliente fc = new Admins.frmCliente
+                {
+                    MdiParent = this
+                };
+                fc.Show();
+            }
+        }
+
+        private void administradorCuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmAdminCuenta"] == null)
+            {
+                Admins.frmCuenta fc = new Admins.frmCuenta
+                {
+                    MdiParent = this
+                };
+                fc.Show();
+            }
+        }
+
+        private void administradorProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmAdminProveedor"] == null)
+            {
+                Admins.frmProveedor fc = new Admins.frmProveedor
+                {
+                    MdiParent = this
+                };
+                fc.Show();
+            }
+        }
+
+        private void administradorRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmAdminRol"] == null)
+            {
+                Admins.frmRol fc = new Admins.frmRol
+                {
+                    MdiParent = this
+                };
+                fc.Show();
+            }
+        }
     }
 }

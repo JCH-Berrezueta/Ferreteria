@@ -68,70 +68,70 @@
         <elementListCompartment Id="91950c23-6f6f-4f17-a5b9-63d859c68f5e" absoluteBounds="1.7650000000000001, 11.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.0937505 : 7.875); (3.0937505 : 2.70274983723958); (2.75 : 2.70274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.0937505 : 7.875); (3.0937505 : 2.70274983723958); (2.75 : 2.70274983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ConectorBDDataContext/Cuenta/Cuenta_Cliente" />
       <nodes>
         <classShapeMoniker Id="43b7bf17-1421-4985-810d-d3be4587830e" />
         <classShapeMoniker Id="9391008c-c560-4f4e-b8a5-0f48090a0cb4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 1.73159912109375); (7.25 : 1.73159912109375); (7.25 : 3.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 1.73159912109375); (7.25 : 1.73159912109375); (7.25 : 3.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ConectorBDDataContext/Factura/Factura_DetalleFactura" />
       <nodes>
         <classShapeMoniker Id="a4fc66c2-25e4-4611-8754-22486a1acd86" />
         <classShapeMoniker Id="e97bd1a9-1187-4fcc-9059-804260c70dca" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.10137491861979); (3.5 : 2.10137491861979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 2.10137491861979); (3.5 : 2.10137491861979)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ConectorBDDataContext/Cliente/Cliente_Factura" />
       <nodes>
         <classShapeMoniker Id="9391008c-c560-4f4e-b8a5-0f48090a0cb4" />
         <classShapeMoniker Id="a4fc66c2-25e4-4611-8754-22486a1acd86" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.53125 : 6.84780110677083); (4.53125 : 8.23159912109375); (6.25 : 8.23159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.53125 : 6.84780110677083); (4.53125 : 8.23159912109375); (6.25 : 8.23159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ConectorBDDataContext/Producto/Producto_SalidaProducto" />
       <nodes>
         <classShapeMoniker Id="3d481f72-1408-4744-b08e-61c6d284132b" />
         <classShapeMoniker Id="d1c78f00-47b8-405f-a38f-29be922d6cc5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 5.07294840494792); (6.25 : 5.07294840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 5.07294840494792); (6.25 : 5.07294840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ConectorBDDataContext/Producto/Producto_DetalleFactura" />
       <nodes>
         <classShapeMoniker Id="3d481f72-1408-4744-b08e-61c6d284132b" />
         <classShapeMoniker Id="e97bd1a9-1187-4fcc-9059-804260c70dca" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 6.27809895833333); (9.25 : 6.27809895833333)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 6.27809895833333); (9.25 : 6.27809895833333)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ConectorBDDataContext/Producto/Producto_EntradaProducto" />
       <nodes>
         <classShapeMoniker Id="3d481f72-1408-4744-b08e-61c6d284132b" />
         <classShapeMoniker Id="969f82cd-4800-4868-bf4f-38f9f365b8a5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.69314697265625); (3.01041716666667 : 5.69314697265625 : JumpStart); (3.17708383333333 : 5.69314697265625 : JumpEnd); (3.5 : 5.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.69314697265625); (3.5 : 5.69314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ConectorBDDataContext/CategoriaProducto/CategoriaProducto_Producto" />
       <nodes>
         <classShapeMoniker Id="f12578b6-f3ec-4e8e-8892-7c9bd3dfc040" />
         <classShapeMoniker Id="3d481f72-1408-4744-b08e-61c6d284132b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.40625 : 13.5); (8.40625 : 6.59420253255208); (9.25 : 6.59420253255208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.40625 : 13.5); (8.40625 : 6.59420253255208); (9.25 : 6.59420253255208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ConectorBDDataContext/Proveedor/Proveedor_EntradaProducto" />
       <nodes>
         <classShapeMoniker Id="693358e4-03c0-4d25-ac7c-c88aad40522d" />
         <classShapeMoniker Id="969f82cd-4800-4868-bf4f-38f9f365b8a5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 14.7700512695312); (6.5 : 14.7700512695312)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.75 : 14.7700512695312); (6.5 : 14.7700512695312)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ConectorBDDataContext/Empresa/Empresa_Proveedor" />
       <nodes>
         <classShapeMoniker Id="2fb504b1-00bf-4d80-8530-addca58b61ee" />
         <classShapeMoniker Id="693358e4-03c0-4d25-ac7c-c88aad40522d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.625 : 11.125); (2.625 : 9.45359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.625 : 11.125); (2.625 : 9.45359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ConectorBDDataContext/Rol/Rol_Cuenta" />
       <nodes>
         <classShapeMoniker Id="e994c5ec-8a7e-4ddd-aab6-7a3b165c10a5" />

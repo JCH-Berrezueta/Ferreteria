@@ -27,13 +27,31 @@ namespace PresentacionCliente.VSecundary
         {
             try
             {
-                
+                if (string.IsNullOrEmpty(CorreoU.Text) || string.IsNullOrEmpty(ContraU.Text))
+                {
+                    await DisplayAlert("Error", "Debe completar los campos", "Aceptar");
+                    return;
+                }
+
+                // Obtener la lista de correos electrónicos y contraseñas
+                var correosContraseñas = await _httpCuenta.ListarCorreosContraseñas();
+
+                // Verificar si las credenciales ingresadas coinciden con alguna en la lista
+                bool credencialesCorrectas = correosContraseñas.Any(c => c.Mail == CorreoU.Text && c.Password == ContraU.Text);
+
+                if (credencialesCorrectas)
+                {
+                    await Navigation.PushAsync(new VProductos());
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Correo electrónico o contraseña incorrectos", "Aceptar");
+                }
             }
             catch (Exception error)
             {
                 await DisplayAlert("Error", "Error al iniciar sesión", "Aceptar");
-
-            }
+                }
         }
 
         private async void Button_Clicked_3(object sender, EventArgs e)
