@@ -46,7 +46,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <ImageButton Source="usuario.png" Grid.Column="0" />
-            <ImageButton Source="categorias.png" Grid.Column="1" />
+            <ImageButton Source="categorias.png" Grid.Column="1" Clicked="ImageButton_Clicked" />
             <ImageButton Source="factura.png" Grid.Column="2" />
             <ImageButton Source="productos.png" Grid.Column="3" />
         </Grid>

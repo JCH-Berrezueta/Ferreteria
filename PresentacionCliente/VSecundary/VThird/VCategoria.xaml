@@ -6,7 +6,7 @@
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="24"/>
-            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="TextColor" Value="White"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
         </Style>
@@ -17,7 +17,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <ListView x:Name="CategoriesListView"
-                  ItemsSource="{Binding idCategoria}"
+                  ItemsSource="{Binding IdCategoria}"
                   VerticalOptions="FillAndExpand" 
                   HorizontalOptions="Center"
                   HasUnevenRows="True"

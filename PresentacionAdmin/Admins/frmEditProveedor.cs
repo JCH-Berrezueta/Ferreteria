@@ -58,12 +58,12 @@ namespace PresentacionAdmin.Admins
             Proveedor pro;
             int id = int.Parse(textBox1.Text);
             int emp = int.Parse(comboBox1.SelectedValue.ToString());
-            string nom = textBox3.Text;
-            string ape = textBox4.Text;
-            DateTime fecha = DateTime.Parse(textBox5.Text);
-            int edad = int.Parse(textBox2.Text);
-            string mail = textBox7.Text;
-            string tel = textBox6.Text;
+            string nom = textBox2.Text;
+            string ape = textBox3.Text;
+            DateTime fecha =dateTimePicker1.Value;
+            int edad = int.Parse(textBox5.Text);
+            string mail = textBox6.Text;
+            string tel = textBox7.Text;
             string obs = textBox8.Text;
             pro = new Proveedor(id, emp, nom, ape, fecha, edad, mail, tel, obs);
             return pro;
@@ -75,7 +75,7 @@ namespace PresentacionAdmin.Admins
             comboBox1.SelectedIndex = buscarIndice(comboBox1, auxiliar.IdEmpresa.ToString());
             textBox2.Text = auxiliar.Nombre;
             textBox3.Text = auxiliar.Apellido;
-            textBox4.Text = auxiliar.FechaNacimiento.ToString();
+            dateTimePicker1.Text = auxiliar.FechaNacimiento.ToString();
             textBox5.Text = auxiliar.Edad.ToString();
             textBox6.Text = auxiliar.Mail;
             textBox7.Text = auxiliar.Telefono;
@@ -112,7 +112,7 @@ namespace PresentacionAdmin.Admins
         {
             bool val = true;
 
-            if (textBox1.Text == "" || comboBox1.SelectedIndex == -1 || textBox3.Text == "" || textBox4.Text == ""
+            if (textBox1.Text == "" || comboBox1.SelectedIndex == -1 || textBox3.Text == "" || dateTimePicker1.Text == ""
                 || textBox5.Text == "" || textBox2.Text == "" || textBox7.Text == ""|| textBox6.Text==""||textBox8.Text=="")
             {
                 val = false;

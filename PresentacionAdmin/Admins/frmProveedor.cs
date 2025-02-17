@@ -68,7 +68,7 @@ namespace PresentacionAdmin.Admins
             {
                 if (dataGridView1.CurrentRow != null)
                 {
-                    var res = MessageBox.Show("Desea eliminar proveedor", "Eliminar Producto", MessageBoxButtons.YesNo);
+                    var res = MessageBox.Show("Desea eliminar proveedor", "Eliminar Proveedor", MessageBoxButtons.YesNo);
                     if (res == DialogResult.Yes)
                     {
                         Proveedor obp = dataGridView1.CurrentRow.DataBoundItem as Proveedor;

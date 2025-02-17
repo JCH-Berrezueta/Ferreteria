@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Producto = CapaEntidades.Vistas.VProductoCategoria;
 using ServicioProducto = PresentacionCliente.Services.Producto;
@@ -40,6 +41,11 @@ namespace PresentacionCliente.VSecundary.VThird
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
             await DisplayAlert("Warning", "Estamos aqui pero no compramos", "OK");
+        }
+
+        private async void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VThird.VCategoria());
         }
     }
 }
