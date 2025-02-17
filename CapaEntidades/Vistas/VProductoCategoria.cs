@@ -27,7 +27,10 @@ namespace CapaEntidades.Vistas
         [DataMember]
         private string descripcion;
         
-        
+        public VProductoCategoria()
+        {
+
+        }
 
         public VProductoCategoria(int id)
         {

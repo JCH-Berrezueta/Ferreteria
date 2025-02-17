@@ -3,7 +3,8 @@ using PresentacionCliente.Services;
 using PresentacionCliente.VSecundary.VThird;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using cuesa= CapaEntidades.Gestion.Cuenta;
+using cuesa = CapaEntidades.Gestion.Cuenta;
+
 namespace PresentacionCliente.VSecundary
 {
     public partial class VLogin : ContentPage
@@ -33,12 +34,17 @@ namespace PresentacionCliente.VSecundary
                     return;
                 }
 
-                // Obtener la lista de correos electrónicos y contraseñas
-                var correosContraseñas = await _httpCuenta.ListarCorreosContraseñas();
+                // Crear un objeto cuenta con los datos ingresados
+                var cuenta = new cuesa
+                {
+                    IdRol = 1,
+                    Mail = CorreoU.Text,
+                    Password = ContraU.Text
+                };
 
-                // Verificar si las credenciales ingresadas coinciden con alguna en la lista
-                bool credencialesCorrectas = correosContraseñas.Any(c => c.Mail == CorreoU.Text && c.Password == ContraU.Text);
-
+                // Autenticar la cuenta
+                bool credencialesCorrectas = await _httpCuenta.AutenticarCuenta(cuenta);
+                Debug.WriteLine(credencialesCorrectas);
                 if (credencialesCorrectas)
                 {
                     await Navigation.PushAsync(new VProductos());
@@ -50,8 +56,9 @@ namespace PresentacionCliente.VSecundary
             }
             catch (Exception error)
             {
-                await DisplayAlert("Error", "Error al iniciar sesión", "Aceptar");
-                }
+                await DisplayAlert("Error", "Error al iniciar sesión: " + error.Message, "Aceptar");
+                Debug.WriteLine("Error al iniciar sesión: " + error);
+            }
         }
 
         private async void Button_Clicked_3(object sender, EventArgs e)

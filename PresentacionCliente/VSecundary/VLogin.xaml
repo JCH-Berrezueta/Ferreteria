@@ -26,7 +26,7 @@
                 FontAttributes="Bold" />
             <Entry x:Name="ContraU"
                 TextColor="Black"
-                IsPassword="True"
+                IsPassword="false"
                 BackgroundColor="White" />
 
             <Button Text="INGRESAR"

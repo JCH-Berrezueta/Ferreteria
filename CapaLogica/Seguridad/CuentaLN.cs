@@ -140,6 +140,7 @@ namespace CapaLogica.Seguridad
                 if (cuentas.Count == 1)
                 {
                     resul = true;
+                    Debug.WriteLine("si llegamos aqui existe");
                 }
             }
             catch (Exception error)

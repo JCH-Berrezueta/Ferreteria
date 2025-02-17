@@ -3,36 +3,43 @@ using System.Threading.Tasks;
 using Producto = CapaEntidades.Vistas.VProductoCategoria;
 using ServicioProducto = PresentacionCliente.Services.Producto;
 
-namespace PresentacionCliente.VSecundary.VThird;
-
-public partial class VProductos : ContentPage
+namespace PresentacionCliente.VSecundary.VThird
 {
-    public VProductos()
+    public partial class VProductos : ContentPage
     {
-        InitializeComponent();
-        // Asynchronously load data after initialization.
-        Task.Run(async () => await LoadDataAsync());
-    }
+        private readonly ServicioProducto _servicioProducto;
 
-    private async Task LoadDataAsync()
-    {
-        var productos = await getVistaProductos();
-        // Ensure UI updates are done on the main thread.
-        MainThread.BeginInvokeOnMainThread(() =>
+        public VProductos()
         {
-            ProductsCollectionView.ItemsSource = productos;
-        });
-    }
+            InitializeComponent();
+            _servicioProducto = new ServicioProducto();
+        }
 
-    public async Task<List<Producto>> getVistaProductos()
-    {
-        ServicioProducto servicioProducto = new ServicioProducto();
-        List<Producto> productos = await servicioProducto.listarVistaProductos();
-        return productos;
-    }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await LoadDataAsync();
+        }
 
-    private async void Button_Clicked_1(object sender, EventArgs e)
-    {
-        await DisplayAlert("Warning", "Estamos aqui pero no compramos", "OK");
-    } 
+        private async Task LoadDataAsync()
+        {
+            var productos = await getVistaProductos().ConfigureAwait(false);
+            // Ensure UI updates are done on the main thread.
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                ProductsCollectionView.ItemsSource = productos;
+            });
+        }
+
+        public async Task<List<Producto>> getVistaProductos()
+        {
+            List<Producto> productos = await _servicioProducto.listarVistaProductos().ConfigureAwait(false);
+            return productos;
+        }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await DisplayAlert("Warning", "Estamos aqui pero no compramos", "OK");
+        }
+    }
 }

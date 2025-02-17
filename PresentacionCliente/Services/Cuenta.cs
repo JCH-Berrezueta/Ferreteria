@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -36,36 +37,45 @@ namespace PresentacionCliente.Services
         }
         public async Task<int> getIdCuenta(VistaCuenta cuenta)
         {
-            // Construir la URL con los parámetros de consulta
-            var url = $"https://localhost:44386/api/Cuenta/getId?mail={cuenta.Mail}&password={cuenta.Password}";
+            var jsonContent = JsonConvert.SerializeObject(cuenta);
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            var response = await _httpCuenta.PostAsync("https://localhost:44386/api/Cuenta/getId", content);
 
-            // Hacer la solicitud GET a la API Web
-            var response = await _httpCuenta.GetStringAsync(url);
-
-            // Deserializar la respuesta JSON como un entero (IdCuenta)
-            var idCuenta = JsonConvert.DeserializeObject<int>(response);
-
-            // Retornar el IdCuenta
-            return idCuenta;
-        }
-
-        public async Task<List<VistaCuenta>> ListarCorreosContraseñas()
-        {
-            // Hacemos una solicitud GET a la API Web
-            var response = await _httpCuenta.GetStringAsync("https://localhost:44386/api/Cuenta/getId");
-            // Deserializamos la respuesta JSON en una lista de cuentas
-            var cuentas = JsonConvert.DeserializeObject<List<VistaCuenta>>(response);
-
-            // Creamos una lista para almacenar los correos electrónicos y contraseñas
-            var correosContraseñas = cuentas.Select(c => new VistaCuenta
+            if (response.IsSuccessStatusCode)
             {
-                Mail = c.Mail,
-                Password = c.Password
-            }).ToList();
-
-            return correosContraseñas;
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var idCuenta = JsonConvert.DeserializeObject<int>(responseContent);
+                return idCuenta;
+            }
+            else
+            {
+                // Manejo de errores (por ejemplo, lanzar una excepción o retornar un valor por defecto)
+                throw new Exception("Error al obtener el ID de la cuenta.");
+            }
         }
 
+
+        public async Task<bool> AutenticarCuenta(VistaCuenta cuenta)
+        {
+            bool resul = false;
+            try
+            {
+                var jsonContent = JsonConvert.SerializeObject(cuenta);
+                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                var response = await _httpCuenta.PostAsync("https://localhost:44386/api/cuenta/autenticar", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    resul = JsonConvert.DeserializeObject<bool>(responseContent);
+                }
+            }
+            catch (Exception error)
+            {
+                Debug.WriteLine("Error Autenticar Cuenta: " + error);
+            }
+            return resul;
+        }
 
 
 

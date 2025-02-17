@@ -14,7 +14,6 @@ namespace CapaAPI.Controllers
 
         [HttpGet]
         [Route("listar")]
-
         public IHttpActionResult ObtenerCuentas()
         {
             // Aquí estamos llamando a la capa lógica para obtener las cuentas
@@ -26,8 +25,16 @@ namespace CapaAPI.Controllers
         [Route("autenticar")]
         public IHttpActionResult autenticarCuenta([FromBody] Cuenta cuenta)
         {
-            var resul = CuentaLN.autenticarCuentaLN(cuenta);
-            return Ok(resul);
+            try
+            {
+                bool resul = CuentaLN.autenticarCuentaLN(cuenta);
+                return Ok(resul);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                return InternalServerError(ex);
+            }
         }
 
 
@@ -63,17 +70,30 @@ namespace CapaAPI.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("getMail")]
+        public IHttpActionResult getMailCuenta(string mail, string password)
+        {
+            try
+            {
+                // Aquí estamos llamando a la capa lógica para obtener las cuentas
+                var cuentas = CuentaLN.filtrarCuentasLN(mail, password);
+                return Ok(cuentas);  // Retornamos la lista de cuentas
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                return InternalServerError(ex);
+            }
+        }
+
         [HttpPost]
         [Route("getId")]
-
         public IHttpActionResult getIdCuenta(Cuenta cuenta)
         {
             // Aquí estamos llamando a la capa lógica para obtener las cuentas
             var idCuenta = CuentaLN.getIdCuentaLN(cuenta.Mail, cuenta.Password);
             return Ok(idCuenta);  // Retornamos la lista de cuentas
         }
-
-        
-
     }
 }
