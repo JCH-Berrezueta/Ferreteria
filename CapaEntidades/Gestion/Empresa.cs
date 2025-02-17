@@ -29,6 +29,14 @@ namespace CapaEntidades.Gestion
         [DataMember]
         private string observacion;
 
+        public Empresa()
+        {
+        }
+
+        public Empresa(int idEmpresa)
+        {
+            IdEmpresa = idEmpresa;
+        }
         public Empresa(int idEmpresa, string nombre, string ruc, string direccion, string representante, string telefono, string mail, string descripcion, string observacion)
         {
             IdEmpresa = idEmpresa;

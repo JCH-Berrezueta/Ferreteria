@@ -29,6 +29,15 @@ namespace CapaEntidades.Gestion
         [DataMember]
         private string observacion;
 
+        public  Proveedor()
+        {
+           
+        }
+
+        public Proveedor(int idProveedor)
+        {
+            IdProveedor = idProveedor;
+        }
         public Proveedor(int idProveedor, int idEmpresa, string nombre, string apellido, DateTime fechaNacimiento, int edad, string mail, string telefono, string observacion)
         {
             IdProveedor = idProveedor;

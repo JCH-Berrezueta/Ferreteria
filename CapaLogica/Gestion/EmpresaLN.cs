@@ -1,4 +1,5 @@
-﻿using CapaDatos.Gestion;
+﻿using CapaDatos;
+using CapaDatos.Gestion;
 using CapaEntidades.Gestion;
 using System;
 using System.Collections.Generic;
@@ -87,6 +88,13 @@ namespace CapaLogica.Gestion
                 Debug.WriteLine("Error eliminar Empresa LN" + error);
             }
             return resul;
+        }
+
+        public static bool VerificarCodProducto(int v)
+        {
+            List<empresa> empresa = listarEmpresasLN();
+
+            return empresa.Any(c => c.IdEmpresa == v);
         }
     }
 }
