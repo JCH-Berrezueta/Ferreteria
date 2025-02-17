@@ -63,18 +63,16 @@ namespace CapaDatos
     partial void InsertRol(Rol instance);
     partial void UpdateRol(Rol instance);
     partial void DeleteRol(Rol instance);
-        #endregion
-        /*
-	 * AQUI CONFIGURAN   AQUIIIIIII - reemplazen el nombre CASA o cualquiera por su nombre de su computadora
-	 * El nombre de la BD debe ser si o si FerreteriaPA y ya :)
-	 */
-        public static string connectionPropia = "Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=False";
+		#endregion
+
+		public static string ruta = "Data Source=DESKTOP-M2DUKGS;Initial Catalog=FerreteriaPA;Integrated Security=True;Encrypt=False";
 
         public ConectorBDDataContext() :
-                base(connectionPropia, mappingSource)
+                base(ruta, mappingSource)
         {
             OnCreated();
         }
+
         public ConectorBDDataContext(string connection) : 
 				base(connection, mappingSource)
 		{

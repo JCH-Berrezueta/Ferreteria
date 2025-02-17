@@ -27,29 +27,31 @@ namespace CapaAPI.Controllers
         [Route("crear")]
         public IHttpActionResult CrearCliente([FromBody] Cuenta nuevoCliente)
         {
-            if (nuevoCliente == null)
+            if (nuevoCliente != null)
+            {
+                try
+                {
+                    // Aquí estamos llamando a la capa lógica para crear el cliente
+                    var resultado = CapaLogica.Seguridad.CuentaLN.insertarCuentaLN(nuevoCliente);
+
+                    if (resultado)
+                    {
+                        return Ok("Cliente creado exitosamente.");
+                    }
+                    else
+                    {
+                        return InternalServerError();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de excepciones
+                    return InternalServerError(ex);
+                }
+            }
+            else
             {
                 return BadRequest("El cliente no puede ser nulo.");
-            }
-
-            try
-            {
-                // Aquí estamos llamando a la capa lógica para crear el cliente
-                var resultado = CapaLogica.Seguridad.CuentaLN.insertarCuenta(nuevoCliente);
-
-                if (resultado)
-                {
-                    return Ok("Cliente creado exitosamente.");
-                }
-                else
-                {
-                    return InternalServerError();
-                }
-            }
-            catch (Exception ex)
-            {
-                // Manejo de excepciones
-                return InternalServerError(ex);
             }
         }
 
