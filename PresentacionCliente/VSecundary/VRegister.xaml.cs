@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Microsoft.Maui.Controls;
 using CapaAPI.Controllers;
 using PresentacionCliente.Services;
-using cuentass = CapaEntidades.Gestion.Cuenta;
+using CapaDatos;
 namespace PresentacionCliente.VSecundary
 {
     
@@ -43,42 +43,30 @@ namespace PresentacionCliente.VSecundary
 
             var cuen = new CapaEntidades.Gestion.Cuenta
             {
-                IdRol = 1, // Asigna el rol apropiado
+                IdRol = 1,
                 Mail = corre.Text,
                 Password = corra.Text
             };
-
-            // Llama al método para crear la cuenta y obtener el objeto de la cuenta creada
-            var cuentaCreada = await _httpCuenta.CrearCuenta(cuen);
-
-            if (cuentaCreada != null)
+            var cliente = new CapaEntidades.Gestion.Cliente
             {
-                var cliente = new CapaEntidades.Gestion.Cliente
-                {
-                    IdCuenta = , // Asigna el IdCuenta generado
-                    Nombre = nomb.Text,
-                    Apellido = ape.Text,
-                    FechaNacimiento = fech.Date,
-                    Edad = CalcularEdad(fech.Date),
-                    Telefono = tele.Text
-                };
+                IdCuenta =  CuentaLN.getIdCuenta(cuen),
+                Nombre = nomb.Text,
+                Apellido = ape.Text,
+                FechaNacimiento = fech.Date,
+                Edad=CalcularEdad(fech.Date),
+                Telefono = tele.Text
+            };
 
-                // Llama al método para crear el cliente
-                var resultadoCliente = await _httpClient.CrearCliente(cliente);
+            var resultadoCliente = await _httpClient.CrearCliente(cliente);
+            var resultadoCuenta = await _httpCuenta.CrearCuenta(cuen);
 
-                if (resultadoCliente)
-                {
-                    await DisplayAlert("Alerta", "Usuario registrado", "OK");
-                }
-                else
-                {
-                    await DisplayAlert("Alerta", "Error al registrar el cliente", "OK");
-                }
+            if (resultadoCliente && resultadoCuenta)
+            {
+                await DisplayAlert("Alerta", "Usuario registrado", "OK");
             }
             else
             {
-                await DisplayAlert("Alerta", "Error al registrar la cuenta", "OK");
-
+                await DisplayAlert("Alerta", "Error al registrar el usuario", "OK");
             }
         }
 

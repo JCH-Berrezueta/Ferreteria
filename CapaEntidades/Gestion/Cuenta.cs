@@ -21,7 +21,10 @@ namespace CapaEntidades.Gestion
 
         public Cuenta()
         {
-
+        }
+        public Cuenta(int idCuenta)
+        {
+            IdCuenta = idCuenta;
         }
         public Cuenta(string mail, string password)
         {

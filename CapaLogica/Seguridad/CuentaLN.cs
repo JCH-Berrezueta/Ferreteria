@@ -46,17 +46,18 @@ namespace CapaLogica.Seguridad
             return lista;
         }
 
-
-        public static void insertarCuenta(cuenta cuenta)
+        public static bool insertarCuenta(cuenta cuenta)
         {
             try
             {
                 CuentaCD.insertarCuentaCD(cuenta);
+                return true;
             }
             catch (Exception error)
             {
                 Debug.WriteLine("Error insertar Cuenta LN" + error);
             }
+            return false;
         }
 
         public static void modificarCuenta(cuenta cuenta)
@@ -83,11 +84,12 @@ namespace CapaLogica.Seguridad
             }
         }
 
-        public static int getIdCuenta(cuenta cuenta)
-        {
-            //cuenta auxiliar = listarCuentasLN().OrderByDescending(a => a.IdCuenta).FirstOrDefault(); LAMBDA
-            return filtrarCuentasLN(cuenta.Mail, cuenta.Password)[0].IdCuenta;
-        }
+        //public static int getIdCuenta(cuenta cuenta)
+        //{
+        //    //return cuenta.IdCuenta;
+        //    //return listarCuentasLN().OrderByDescending(a => a.IdCuenta).FirstOrDefault().IdCuenta;
+        //    //return filtrarCuentasLN(cuenta.Mail, cuenta.Password)[0].IdCuenta;
+        //}
        
     }
 }

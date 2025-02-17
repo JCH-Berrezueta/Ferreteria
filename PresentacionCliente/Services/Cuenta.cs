@@ -34,6 +34,5 @@ namespace PresentacionCliente.Services
             var response = await _httpCuenta.PostAsync("https://localhost:44386/api/cuenta/crear", content);
             return response.IsSuccessStatusCode;
         }
-
     }
 }

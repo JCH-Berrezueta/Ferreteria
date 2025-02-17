@@ -33,7 +33,7 @@ namespace CapaAPI.Controllers
             try
             {
                 // Aquí estamos llamando a la capa lógica para crear el cliente
-                var resultado = CapaLogica.Seguridad.CuentaLN.InsertarCuenta(nuevoCliente);
+                var resultado = CapaLogica.Seguridad.CuentaLN.insertarCuenta(nuevoCliente);
 
                 if (resultado)
                 {
